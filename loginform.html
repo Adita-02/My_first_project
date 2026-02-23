@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/loginform.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>Login & Register Form</title>
+    
+</head>
+<body>
+    <div id="swirl-container" class="swirl-container"></div>
+    <div class="hero">
+        <div class="form-box">
+            <div id="swirl-container" class="swirl-container"></div>
+            <div class="close-btn" onclick="goToHomePage()">
+                <i class="fas fa-times"></i>
+            </div>
+    
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/warisa.ahmed.10/"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="https://www.instagram.com/warisa_ahmed_/"><i class='bx bxl-instagram'></i></a>
+                <a href="https://x.com/AhmedWarisa"><i class='bx bxl-twitter'></i></a>
+            </div>
+            <form id="login" class="input-group">
+                <div>
+                    <input type="text" class="input-field" placeholder="Donor Id" required>
+                    <i class="fas fa-user input-icon"></i>
+                </div>
+                <div>
+                    <input type="password" class="input-field" placeholder="Enter Password" required>
+                    <i class="fas fa-lock input-icon"></i>
+                </div>
+                <div>
+                    <input type="checkbox" class="check-box">
+                    <span style="color: white;">Remember Password</span>
+                </div>
+                <button type="submit" class="submit-btn">Log In</button>
+            </form>
+            <form id="register" class="input-group">
+                <div class="name-fields">
+                    <div>
+                        <input type="text" class="input-field" placeholder="First Name" required>
+                        <i class="fas fa-user input-icon"></i>
+                    </div>
+                    <div>
+                        <input type="text" class="input-field" placeholder="Surname" required>
+                        <i class="fas fa-user input-icon"></i>
+                    </div>
+                </div>
+                <div>
+                    <input type="date" class="input-field" placeholder="Date of Birth" required>
+                </div>
+                <div>
+                    <select class="input-field" required>
+                        <option value="" disabled selected>Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="text" class="input-field" placeholder="Mobile Number or Email Address" required>
+                    <i class="fas fa-phone input-icon"></i>
+                </div>
+                <div class="password-container">
+                    <input type="password" class="input-field" id="new-password" placeholder="New Password" required>
+                    <i class="fas fa-lock input-icon"></i>
+                </div>
+                <div class="error-message" id="password-error">
+                    Password must be at least 8 characters long and include a special character.
+                </div>
+                <div class="password-container">
+                    <input type="password" class="input-field" id="confirm-password" placeholder="Confirm Password" required>
+                    <i class="fas fa-lock input-icon"></i>
+                </div>
+                <div class="error-message" id="confirm-error">
+                    Passwords do not match.
+                </div>
+                <div>
+                    <input type="checkbox" class="check-box">
+                    <span class="terms">I agree to the <a href="#">Terms & Services</a></span>
+                </div>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+        </div>
+    </div>
+    <script src="scripts/loginform.js"></script>
+</body>
+</html>
+
+		
