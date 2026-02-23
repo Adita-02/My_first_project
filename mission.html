@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope in Action</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Add this in <head> section -->
+         <link rel="stylesheet" href="/static/css/mission.css">
+    
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    
+</head>
+<body>
+
+    <header class="header">
+        <div class="go-back-container">
+            <a href="{% url 'head' %}" class="go-back-button">
+                <i class="fas fa-arrow-left"></i> Go Back
+            </a>
+        </div>
+    </header>
+
+    <section class="hero-section outreach-hero">
+        <div class="hero-content">
+            <h1 class="animated-title">Our Mission</h1>
+            <p class="subtitle" style="font-size: 1.5rem; color: var(--dark-color); font-weight: bold;">
+               Districtwide Blood Donation Camps through Community-Based Initiatives
+            </p>
+            <p class="hero-description">
+                Our network of 50+ annual donation camps has facilitated over 250 donations since 2025,January.
+                Through strategic partnerships with local organizations, we've created a sustainable ecosystem
+                for voluntary blood donation across all demographics.
+            </p>
+            <a href="#content-grid" class="scroll-animation">
+                <i class="fas fa-chevron-down" style="font-size: 2rem;"></i>
+            </a>
+        </div>
+    </section>
+
+
+
+
+    <div class="content-grid" id="content-grid">
+        <div class="card">
+            <h3>Collaborate with Local Organizations</h3>
+            <div class="impact-number">250+</div>
+            <p>Partner with NGOs, religious institutions, or youth groups to amplify our reach.
+                Work with influencers or local leaders to promote our cause.</p>
+        </div>
+
+        <div class="card">
+            <h3>Emergency Response Planning</h3>
+            <div class="impact-number">24/7</div>
+            <p>Create a rapid-response network for urgent blood needs (e.g., accidents, disasters).
+                Share emergency contact details of your team and partner blood banks publicly.</p>
+        </div>
+
+        <div class="card">
+            <h3>Virtual Campaigns</h3>
+            <div class="impact-number">24%</div>
+            <p>Share live updates during blood drives to build excitement.
+                Enhance more the ability of virtual campaign.
+            </p>
+        </div>
+    </div>
+
+    <div class="achievement-marquee">
+        <div class="marquee-content">
+            <div class="marquee-item">
+                <span class="impact-number">250+</span>
+                <span>Camps Organized Yearly</span>
+            </div>
+            <div class="marquee-item">
+                <span class="impact-number">1.2k</span>
+                <span>Donors Registered</span>
+            </div>
+            <div class="marquee-item">
+                <span class="impact-number">32%</span>
+                <span>Camp Satisfaction Rate</span>
+            </div>
+        </div>
+    </div>
+
+
+<!-- HTML Section -->
+<div class="camp-tracker-container" id="campTracker">
+    <div class="tracker-header">
+        <h2>Live Donation Camp Tracker</h2>
+        <div class="tracker-controls">
+            <div class="filter-group">
+                <label>Filter Camps:</label>
+                <select id="campFilter">
+                    <option value="all">All Camps</option>
+                    <option value="ongoing">Ongoing Now</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="mobile">Mobile Units</option>
+                </select>
+            </div>
+            <div class="search-group">
+                <input type="text" placeholder="Search locations..." id="campSearch">
+                <button class="tracker-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+   
+    <div class="tracker-body">
+        <div class="camp-map" id="campMap"></div>
+        <div class="camp-list">
+            <div class="camp-card ongoing">
+                <div class="camp-status"></div>
+                <div class="camp-info">
+                    <h3>Central City Blood Drive</h3>
+                    <div class="camp-meta">
+                        <span class="camp-time"><i class="fas fa-clock"></i> Ongoing - Until 18:00</span>
+                        <span class="camp-location"><i class="fas fa-map-marker-alt"></i> CDA Avenue, East Nasirabad , Chattogram, Bangladesh.</span>
+                    </div>
+                    <div class="camp-stats">
+                        <div class="stat">
+                            <i class="fas fa-tint"></i>
+                            <span>Slots: 28/30</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span>Donors Present: 22</span>
+                        </div>
+                    </div>
+                    <button class="tracker-button register-btn">
+                        <i class="fas fa-ambulance"></i> Join Now
+                    </button>
+                </div>
+            </div>
+
+
+
+            <div class="camp-card upcoming">
+                <div class="camp-status"></div>
+                <div class="camp-info">
+                    <h3>Central City Blood Drive</h3>
+                    <div class="camp-meta">
+                        <span class="camp-time"><i class="fas fa-clock"></i> Upcoming - Till 8:00 AM to 4:00 PM</span>
+                        <span class="camp-location"><i class="fas fa-map-marker-alt"></i>  Chittagong Medical College Hospital, Bangladesh.</span>
+                    </div>
+                    <div class="camp-stats">
+                        <div class="stat">
+                            <i class="fas fa-tint"></i>
+                            <span>Slots: 12/30</span>
+                        </div>
+                       
+                    </div>
+                    <button class="tracker-button register-btn">
+                        <i class="fas fa-ambulance"></i> Join Now
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="camp-card ongoing">
+                <div class="camp-status"></div>
+                <div class="camp-info">
+                    <h3>Central City Blood Drive</h3>
+                    <div class="camp-meta">
+                        <span class="camp-time"><i class="fas fa-clock"></i> Ongoing - Until 9:00 PM</span>
+                        <span class="camp-location"><i class="fas fa-map-marker-alt"></i> Apollo Hospitals Dhaka, Bangladesh.</span>
+                    </div>
+                    <div class="camp-stats">
+                        <div class="stat">
+                            <i class="fas fa-tint"></i>
+                            <span>Slots: 22/30</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span>Donors Present: 31</span>
+                        </div>
+                    </div>
+                    <button class="tracker-button register-btn">
+                        <i class="fas fa-ambulance"></i> Join Now
+                    </button>
+                </div>
+            </div>
+
+
+
+
+            <div class="camp-card upcoming">
+                <div class="camp-status"></div>
+                <div class="camp-info">
+                    <h3>Central City Blood Drive</h3>
+                    <div class="camp-meta">
+                        <span class="camp-time"><i class="fas fa-clock"></i> Upcoming - Till 10:00 AM to 7:00 PM</span>
+                        <span class="camp-location"><i class="fas fa-map-marker-alt"></i> CSCR Hospital & Research Centre,Bangladesh.</span>
+                    </div>
+                    <div class="camp-stats">
+                        <div class="stat">
+                            <i class="fas fa-tint"></i>
+                            <span>Slots: 28/30</span>
+                        </div>
+                    </div>
+                    <button class="tracker-button register-btn">
+                        <i class="fas fa-ambulance"></i> Join Now
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="camp-card upcoming">
+                <div class="camp-status"></div>
+                <div class="camp-info">
+                    <h3>Central City Blood Drive</h3>
+                    <div class="camp-meta">
+                        <span class="camp-time"><i class="fas fa-clock"></i> Upcoming - Till 4:00 PM TO 10:00 PM  /span>
+                        <span class="camp-location"><i class="fas fa-map-marker-alt"></i> Sylhet MAG Osmani Medical College, Bangladesh.</span>
+                    </div>
+                    <div class="camp-stats">
+                        <div class="stat">
+                            <i class="fas fa-tint"></i>
+                            <span>Slots: 32/50</span>
+                        </div>
+                        </div>
+                    <button class="tracker-button register-btn">
+                        <i class="fas fa-ambulance"></i> Join Now
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="camp-card upcoming">
+                <div class="camp-status"></div>
+                <div class="camp-info">
+                    <h3>Central City Blood Drive</h3>
+                    <div class="camp-meta">
+                        <span class="camp-time"><i class="fas fa-clock"></i> Upcoming - Till 7:00 AM to 7:00 PM</span>
+                        <span class="camp-location"><i class="fas fa-map-marker-alt"></i>  Rajshahi Medical College Hospital, Bangladesh.</span>
+                    </div>
+                    <div class="camp-stats">
+                        <div class="stat">
+                            <i class="fas fa-tint"></i>
+                            <span>Slots: 32/40</span>
+                        </div>
+                       
+                    </div>
+                    <button class="tracker-button register-btn">
+                        <i class="fas fa-ambulance"></i> Join Now
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="camp-card upcoming">
+                <div class="camp-status"></div>
+                <div class="camp-info">
+                    <h3>Central City Blood Drive</h3>
+                    <div class="camp-meta">
+                        <span class="camp-time"><i class="fas fa-clock"></i> Upcoming - Til 10:00 AM to 10:00 PM</span>
+                        <span class="camp-location"><i class="fas fa-map-marker-alt"></i> Khulna City Medical College, Bangladesh.</span>
+                    </div>
+                    <div class="camp-stats">
+                        <div class="stat">
+                            <i class="fas fa-tint"></i>
+                            <span>Slots: 32/50</span>
+                        </div>
+                       
+                    </div>
+                    <button class="tracker-button register-btn">
+                        <i class="fas fa-ambulance"></i> Join Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="camp-card ongoing">
+                <div class="camp-status"></div>
+                <div class="camp-info">
+                    <h3>Central City Blood Drive</h3>
+                    <div class="camp-meta">
+                        <span class="camp-time"><i class="fas fa-clock"></i> Ongoing - Until 10:00 PM</span>
+                        <span class="camp-location"><i class="fas fa-map-marker-alt"></i> Bangladesh Cancer Society Hospital, Bangladesh.</span>
+                    </div>
+                    <div class="camp-stats">
+                        <div class="stat">
+                            <i class="fas fa-tint"></i>
+                            <span>Slots: 38/50</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span>Donors Present: 38</span>
+                        </div>
+                    </div>
+                    <button class="tracker-button register-btn">
+                        <i class="fas fa-ambulance"></i> Join Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="camp-card mobile">
+                <div class="camp-status"></div>
+                <div class="camp-info">
+                    <h3>Central City Blood Drive</h3>
+                    <div class="camp-meta">
+                        <span class="camp-time"><i class="fas fa-clock"></i> Mobile Units </span>
+                        <span class="camp-location"><i class="fas fa-map-marker-alt"></i> Dhaka University, Bangladesh.</span>
+                    </div>
+                    <div class="camp-stats">
+                        <div class="stat">
+                            <i class="fas fa-tint"></i>
+                            <span>Slots: 38/50</span>
+                        </div>
+                       
+                    </div>
+                    <button class="tracker-button register-btn">
+                        <i class="fas fa-ambulance"></i> Join Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="camp-card mobile">
+                <div class="camp-status"></div>
+                <div class="camp-info">
+                    <h3>Central City Blood Drive</h3>
+                    <div class="camp-meta">
+                        <span class="camp-time"><i class="fas fa-clock"></i> Mobile Units</span>
+                        <span class="camp-location"><i class="fas fa-map-marker-alt"></i> Bangladesh Red Crescent Society.</span>
+                    </div>
+                    <div class="camp-stats">
+                        <div class="stat">
+                            <i class="fas fa-tint"></i>
+                            <span>Slots: 42/45</span>
+                        </div>
+                       
+                    </div>
+                    <button class="tracker-button register-btn">
+                        <i class="fas fa-ambulance"></i> Join Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="camp-card ongoing">
+                <div class="camp-status"></div>
+                <div class="camp-info">
+                    <h3>Central City Blood Drive</h3>
+                    <div class="camp-meta">
+                        <span class="camp-time"><i class="fas fa-clock"></i> Ongoing - Until 4:00 PM</span>
+                        <span class="camp-location"><i class="fas fa-map-marker-alt"></i> National Blood Center (BIRDEM), Bangladesh.</span>
+                    </div>
+                    <div class="camp-stats">
+                        <div class="stat">
+                            <i class="fas fa-tint"></i>
+                            <span>Slots: 42/50</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span>Donors Present: 42</span>
+                        </div>
+                    </div>
+                    <button class="tracker-button register-btn">
+                        <i class="fas fa-ambulance"></i> Join Now
+                    </button>
+                </div>
+            </div>
+
+            <div class="camp-card ongoing">
+                <div class="camp-status"></div>
+                <div class="camp-info">
+                    <h3>Central City Blood Drive</h3>
+                    <div class="camp-meta">
+                        <span class="camp-time"><i class="fas fa-clock"></i> Ongoing - Until 10:00 PM</span>
+                        <span class="camp-location"><i class="fas fa-map-marker-alt"></i> Dhaka Medical College Hospital, Bangladesh.</span>
+                    </div>
+                    <div class="camp-stats">
+                        <div class="stat">
+                            <i class="fas fa-tint"></i>
+                            <span>Slots: 48/50</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span>Donors Present: 68</span>
+                        </div>
+                    </div>
+                    <button class="tracker-button register-btn">
+                        <i class="fas fa-ambulance"></i> Join Now
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Add this before </body> -->
+<div class="join-modal" id="joinModal">
+    <div class="join-modal-content">
+        <span class="join-close-btn" onclick="closeJoinModal()">&times;</span>
+        <h3 id="joinModalTitle">Thank You for Joining!</h3>
+        <p id="joinModalMessage">We appreciate your willingness to donate blood.</p>
+        <div class="join-form" id="emailForm" style="display: none;">
+            <p>Please provide your email for updates:</p>
+            <input type="email" id="userEmail" placeholder="Your email address">
+            <button onclick="submitEmail()">Submit</button>
+        </div>
+    </div>
+</div>
+
+
+    <footer>
+        <div class="foot-panel1" id="backToTop">Back to Top</div>
+        <div class="new-footer">
+            <img src="back image.png" alt="Background Pattern" class="footer-bg">
+            <div class="foot-panel2">
+                <div class="footer-content">
+                    <div>
+                        <h4>DONATION CAMPS</h4>
+                    <a>500+ annual camps across 25 states</a><br>
+                    <a>📍 Current Camp: City Central Plaza</a><br>
+                    <a>🚐 Next Camp: Riverside Community Center</a>
+                    <div class="impact-number" style="color: #ff80ab; font-size: 1.2rem;">
+                        Camp Hotline: 1-800-DONATE-NOW
+                    </div>
+                </div>
+
+   
+                    <div>
+                        <h4>CAMP SERVICES</h4>
+                        <li>
+                            <a href="#" onclick="openModal('healthCheckupModal')">
+                                <i class="fas fa-stethoscope"></i> Free Health Checkups
+                            </a>
+                        </li>
+                       
+                   
+                        <li>
+                            <a href="{% url 'prepareandaftercare' %}">
+                                <i class="fas fa-hand-holding-medical"></i> Post-Donation Care
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+               
+   
+                <div>
+                    <h4>CAMP IMPACT</h4>
+                    <div class="socialicon">
+                        <div style="margin-right: 2rem;">
+                            <div class="impact-number">28%</div>
+                            <p>Repeat Donors</p>
+                        </div>
+                        <div>
+                            <div class="impact-number">500+</div>
+                            <p>Units Collected</p><br>
+                        </div>
+                    </div>
+
+                    <div class="camp-links">
+                        <a href="#" onclick="openModal('photosModal')">View Camp Photos</a>
+                        <a href="#" onclick="openModal('reportsModal')">Download Reports</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="foot-panel4">
+            <a href="volunteer-policy.html">Volunteer Policy</a>
+            <a href="safety-guidelines.html">Safety Guidelines</a>
+            <a href="faq.html">Volunteer FAQ</a>
+        </div>
+       
+         <div class="copy-right">
+                        Copyright © 2025 Blood Services Management (BSM), DGHS. All rights reserved.
+                    </div>
+                </div>
+            </footer>
+       
+
+            <div class="modal" id="healthCheckupModal">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeModal('healthCheckupModal')">&times;</span>
+                    <h2>Free Health Checkup Services</h2>
+                    <div class="modal-body">
+                        <div class="service-queue">
+                            <div class="impact-number" id="currentQueue">15</div>
+                            <p>People currently in queue</p>
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                                (4.2/5 from 142 reviews)
+                            </div>
+                        </div>
+           
+                     <!-- New Recommended Doctors Section -->
+                        <div class="recommended-doctors">
+                            <h3><i class="fas fa-user-md"></i> Recommended Specialists</h3>
+                            <div class="doctor-profile"data-doctor-id="dr-ayesha">
+        <div class="doctor-photo" style="background-image: url('/static/dr-ayesha.webp')"></div>
+                                <div class="doctor-info">
+                                    <h4>Dr. Ayesha Rahman <span class="doctor-specialty">(Cardiologist)</span></h4>
+                                    <p class="doctor-availability">
+                                        <i class="fas fa-clock"></i> Available: Mon-Wed (10AM-4PM)<br>
+                                        <i class="fas fa-map-marker"></i> Chattogram Medical College Hospital
+                                    </p>
+                                </div>
+                               <!-- Update buttons to use data attributes instead of inline onclick -->
+                               <button class="view-profile" data-doctor-id="dr-ayesha">
+                                       View Profile <i class="fas fa-chevron-right"></i>
+                                       </button>
+                            </div>
+           
+                            <div class="doctor-profile"data-doctor-id="dr-farhan">
+        <div class="doctor-photo" style="background-image: url('/static/dr-farhan.jpeg')"></div>
+                                <div class="doctor-info">
+                                    <h4>Dr. Farhan Ahmed <span class="doctor-specialty">(General Physician)</span></h4>
+                                    <p class="doctor-availability">
+                                        <i class="fas fa-clock"></i> Available: Daily (9AM-1PM)<br>
+                                        <i class="fas fa-map-marker"></i> Mobile Medical Unit #3
+                                    </p>
+                                </div>
+                                <!-- Update buttons to use data attributes instead of inline onclick -->
+                                     <button class="view-profile" data-doctor-id="dr-farhan">
+                                         View Profile <i class="fas fa-chevron-right"></i>
+                                        </button>
+                            </div>
+           
+                           <div class="doctor-profile"data-doctor-id="dr-nusrat">
+        <div class="doctor-photo" style="background-image: url('/static/dr-nusrat.jpg')"></div>
+                                <div class="doctor-info">
+                                    <h4>Dr. Nusrat Jahan <span class="doctor-specialty">(Pediatrician)</span></h4>
+                                    <p class="doctor-availability">
+                                        <i class="fas fa-clock"></i> Available: Fri-Sun (2PM-6PM)<br>
+                                        <i class="fas fa-map-marker"></i> Agrabad Community Clinic
+                                    </p>
+                                </div>
+                               <!-- Update buttons to use data attributes instead of inline onclick -->
+                                    <button class="view-profile" data-doctor-id="dr-nusrat">
+                                View Profile <i class="fas fa-chevron-right"></i>
+                                    </button>
+                            </div>
+                       
+                            <!-- Add new doctor entries -->
+                            <div class="doctor-profile"data-doctor-id="dr-shamim">
+        <div class="doctor-photo" style="background-image: url('/static/dr-shamim.jpeg')"></div>
+                                <div class="doctor-info">
+                                    <h4>Dr. Shamim Ahmed <span class="doctor-specialty">(Cardiologist)</span></h4>
+                                    <p class="doctor-availability">
+                                        <i class="fas fa-clock"></i> Available: Sat-Thu (5PM-9PM)<br>
+                                        <i class="fas fa-map-marker"></i> CSCR Hospital & Research Centre
+                                    </p>
+                                </div>
+                                <button class="view-profile" data-doctor-id="dr-shamim">
+                                    View Profile <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                       
+                            <div class="doctor-profile"data-doctor-id="dr-tasnim">
+        <div class="doctor-photo" style="background-image: url('/static/dr-tasnim.webp')"></div>
+                                <div class="doctor-info">
+                                    <h4>Dr.Tasnim Rahman <span class="doctor-specialty">(Pediatrics)</span></h4>
+                                    <p class="doctor-availability">
+                                        <i class="fas fa-clock"></i> Available: Mon-Thus (8AM-2PM)<br>
+                                        <i class="fas fa-map-marker"></i> Popular Diagnostic Center
+                                    </p>
+                                </div>
+                                <button class="view-profile" data-doctor-id="dr-tasnim">
+                                    View Profile <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+
+                                <div class="doctor-profile"data-doctor-id="dr-jamil">
+        <div class="doctor-photo" style="background-image: url('/static/dr-jamil.jpeg')"></div>
+                                    <div class="doctor-info">
+                                        <h4>Dr.Jamil Hossain <span class="doctor-specialty">(Orthopedic Surgery)</span></h4>
+                                        <p class="doctor-availability">
+                                            <i class="fas fa-clock"></i> Available: Sat-Tue (10AM-4PM)<br>
+                                            <i class="fas fa-map-marker"></i> Evercare Hospital
+                                        </p>
+                                    </div>
+                                    <button class="view-profile" data-doctor-id="dr-jamil">
+                                        View Profile <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                           
+                               
+                            <div class="doctor-profile"data-doctor-id="dr-nadia">
+        <div class="doctor-photo" style="background-image: url('/static/dr-nadia.webp')"></div>
+                                <div class="doctor-info">
+                                    <h4>Dr. Nadia Sultana <span class="doctor-specialty">(Gynecologist)</span></h4>
+                                    <p class="doctor-availability">
+                                        <i class="fas fa-clock"></i> Available: Sun-Wed (4PMM-10PM)<br>
+                                        <i class="fas fa-map-marker"></i> Chattogram Maa-O-Shishu Hospital
+                                    </p>
+                                </div>
+                                <button class="view-profile" data-doctor-id="dr-nadia">
+                                    View Profile <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="region-notice">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>We currently only serve within Chattogram district.
+                                We apologize for any inconvenience to donors outside our service area.</p>
+                        </div>
+
+                     
+               
+
+                        <ul class="health-services">
+                         
+                        </ul>
+                    </div>
+                </div>
+            </div>
+       
+        <!-- Photo Gallery Modal -->
+        <div class="modal" id="photosModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('photosModal')">&times;</span>
+                <h2>Camp Photo Gallery</h2>
+                <div class="modal-body">
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="carouselTrack">
+                            <div class="carousel-item" style="background-image: url('/static/camp1.jpeg')">
+                                <div class="carousel-caption">Central City Blood Drive - February,2025</div>
+                            </div>
+                            <div class="carousel-item" style="background-image: url('/static/camp2.jpeg')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp3.webp')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp4.jpeg')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp5.webp')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp6.jpeg')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp7.jpeg')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp8.webp')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp9.webp')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp10.jpeg')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp11.webp')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp12.webp')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp13.jpeg')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp14.jpeg')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp15.jpeg')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp16.jpeg')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp17.webp')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp18.jpeg')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp19.jpeg')"></div>
+                            <div class="carousel-item" style="background-image: url('/static/camp20.jpeg')"></div>
+                           
+
+                        </div>
+                        <div class="carousel-nav">
+                            <button class="carousel-arrow prev" onclick="moveCarousel(-1)">❮</button>
+                            <div class="carousel-dots" id="carouselDots"></div>
+                            <button class="carousel-arrow next" onclick="moveCarousel(1)">❯</button>
+                        </div>
+                    </div>
+                    <div class="photo-grid"></div>
+                </div>
+            </div>
+        </div>
+       
+        <!-- Reports Modal -->
+        <div class="modal" id="reportsModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('reportsModal')">&times;</span>
+                <h2>Download Reports</h2>
+                <div class="modal-body">
+                    <div class="report-search-container">
+                        <input type="text" class="search-box" placeholder="Search reports..."
+                             id="reportSearch" onkeyup="filterReports(this.value)">
+                        <button class="tracker-button" onclick="downloadAllReports()">
+                            <i class="fas fa-download"></i> Download All
+                        </button>
+                    </div>
+                    <div class="download-progress">
+                        <div class="download-progress-bar" id="downloadProgress"></div>
+                    </div>
+                    <div class="report-list" id="reportList"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal" id="doctorProfileModal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('doctorProfileModal')">&times;</span>
+                <div id="doctorProfileContent"></div>
+            </div>
+        </div>
+               
+
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="/static/js/mission.js"></script>
+    </body>
+    </html>

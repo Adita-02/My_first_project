@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health History Questionnaire</title>
+    <link rel="stylesheet" href="/static/css/health-history.css" />
+   
+</head>
+<body>
+    <a href="{% url 'head' %}" class="back-button">&#8592; Back to Home</a>
+    <div class="container">
+        <img src="/static/logo-removebg-preview.png" alt="Health Organization Logo" class="logo">
+        <h2>Blood Donation Health History Questionnaire</h2>
+        <form id="donationForm">
+            <!-- Single Column Layout -->
+            <div class="form-group">
+                <label><span class="question-number">1.</span> Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label><span class="question-number">2.</span> Age</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label><span class="question-number">3.</span> Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label><span class="question-number">4.</span> Blood Type</label>
+                <select id="bloodType" name="bloodType" required>
+                    <option value="">Select</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label><span class="question-number">5.</span> Weight (kg)</label>
+                <input type="number" id="weight" name="weight" required>
+            </div>
+            <div class="form-group">
+                <label><span class="question-number">6.</span> Have you donated blood before?</label>
+                <input type="radio" name="donatedBefore" value="yes" required> Yes
+                <input type="radio" name="donatedBefore" value="no" required> No
+            </div>
+            <div class="form-group">
+                <label><span class="question-number">7.</span> Have you traveled outside the country in the last 12 months?</label>
+                <input type="radio" name="travelHistory" value="yes" required> Yes
+                <input type="radio" name="travelHistory" value="no" required> No
+            </div>
+            <div class="form-group">
+                <label><span class="question-number">8.</span> Are you currently taking any medications?</label>
+                <input type="radio" name="medications" value="yes" required> Yes
+                <input type="radio" name="medications" value="no" required> No
+            </div>
+            <div class="form-group">
+                <label><span class="question-number">9.</span> Do you have any chronic medical conditions? (e.g., Diabetes, High BP)</label>
+                <input type="radio" name="chronicConditions" value="yes" required> Yes
+                <input type="radio" name="chronicConditions" value="no" required> No
+            </div>
+            <div class="form-group">
+                <label><span class="question-number">10.</span> Have you had any surgeries in the last 12 months?</label>
+                <input type="radio" name="surgeries" value="yes" required> Yes
+                <input type="radio" name="surgeries" value="no" required> No
+            </div>
+            <div class="form-group">
+                <label><span class="question-number">11.</span> Have you had any infections in the last month?</label>
+                <input type="radio" name="infections" value="yes" required> Yes
+                <input type="radio" name="infections" value="no" required> No
+            </div>
+            <div class="form-group">
+                <label><span class="question-number">12.</span> Have you had any tattoos or piercings in the last 6 months?</label>
+                <input type="radio" name="tattoos" value="yes" required> Yes
+                <input type="radio" name="tattoos" value="no" required> No
+            </div>
+            <div class="form-group">
+                <label><span class="question-number">13.</span> Have you consumed alcohol in the last 24 hours?</label>
+                <input type="radio" name="alcohol" value="yes" required> Yes
+                <input type="radio" name="alcohol" value="no" required> No
+            </div>
+            <div class="form-group">
+                <label><span class="question-number">14.</span> Have you had any vaccinations in the last 4 weeks?</label>
+                <input type="radio" name="vaccinations" value="yes" required> Yes
+                <input type="radio" name="vaccinations" value="no" required> No
+            </div>
+            <div class="form-group">
+                <label><span class="question-number">15.</span> Have you had any recent exposure to infectious diseases?</label>
+                <input type="radio" name="exposure" value="yes" required> Yes
+                <input type="radio" name="exposure" value="no" required> No
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="summary" class="summary">
+            <h3>Questionnaire Summary</h3>
+            <p><strong>Full Name:</strong> <span id="summaryFullName"></span></p>
+            <p><strong>Age:</strong> <span id="summaryAge"></span></p>
+            <p><strong>Gender:</strong> <span id="summaryGender"></span></p>
+            <p><strong>Blood Type:</strong> <span id="summaryBloodType"></span></p>
+            <p><strong>Weight:</strong> <span id="summaryWeight"></span> kg</p>
+            <p><strong>Donated Before:</strong> <span id="summaryDonatedBefore"></span></p>
+            <p><strong>Travel History:</strong> <span id="summaryTravelHistory"></span></p>
+            <p><strong>Medications:</strong> <span id="summaryMedications"></span></p>
+            <p><strong>Chronic Conditions:</strong> <span id="summaryChronicConditions"></span></p>
+            <p><strong>Surgeries:</strong> <span id="summarySurgeries"></span></p>
+            <p><strong>Infections:</strong> <span id="summaryInfections"></span></p>
+            <p><strong>Tattoos/Piercings:</strong> <span id="summaryTattoos"></span></p>
+            <p><strong>Alcohol Consumption:</strong> <span id="summaryAlcohol"></span></p>
+            <p><strong>Vaccinations:</strong> <span id="summaryVaccinations"></span></p>
+            <p><strong>Exposure to Diseases:</strong> <span id="summaryExposure"></span></p>
+            <div id="eligibility" class="eligibility"></div>
+            <button class="print-button" onclick="window.print()">Print Summary</button>
+        </div>
+        <p id="message"></p>
+    </div>
+
+   
+
+<script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/health-history.js"></script>
+
+</body>
+</html>

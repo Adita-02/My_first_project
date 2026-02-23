@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Rewards</title>
+     <link rel="stylesheet" href="/static/css/rewards-program.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="slide">
+            <div class="item active" style="background-image:url('/static/img12.jpg');">
+                <div class="content">
+                    <div class="name">Blood Donation Rewards</div>
+                    <div class="des">Earn points and rewards for every blood donation you make. Your contribution matters! Join now and be a hero with every drop you give!</div>
+                    <a href="{% url 'head' %}" class="back-home">Back to Home</a>
+                </div> 
+            </div>
+            <div class="item" style="background-image:url('/static/img13.jpg');">
+                <div class="content">
+                    <div class="name">How It Works?</div>
+                    <div class="des">Each donation earns you points that can be redeemed for exclusive rewards. Redeem them for exclusive rewards and special perks. Donate, earn, and make a difference with every drop!</div>
+                    <a href="{% url 'head' %}"class="back-home">Back to Home</a>
+                </div>
+            </div>
+            <div class="item" style="background-image:url('/static/img14.jpg');">
+                <div class="content">
+                    <div class="name">Join the Program</div>
+                    <div class="des">Join today and make every blood donation count! Earn rewards while helping those in need. Sign up now and be a lifesaving hero!</div>
+                    <a href="{% url 'loginform' %}" class="back-home">Sign up</a>
+                </div>
+            </div>
+        </div>
+        <div class="button">
+            <button class="prev">&#9665;</button>
+            <button class="next">&#9655;</button>
+        </div>
+    </div>
+ <script src="/static/js/rewards-program.js"></script>
+</body>
+</html>
+

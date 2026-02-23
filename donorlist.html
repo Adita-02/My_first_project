@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donor List</title>
+     <link rel="stylesheet" href="/static/css/donorlist.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'dashboard' %}" class="home-icon" title="Go back to home">
+            <i class="fas fa-home"></i>
+        </a>
+        <h2>Available Blood Donors</h2>
+        <div class="chart-container">
+            <h3>Blood Type Distribution</h3>
+            <div class="chart">
+                <div class="bar" style="height: 35%;" data-label="O+" data-percentage="35%"></div>
+                <div class="bar" style="height: 13%;" data-label="O-" data-percentage="13%"></div>
+                <div class="bar" style="height: 30%;" data-label="A+" data-percentage="30%"></div>
+                <div class="bar" style="height: 8%;" data-label="A-" data-percentage="8%"></div>
+                <div class="bar" style="height: 8%;" data-label="B+" data-percentage="8%"></div>
+                <div class="bar" style="height: 2%;" data-label="B-" data-percentage="2%"></div>
+                <div class="bar" style="height: 2%;" data-label="AB+" data-percentage="2%"></div>
+                <div class="bar" style="height: 1%;" data-label="AB-" data-percentage="1%"></div>
+            </div>
+            <div class="floating-blood" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+            <div class="floating-blood" style="top: 20%; right: 10%; animation-delay: 2s;"></div>
+            <div class="floating-blood" style="top: 40%; left: 15%; animation-delay: 4s;"></div>
+            <div class="floating-blood" style="top: 60%; right: 20%; animation-delay: 1s;"></div>
+            <div class="floating-blood" style="top: 80%; left: 25%; animation-delay: 3s;"></div>
+        </div>
+        <div class="donor-grid">
+            <div class="donor-card">
+                <h3>O+ Blood Donor</h3>
+                <p>Name: AisWar</p>
+                <p>Location: Chawkbazar</p>
+                <p class="availability">Available</p>
+                <button class="btn">Contact</button>
+            </div>
+            <div class="donor-card">
+                <h3>A- Blood Donor</h3>
+                <p>Name: Annas</p>
+                <p>Location: Agrabad</p>
+                <p class="availability">Available</p>
+                <button class="btn">Contact</button>
+            </div>
+            <div class="donor-card">
+                <h3>B+ Blood Donor</h3>
+                <p>Name: Arpa</p>
+                <p>Location: CDA Avenue</p>
+                <p class="availability">Available</p>
+                <button class="btn">Contact</button>
+            </div>
+            <div class="donor-card">
+                <h3>AB- Blood Donor</h3>
+                <p>Name: Tasnim</p>
+                <p>Location: Chadgaon</p>
+                <p class="availability">Available</p>
+                <button class="btn">Contact</button>
+            </div>
+            <div class="donor-card">
+                <h3>A+ Blood Donor</h3>
+                <p>Name: Mutsuddi</p>
+                <p>Location: Nasirabad</p>
+                <p class="availability">Available</p>
+                <button class="btn">Contact</button>
+            </div>
+            <div class="donor-card">
+                <h3>O- Blood Donor</h3>
+                <p>Name: Afia</p>
+                <p>Location: Bohaddarhat</p>
+                <p class="availability">Available</p>
+                <button class="btn">Contact</button>
+            </div>
+            <div class="donor-card">
+                <h3>AB+ Blood Donor</h3>
+                <p>Name: Adita</p>
+                <p>Location: GEC</p>
+                <p class="availability">Available</p>
+                <button class="btn">Contact</button>
+            </div>
+            <div class="donor-card">
+                <h3>B- Blood Donor</h3>
+                <p>Name: Anisa</p>
+                <p>Location: Mehdibag</p>
+                <p class="availability">Available</p>
+                <button class="btn">Contact</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 A & W Blood Management. All rights reserved.</p>
+    </div>
+
+     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/donorlist.js"></script>
+</body>
+</html>

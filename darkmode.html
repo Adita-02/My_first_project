@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood Bank Donation System - Dark Mode</title>
+    <link rel="stylesheet" href="head.css" />
+    <link rel="stylesheet" href="darkmode.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body class="dark-mode">
+    <header class="header">
+       <nav class="navbar">
+            <i class="fa-solid fa-droplet img"> A & W </i>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="aboutus.html">About</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li class="dropdown">
+                    <a href="#" onclick="event.preventDefault(); toggleDropdown()"
+                      > Services ▾</a>
+                    <ul class="dropdown-menu" id="dropdownMenu">
+                      <li>
+                        <a href="blood-group.html"
+                          ><i class="fa-solid fa-hand-holding-droplet"></i> Blood Group
+                          Check</a
+                        >
+                      </li>
+                      <li>
+                        <a href="blood-pressure.html"
+                          ><i class="fa-solid fa-droplet-slash"></i> Blood Pressure
+                          Check</a
+                        >
+                      </li>
+                      <li>
+                        <a href="hemoglobin.html"
+                          ><i class="fa-solid fa-braille"></i> Hemoglobin Test</a
+                        >
+                      </li>
+                      <li>
+                        <a href="reciept.html"
+                          ><i class="fa-solid fa-receipt"></i> Your Receipt</a
+                        >
+                      </li>
+                    </ul>
+                    </li>
+                <li><a href="bookappoinment.html">Book appointment</a></li>
+                <li><a href="callus.html">Contact</a></li>
+               
+            </ul>
+            <div class="nav-right">
+                <a href="#"><i class="ri-search-line"></i></a>
+                <a href="#"><i class="ri-shopping-cart-line"></i></a>
+                <a href="#"><i class="ri-user-line"></i></a>
+            </div>
+            <div class="icon1">
+                <div class="search" id="search-content">
+                  <form action="" class="search__form">
+                    <a href="#"><i class="fa-brands fa-searchengin"></i></a>
+                    <input
+                      type="search"
+                      placeholder="What are you looking for?"
+                      class="search-input"
+                    />
+                  </form>
+                  <i class="fa-solid fa-xmark search__close" id="search-close"></i>
+                </div>
+                <a href="#" id="search-open-button"
+                  ><i class="fa-brands fa-searchengin"></i
+                ></a>
+                <a href="form.html"><i class="fa-solid fa-user"></i></a>
+                <a href="dashboard.html"><i class="fa-brands fa-gitter"></i></a>
+                <a href="darkmode.html" id="dark-mode-toggle"><i class="fa-solid fa-moon"></i></a>
+              </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <!--============
+     Hero Section 
+    =============-->
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Blood Bank & Donation System</h1>
+            <p>Every drop of blood you donate is a lifeline for someone
+                in need—join us in saving lives today.
+                </p>
+            <a href="read-more-page.html" class="btn2">Read More </a>
+        </div>
+        <div class="hero-image">
+          
+
+        </div>
+    </section>
+<!--============
+     Services Section 
+    =============-->
+
+  <section class="skin-glow-section" id="services">
+ 
+  <div class="card-container">
+    <div class="card">
+      <div class="icon">
+        <!-- Add your icon here -->
+        <img src="blooddrop.svg" alt="Can I give blood?" /><br>
+      </div>
+      <h3>Can I give blood?</h3>
+      <p>Check eligibility criteria for blood donation.</p>
+      <a href="can-i-give-blood.html" class="learn-more">Learn More<i class="ri-arrow-right-line"></i></a>
+    </div>
+
+    <div class="card">
+      <div class="icon">
+        <!-- Add your icon here -->
+        <img src="pointer.svg" alt="Where to give blood" />
+      </div>
+      <h3>Where to give blood</h3>
+      <p>Locate nearby blood donation centers.</p>
+      <a href="where-to-give-blood.html" class="learn-more">Learn More<i class="ri-arrow-right-line"></i></a>
+    </div>
+
+    <div class="card">
+      <div class="icon">
+        <!-- Add your icon here -->
+        <i class="fa-solid fa-droplet" style="color: #932a2a; font-size: 1.8rem;"></i>
+      </div>
+      <h3>Blood supply levels</h3>
+      <p>Track real-time blood inventory status.</p>
+      <a href="blood-supply-levels.html" class="learn-more">Learn More<i class="ri-arrow-right-line"></i></a>
+    </div>
+
+    <div class="card">
+      <div class="icon">
+        <!-- Add your icon here -->
+        <img src="medicine.svg" alt="Iron deficiency" />
+      </div>
+      <h3>Iron deficiency</h3>
+      <p>Understand iron requirements for donors.</p>
+      <a href="iron-deficiency.html" class="learn-more">Learn More<i class="ri-arrow-right-line"></i></a>
+    </div>
+
+    <div class="card">
+        <div class="icon">
+          <!-- Add your icon here -->
+          <img src="glass.svg" alt="Prepare and aftercare" />
+        </div>
+        <h3>Prepare and aftercare</h3>
+        <p>Follow pre- and post-donation guidelines.</p>
+        <a href="prepare-and-aftercare.html" class="learn-more">Learn More<i class="ri-arrow-right-line"></i></a>
+      </div>
+
+      <div class="card">
+        <div class="icon">
+          <!-- Add your icon here -->
+          <img src="bloodbag.svg" alt="How to give blood" />
+        </div>
+        <h3>How to give blood</h3>
+        <p>Learn the blood donation process step-by-step.</p>
+        <a href="how-to-give-blood.html" class="learn-more">Learn More<i class="ri-arrow-right-line"></i></a>
+      </div>
+
+  </div>
+</section>
+
+<!-- 
+     Article Section 
+    =============--> 
+
+    <section class="article-section" id="article">
+      <h1>Let's Make A Positive Difference</h1><br>
+      <P>Every day in the world's poorest countries, people die because of a
+          shortage of blood. A & W helps blood collectors in these countries by
+          providing money, equipment, training and other forms of support –
+          including launching voluntary blood donation programs.
+        </p><br>
+      <div class="article-container">
+          <div class="article-card">
+              <img src="child.jpg" alt="Article Image 1">
+              <div class="article-content">
+                  <h3>Inspiring Hope, Igniting Change</h3>
+                  <a href="inspiring-hope.html" class="learn-more1">Learn More<i class="ri-arrow-right-line"></i></a>
+              </div>
+          </div>
+          <div class="article-card">
+              <img src="vlnt.jpg" alt="Article Image 2">
+              <div class="article-content">
+                  <h3>Volunteer Opportunities</h3>
+                  <a href="volunteer.html" class="learn-more1">Learn More<i class="ri-arrow-right-line"></i></a>
+              </div>
+          </div>
+          <div class="article-card">
+              <img src="outreach.jpg" alt="Article Image 3">
+              <div class="article-content">
+                  <h3>Outreach Program</h3>
+                  <a href="outreach.html" class="learn-more1">Learn More<i class="ri-arrow-right-line"></i></a>
+              </div>
+          </div>
+          <div class="article-card">
+              <img src="blddont.jpg" alt="Our Mission">
+              <div class="article-content">
+                  <h3>Our Mission</h3>
+                  <a href="mission.html" class="learn-more1">Learn More<i class="ri-arrow-right-line"></i></a>
+              </div>
+          </div>
+      </div>
+  </section>
+
+ 
+ <!--============
+     Footer Section 
+    =============-->
+    <footer>
+      <div class="foot-panel1" id="backToTop" role="button" tabindex="0">Back to Top</div>
+        <div class="foot-panel2">
+          <ul>
+            <p>ABOUT US</p>
+            <a href="prpose.html">Purpose & Network</a>
+            <a href="what-we-specialized in.html">What We Specialize In</a>
+            <a href="#">History</a>
+            <a href="career.html">Careers</a>
+          </ul>
+          <ul>
+            <p>NEWS & BLOGS</p>
+            <a href="news.html">News</a>
+            <a href="blog.html">Blog</a>
+          </ul>
+          <ul>
+            <p>RESOURCES</p>
+            <a href="donoform.html">Donor Forms</a>
+            <a href="healthhistoryquestionnaire.html">Health History Questionnaire</a>
+            <a href="rewards-program.html">Rewards Program</a>
+          </ul>
+          <ul>
+            <p>Contact Us</p>
+            <div class="footercontainer">
+              <div class="socialicon">
+                <a href="https://www.facebook.com/adita.mutsuddi"
+                  ><i class="fa-brands fa-facebook"></i
+                ></a>
+                <a href="https://www.instagram.com/adita_mutsuddi/"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="https://x.com/AhmedWarisa"
+                  ><i class="fa-brands fa-twitter"></i
+                ></a>
+                <a href="https://www.youtube.com/@warisaahmed"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+              </div>
+            </div>
+          </ul>
+        </div>
+        <div class="foot-panel3">
+          <div class="logo"></div>
+        </div>
+        <div class="foot-panel4">
+          <a href="#">Conditions of Use</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Your Ads Privacy Choices</a>
+        </div>
+        <div class="copy-right">
+          Copyright © 2025 Blood Services Management (BSM), DGHS. All rights
+          reserved.
+        </div>
+      </footer>
+      <script src="https://unpkg.com/scrollreveal"></script>
+      <script src="head.js"></script>
+      
+    </body>
+  </html>
+  

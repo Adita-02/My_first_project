@@ -1,0 +1,139 @@
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e8f1fa;
+            background-image: none;
+        }
+        .section_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header_content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-direction: row-reverse;
+        }
+        .header_content img {
+            max-width: 50%;
+            height: 50%;
+            border-radius: 10px;
+            animation: bounceIn 1.5s ease-in-out;
+        }
+        .header_text {
+            flex: 1;
+            margin-top: 20px;
+        }
+        .header_text h1 {
+            font-size: 2rem;
+            color: #9a1818;
+            margin-bottom: 30px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .header_text p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .header_text button {
+            background-color: #680707;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .header_text button:hover {
+            background-color: #a00000;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        .header_content button:active {
+            transform: translateY(-1px);
+        }
+
+        /* New styles for the second section */
+        .second_section {
+            display: flex;
+            align-items: center;
+            gap: 50px; /* Adjusted gap for better alignment */
+            margin-top: 40px;
+        }
+        .second_section img {
+            max-width: 50%;
+            height: 50%; /* Adjusted height for the second image */
+            border-radius: 10px;
+            object-fit: cover; /* Ensures the image scales properly */
+            animation: bounceIn 1.5s ease-in-out; /* Added animation */
+        }
+        .second_section .header_text {
+            flex: 1;
+            margin-top: 20px; /* Adjusted margin to match the first section */
+        }
+        .second_section .header_text p {
+            margin-right: 0; /* Removed margin-right to align text properly */
+        }
+        .second_section a {
+            margin-top: 20px; /* Move the button back to its original position */
+        }
+
+        /* Animation for hover effect */
+        @keyframes hoverEffect {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .hover-animation {
+            animation: hoverEffect 0.5s ease-in-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header_content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .header_content img {
+                max-width: 80%;
+            }
+            .second_section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .second_section img {
+                max-width: 80%;
+            }
+        }
+   

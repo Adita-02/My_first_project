@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add User</title>
+
+  <style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+
+    .swirl-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .swirl {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 50% 40% 60% 40%;
+        animation: floatSwirl 15s linear infinite;
+        opacity: 0;
+    }
+
+    @keyframes floatSwirl {
+        0% {
+            transform: rotate(0deg) translateY(0) translateX(0) scale(0.5);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.7;
+        }
+        90% {
+            opacity: 0.6;
+        }
+        100% {
+            transform: rotate(360deg) translateY(-100px) translateX(200px) scale(1.5);
+            opacity: 0;
+        }
+    }
+
+    .hero {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0.2em;
+    }
+
+    .form-box {
+        width: 380px;
+        height: auto;
+        position: relative;
+        margin: 2% auto;
+        background-color: rgba(255, 255, 255, 0.105);
+        border: 1px solid rgba(255, 255, 255, 0.196);
+        backdrop-filter: blur(20px);
+        padding: 20px;
+        border-radius: 2em;
+        overflow: hidden;
+        z-index: 2;
+    }
+
+    .input-group {
+        position: relative;
+        width: 100%;
+        padding: 0 10px;
+        transition: 0.5s;
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 10px 0;
+        margin: 10px 0;
+        border: none;
+        border-bottom: 1px solid #ffffff;
+        outline: none;
+        background: transparent;
+        color: white;
+        padding-right: 30px;
+    }
+
+    .input-field::placeholder {
+        color: white;
+    }
+
+    select.input-field {
+        background-color: transparent;
+        color: white;
+    }
+
+    select.input-field option {
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+    }
+
+    .input-icon {
+        position: absolute;
+        right: 10px;
+        top: 22px;
+        color: white;
+    }
+
+    form div {
+        position: relative;
+        margin-bottom: 15px;
+    }
+
+    .submit-btn {
+        width: 85%;
+        padding: 10px 30px;
+        cursor: pointer;
+        display: block;
+        margin: 20px auto;
+        color: black;
+        background: white;
+        border-radius: 30px;
+        border: 2px solid transparent;
+        transition: 0.3s ease;
+    }
+
+    .submit-btn:hover {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .terms {
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .terms a {
+        color: white;
+        text-decoration: underline;
+    }
+
+    /* Close button (X icon) */
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 10;
+        transition: 0.3s ease;
+        text-decoration: none;
+    }
+
+    .close-btn:hover {
+        transform: scale(1.2);
+        color: #ff4757;
+    }
+
+    /* New Go Back button */
+    .go-back-btn {
+        display: block;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 30px;
+        transition: 0.3s ease;
+        font-size: 14px;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .go-back-btn i {
+        margin-right: 8px;
+    }
+
+    .go-back-btn:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-color: white;
+        transform: translateY(-2px);
+    }
+
+    /* Header with title and close button */
+    .form-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding-right: 30px;
+    }
+
+    .form-header h2 {
+        color: white;
+        margin: 0;
+        flex-grow: 1;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div id="swirl-container" class="swirl-container"></div>
+
+<div class="hero">
+  <div class="form-box">
+    <div class="form-header">
+      <h2>Add User</h2>
+      <a href="index.html" class="close-btn" title="Close">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
+
+    <form method="POST" class="input-group" novalidate action="#">
+
+      <!-- First Name -->
+      <div>
+        <input type="text" name="first_name" class="input-field" placeholder="First Name" required />
+        <i class="fas fa-user input-icon"></i>
+      </div>
+
+      <!-- Surname -->
+      <div>
+        <input type="text" name="surname" class="input-field" placeholder="Surname" required />
+        <i class="fas fa-user input-icon"></i>
+      </div>
+
+      <!-- Gender -->
+      <div>
+        <select name="gender" class="input-field" required>
+          <option value="" disabled selected>Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <i class="fas fa-venus-mars input-icon" style="right: 12px;"></i>
+      </div>
+
+      <!-- Mobile -->
+      <div>
+        <input type="text" name="mobile" class="input-field" placeholder="Mobile Number" required />
+        <i class="fas fa-phone input-icon"></i>
+      </div>
+
+      <!-- Address -->
+      <div>
+        <input type="text" name="address" class="input-field" placeholder="Address (Optional)" />
+        <i class="fas fa-home input-icon"></i>
+      </div>
+
+      <!-- Terms -->
+      <div style="text-align: center; margin-top: 10px;">
+        <input type="checkbox" name="agree_terms" id="agree_terms" required />
+        <label for="agree_terms" class="terms">
+          I agree to the <a href="#">Terms & Services</a>
+        </label>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="submit-btn">Submit</button>
+      
+      <!-- Go Back Button (Visible) -->
+      <a href="index.html" class="go-back-btn">
+        <i class="fas fa-arrow-left"></i> Go Back to Home
+      </a>
+    </form>
+  </div>
+</div>
+
+<script>
+const swirlContainer = document.getElementById("swirl-container");
+
+function createSwirl() {
+    const swirl = document.createElement('div');
+    swirl.className = 'swirl';
+    const size = Math.random() * 50 + 30;
+    const posX = Math.random() * window.innerWidth;
+    const posY = Math.random() * window.innerHeight;
+    const delay = Math.random() * 5;
+    const duration = Math.random() * 5 + 10;
+    const opacity = Math.random() * 0.5 + 0.1;
+
+    swirl.style.width = size + 'px';
+    swirl.style.height = size + 'px';
+    swirl.style.left = posX + 'px';
+    swirl.style.top = posY + 'px';
+    swirl.style.animationDuration = duration + 's';
+    swirl.style.animationDelay = delay + 's';
+    swirl.style.opacity = opacity;
+    swirl.style.borderWidth = (Math.random() * 2 + 1) + 'px';
+    swirl.style.borderColor = 'rgba(255, 255, 255, ' + opacity + ')';
+    swirl.style.borderRadius = (Math.random() * 60 + 20) + '% ' + (Math.random() * 60 + 20) + '% ' + (Math.random() * 60 + 20) + '% ' + (Math.random() * 60 + 20) + '%';
+
+    swirlContainer.appendChild(swirl);
+
+    setTimeout(() => {
+        if (swirlContainer.contains(swirl)) {
+            swirlContainer.removeChild(swirl);
+            createSwirl();
+        }
+    }, (delay + duration) * 1000);
+}
+
+function createSwirls() {
+    swirlContainer.innerHTML = '';
+    for (let i = 0; i < 10; i++) {
+        createSwirl();
+    }
+}
+
+window.addEventListener('load', () => {
+    createSwirls();
+});
+
+window.addEventListener('resize', () => {
+    createSwirls();
+});
+</script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

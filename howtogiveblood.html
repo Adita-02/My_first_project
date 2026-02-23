@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Give Blood</title>
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/static/css/how-to-give-blood.css">
+    
+</head>
+
+<body>
+    <header>
+        <h1>How to Give Blood</h1>
+        <p>Learn the step-by-step process of donating blood.</p>
+    </header>
+
+    <div class="go-back-container">
+        <a href="{% url 'head' %}"  class="go-back-button">
+            <i class="fas fa-arrow-left"></i> Go Back
+        </a>
+    </div>
+    
+
+    <main>
+        <section class="content-section">
+            <h2>Step 1: Registration</h2>
+            <p>When you click at the donor form, you’ll need to:</p>
+            <ul>
+                <li>Provide valid information in the form.</li>
+                <li>Fill out a health history questionnaire.</li>
+            </ul>
+        </section>
+        <section class="content-section">
+            <h2>Step 2: Health Check</h2>
+            <p>A medical professional will:</p>
+            <ul>
+                <li>Check your hemoglobin levels.</li>
+                <li>Measure your blood pressure and pulse.</li>
+                <li>Ask about your medical history.</li>
+            </ul>
+        </section>
+        <section class="content-section">
+            <h2>Step 3: Donation</h2>
+            <p>The donation process takes about 10-15 minutes:</p>
+            <ul>
+                <li>You’ll be seated comfortably.</li>
+                <li>A sterile needle will be used to collect blood.</li>
+                <li>You’ll donate approximately one pint of blood.</li>
+            </ul>
+        </section>
+        <section class="content-section">
+            <h2>Step 4: Recovery</h2>
+            <p>After donation, you’ll:</p>
+            <ul>
+                <li>Rest for 10-15 minutes.</li>
+                <li>Enjoy light refreshments.</li>
+                <li>Receive aftercare instructions.</li>
+            </ul>
+        </section>
+        <section class="content-section">
+            <h2>Watch a Video Guide</h2>
+            <p>See how the donation process works:</p>
+            <div id="videoContainer">
+                
+            </div>
+            <button id="playVideoButton">Click to Play Video</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;2025 A & W Innovation.</p>
+    </footer>
+
+    <script src="/static/js/how-to-give-blood.js"></script>
+</body>
+</html>

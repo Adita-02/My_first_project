@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood Donation Blog</title>
+    <link rel="stylesheet" href="/static/css/blog.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="slide">
+        <div
+          class="item active"
+          style="background-image: url(/static/img6.jpg)"
+        >
+          <div class="content">
+            <div class="name">Why Donate Blood?</div>
+            <div class="des">
+              Blood donation saves lives. Every drop you donate can help someone
+              in need.
+            </div>
+            <a href="{% url 'head' %}" class="back-home"
+              >Back to Home</a
+            >
+          </div>
+        </div>
+        <div class="item" style="background-image: url('/static/img7.jpg')">
+          <div class="content">
+            <div class="name">Who Can Donate?</div>
+            <div class="des">
+              Most healthy adults can donate blood. If you meet the basic health
+              criteria, you can save lives.
+            </div>
+           <a href="{% url 'head' %}" class="back-home"
+              >Back to Home</a
+            >
+          </div>
+        </div>
+        <div class="item" style="background-image: url(/static/img8.jpg)">
+          <div class="content">
+            <div class="name">The Donation Process</div>
+            <div class="des">
+              Blood donation is a quick and safe process. It usually takes about
+              10-15 minutes.
+            </div>
+
+            <a href="{% url 'head' %}" class="back-home"
+              >Back to Home</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="button">
+        <button class="prev">&#9665;</button>
+        <button class="next">&#9655;</button>
+      </div>
+    </div>
+
+    <script src="/static/js/blog.js"></script>
+  </body>
+</html>

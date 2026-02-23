@@ -1,0 +1,145 @@
+ 
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(248, 244, 244, 0.613), rgba(255, 254, 254, 0.681)), 
+    url(/static/rr.jpg) no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            color: white;
+            margin: 0;
+            overflow: hidden;
+        }
+        .receipt-container {
+            background:  linear-gradient(rgba(248, 244, 244, 0.613), rgba(255, 254, 254, 0.681)), 
+            url(/static/cc.jpg) no-repeat center center/cover;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+            width: 600px;
+            text-align: left;
+            color: #333;
+            animation: fadeIn 1s ease-in-out;
+            overflow-y: auto;
+            max-height: 80vh;
+            scroll-behavior: smooth;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .close-btn:hover {
+            color: #ff4b2b;
+            transform: scale(1.2);
+        }
+        .logo {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.1);
+            color: #ff4b2b;
+            cursor: pointer;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        .company-info {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .total {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .message {
+            text-align: center;
+            font-weight: bold;
+            color: #d56f98;
+            margin-top: 15px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .message:hover {
+            transform: scale(1.05);
+            color: #ff416c;
+            cursor: pointer;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #c63c7f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #95c3cc;
+            transform: scale(1.05);
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .receipt-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .receipt-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .receipt-container::-webkit-scrollbar-thumb {
+            background: #ff4b2b;
+            border-radius: 10px;
+        }
+        .receipt-container::-webkit-scrollbar-thumb:hover {
+            background: #ff416c;
+        }
+ 

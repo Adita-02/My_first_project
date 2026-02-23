@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Group and Blood Pressure Check</title>
+    <link rel="stylesheet" href="/static/css/blood-pressure.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+<body>
+    <button class="return-home-btn" onclick="window.location.href='{% url 'head' %}'">
+        <i class="fas fa-home"></i> Home
+    </button>
+
+    <div class="container">
+        <h1>Blood Pressure Check</h1>
+        <p>Check your blood pressure easily with our advanced testing methods.</p>
+        
+        <div class="content-wrapper">
+            <div class="steps-container">
+                <!-- Initial Prompt -->
+                <div class="initial-prompt" id="initialPrompt">
+                    <button onclick="showSteps()">Yes</button>
+                    <button onclick="showFunnyMessage()">No</button>
+                </div>
+                
+                <!-- Steps Container (hidden initially) -->
+                <div id="stepsContent" style="display: none;">
+                    <!-- Step 1: Preparation -->
+                    <div class="step-item">
+                        <h2>Step 1: Preparation</h2>
+                        <p>Avoid caffeine, exercise, and smoking for at least 30 minutes before your test. Sit quietly for 5 minutes before measurement.</p>
+                    </div>
+                    
+                    <!-- Step 2: Positioning -->
+                    <div class="step-item">
+                        <h2>Step 2: Proper Positioning</h2>
+                        <p>Sit comfortably with your back supported and feet flat on the floor. Rest your arm on a table at heart level.</p>
+                    </div>
+                    
+                    <!-- Step 3: Measurement -->
+                    <div class="step-item">
+                        <h2>Step 3: Measurement Process</h2>
+                        <p>Our nurse will place the cuff on your bare upper arm and take multiple readings for accuracy.</p>
+                    </div>
+                    
+                    <!-- Step 4: Results -->
+                    <div class="step-item">
+                        <h2>Step 4: Get Your Results</h2>
+                        <p>Your blood pressure readings will be analyzed and explained to you immediately.</p>
+                        <div class="step-buttons">
+                            <button onclick="showSuccessMessage()">Proceed to Test</button>
+                            <button onclick="resetProcess()">Start Over</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <h2>Thank You for Choosing Our Organization!</h2>
+                    <p>We appreciate your trust in our services. Please get ready to meet our nurse who will assist you with the blood pressure measurement.</p>
+                    <button onclick="resetProcess()">Start Over</button>
+                </div>
+                
+                <!-- Funny Message -->
+                <div id="funnyMessage" class="funny-message" style="display: none;">
+                    <p>Eat more and more junk foods, BRO! 😏</p>
+                    <button onclick="resetProcess()">Change My Mind</button>
+                </div>
+            </div>
+            
+            <!-- Blood Pressure Chart -->
+            <div class="chart-container">
+                <h2>Ideal Blood Pressure Chart</h2>
+                <table class="blood-pressure-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Systolic (mmHg)</th>
+                            <th>Diastolic (mmHg)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Normal</td>
+                            <td>90 - 120</td>
+                            <td>60 - 80</td>
+                        </tr>
+                        <tr>
+                            <td>Elevated</td>
+                            <td>120 - 129</td>
+                            <td>< 80</td>
+                        </tr>
+                        <tr>
+                            <td>Hypertension (Stage 1)</td>
+                            <td>130 - 139</td>
+                            <td>80 - 89</td>
+                        </tr>
+                        <tr>
+                            <td>Hypertension (Stage 2)</td>
+                            <td>140+</td>
+                            <td>90+</td>
+                        </tr>
+                        <tr>
+                            <td>Hypertensive Crisis</td>
+                            <td>180+</td>
+                            <td>120+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/blood-pressure.js"></script>
+</body>
+</html>

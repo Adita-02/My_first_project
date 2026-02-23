@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="/static/css/reciept.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+    <title>Receipt Form</title>
+   
+</head>
+<body>
+    <div class="receipt-container">
+        <div class="close-btn" onclick="closeForm()">×</div>
+
+        <div class="logo"><i class="fa-solid fa-droplet"></i> A & W Innovations</div>
+        <div class="header">
+            <span>Book No: _______</span>
+            <span>SL No: _______</span>
+        </div>
+        <div class="company-info">
+            <strong>A & W Blood Management</strong><br>
+            📍 4318, Sonaichhari, Kumira, Bangladesh<br>
+
+⏰ Office Hours: Mon - Fri (9 AM - 6 PM)<br>
+            Phone: 0233366985
+        </div>
+        <button onclick="generateReceipt()">Generate Receipt</button>
+        <br>
+        <label>Patient's Name: <input type="text"></label><br>
+        <label>Hospital/Clinic/Private Doctor: <input type="text"></label><br>
+        <label>Ward/Cabin: <input type="text"></label>
+        <label>Bed No: <input type="text"></label>
+        <label>Issue Voucher No: <input type="text"></label>
+        <label>Bag No: <input type="text"></label>
+        <table>
+            <tr>
+                <th>Particulars of Charge</th>
+                <th>Units</th>
+                <th>Rate/Unit</th>
+                <th>Amount</th>
+            </tr>
+            <tr><td>Service charge for whole blood</td><td></td><td></td><td></td></tr>
+            <tr><td>Service charge for blood component</td><td></td><td></td><td></td></tr>
+            <tr><td>Cost of blood administration set</td><td></td><td></td><td></td></tr>
+            <tr><td>Blood transfusion charge</td><td></td><td></td><td></td></tr>
+            <tr><td>Crossmatching</td><td></td><td></td><td></td></tr>
+            <tr><td>Blood grouping</td><td></td><td></td><td></td></tr>
+            <tr><td>HBS Ag/Ab test</td><td></td><td></td><td></td></tr>
+            <tr><td>VDRL test</td><td></td><td></td><td></td></tr>
+            <tr><td>HIV test</td><td></td><td></td><td></td></tr>
+            <tr><td>Coomb's test</td><td></td><td></td><td></td></tr>
+            <tr><td>Irregular antibody detection</td><td></td><td></td><td></td></tr>
+            <tr><td>HB% (HCT)</td><td></td><td></td><td></td></tr>
+            <tr><td>HBS antibody detection</td><td></td><td></td><td></td></tr>
+            <tr><td>Others</td><td></td><td></td><td></td></tr>
+        </table>
+        <div class="total">Total Taka: __________</div>
+        <div class="footer">
+            <span>Date: __________</span>
+            <span>Signature & Designation</span>
+        </div>
+        <div class="message">Donate blood yourself & encourage others to donate blood voluntarily 😊</div>
+    </div>
+
+   
+
+<script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/reciept.js"></script>
+
+</body>
+</html>

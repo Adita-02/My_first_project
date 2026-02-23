@@ -1,0 +1,701 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Management Analytics</title>
+       <link rel="stylesheet" href="styles/analystic.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="ri-contrast-drop-line"></i>
+                <h2>A & W</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="ri-dashboard-fill"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="ri-line-chart-fill"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="bloodavailability.html" class="nav-item">
+                    <i class="ri-drop-fill"></i>
+                    <span>Inventory</span>
+                </a>
+                <a href="donorlist.html" class="nav-item">
+                    <i class="ri-user-3-fill"></i>
+                    <span>Donors</span>
+                </a>
+                <a href="#" class="nav-item" id="hospitalsLink">
+                    <i class="ri-hospital-fill"></i>
+                    <span>Hospitals</span>
+                </a>
+                <a href="setting.html" class="nav-item">
+                    <i class="ri-settings-3-fill"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Blood Management Analytics</h1>
+                <div class="user-profile">
+                    <img src="images/ok.jpg" alt="User"/>
+                    <span>Admin</span>
+                </div>
+            </div>
+
+            <!-- Summary Cards - First Row -->
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Total Blood Units</span>
+                        <i class="ri-drop-fill" style="color: var(--primary);"></i>
+                    </div>
+                    <div class="card-value" id="totalBlood">0</div>
+                    <div class="card-change positive">
+                        <i class="ri-arrow-up-line"></i>
+                        <span>12% from last month</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Active Donors</span>
+                        <i class="ri-user-heart-fill" style="color: var(--secondary);"></i>
+                    </div>
+                    <div class="card-value" id="activeDonors">0</div>
+                    <div class="card-change positive">
+                        <i class="ri-arrow-up-line"></i>
+                        <span>5% from last month</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Cards - Second Row -->
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Blood Requests</span>
+                        <i class="ri-heart-pulse-fill" style="color: var(--primary);"></i>
+                    </div>
+                    <div class="card-value" id="bloodRequests">0</div>
+                    <div class="card-change negative">
+                        <i class="ri-arrow-down-line"></i>
+                        <span>3% from last month</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Expiring Soon</span>
+                        <i class="ri-alarm-warning-fill" style="color: var(--warning);"></i>
+                    </div>
+                    <div class="card-value" id="expiringSoon">0</div>
+                    <div class="card-change positive">
+                        <i class="ri-arrow-down-line"></i>
+                        <span>8% from last month</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="chart-container">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Blood Collection Trend</h3>
+                        <select style="padding: 0.3rem; border-radius: 6px; border: 1px solid #ddd;">
+                            <option>Last 30 Days</option>
+                            <option>Last 90 Days</option>
+                            <option>This Year</option>
+                        </select>
+                    </div>
+                    <canvas id="collectionChart" height="250"></canvas>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Blood Type Demand</h3>
+                    </div>
+                    <canvas id="demandChart" height="250"></canvas>
+                </div>
+            </div>
+
+            <!-- Blood Group Distribution -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3 class="chart-title">Blood Group Inventory</h3>
+                </div>
+                <div class="blood-group-distribution">
+                    <div class="blood-group-card">
+                        <div class="blood-group positive">A+</div>
+                        <div class="blood-group-value">156</div>
+                        <div class="blood-group-label">units available</div>
+                    </div>
+                    <div class="blood-group-card">
+                        <div class="blood-group negative">A-</div>
+                        <div class="blood-group-value">42</div>
+                        <div class="blood-group-label">units available</div>
+                    </div>
+                    <div class="blood-group-card">
+                        <div class="blood-group positive">B+</div>
+                        <div class="blood-group-value">128</div>
+                        <div class="blood-group-label">units available</div>
+                    </div>
+                    <div class="blood-group-card">
+                        <div class="blood-group negative">B-</div>
+                        <div class="blood-group-value">35</div>
+                        <div class="blood-group-label">units available</div>
+                    </div>
+                    <div class="blood-group-card">
+                        <div class="blood-group positive">O+</div>
+                        <div class="blood-group-value">210</div>
+                        <div class="blood-group-label">units available</div>
+                    </div>
+                    <div class="blood-group-card">
+                        <div class="blood-group negative">O-</div>
+                        <div class="blood-group-value">58</div>
+                        <div class="blood-group-label">units available</div>
+                    </div>
+                    <div class="blood-group-card">
+                        <div class="blood-group positive">AB+</div>
+                        <div class="blood-group-value">87</div>
+                        <div class="blood-group-label">units available</div>
+                    </div>
+                    <div class="blood-group-card">
+                        <div class="blood-group negative">AB-</div>
+                        <div class="blood-group-value">22</div>
+                        <div class="blood-group-label">units available</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="chart-card" style="margin-top: 1.5rem;">
+                <div class="chart-header">
+                    <h3 class="chart-title">Recent Activity</h3>
+                    <a href="#" style="text-decoration: none; color: var(--primary); font-size: 0.9rem;">View All</a>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon donation">
+                            <i class="ri-drop-fill"></i>
+                        </div>
+                        <div class="activity-details">
+                            <div class="activity-title">New blood donation from Tasnim Afia.</div>
+                            <div class="activity-time">2 units of O+ • 10 minutes ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon request">
+                            <i class="ri-heart-pulse-fill"></i>
+                        </div>
+                        <div class="activity-details">
+                            <div class="activity-title">Blood request from Max City Hospital</div>
+                            <div class="activity-time">4 units of A- • 1 hour ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon donation">
+                            <i class="ri-drop-fill"></i>
+                        </div>
+                        <div class="activity-details">
+                            <div class="activity-title">New blood donation from Mutsuddi Arpa.</div>
+                            <div class="activity-time">1 unit of B+ • 3 hours ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modern Analytics Modal -->
+    <div id="analyticsModal" class="modern-modal">
+        <div class="modern-modal-content">
+            <!-- Blood drop animations -->
+            <div class="blood-drop" style="left: 10%; animation-delay: 0.5s;"></div>
+            <div class="blood-drop" style="left: 30%; animation-delay: 1s;"></div>
+            <div class="blood-drop" style="left: 70%; animation-delay: 1.5s;"></div>
+            <div class="blood-drop" style="left: 90%; animation-delay: 2s;"></div>
+           
+            <div class="modern-modal-header">
+                <h2><i class="ri-flask-line"></i> Blood Health Insights</h2>
+                <span class="modern-close">&times;</span>
+            </div>
+            <div class="modern-modal-body">
+                <!-- Children's Health Section -->
+                <div class="modern-modal-section">
+                    <h3><i class="ri-arrow-down-line"></i> Hemoglobin Trends in Children</h3>
+                   
+                    <div class="illustration-container">
+                        <div class="animated-illustration" style="background-image: url('/static/https://cdn-icons-png.flaticon.com/512/3344/3344376.png');"></div>
+                    </div>
+                   
+                    <div class="section-gap"></div>
+                   
+                    <div class="modern-tabs">
+                        <div class="modern-tab active" data-tab="trends">Trend Analysis</div>
+                        <div class="modern-tab" data-tab="issues">Common Issues</div>
+                        <div class="modern-tab" data-tab="solutions">Diet Solutions</div>
+                    </div>
+                   
+                    <div class="modern-tab-content active" id="trends-tab">
+                        <canvas id="hbTrendChart" height="250"></canvas>
+                        <p style="margin-top: 1rem;">Recent studies show a concerning decline in hemoglobin levels among children aged 5-12 in our region. The average Hb level has dropped from 12.5 g/dL to 11.2 g/dL over the past 5 years.</p>
+                        <p>Key factors contributing to this decline include:</p>
+                        <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+                            <li>Nutritional deficiencies in iron, vitamin B12, and folate</li>
+                            <li>Increased consumption of processed foods</li>
+                            <li>Low awareness of iron-rich dietary options</li>
+                            <li>Parasitic infections in certain areas</li>
+                        </ul>
+                    </div>
+                   
+                    <div class="modern-tab-content" id="issues-tab">
+                        <div class="info-card-grid">
+                            <div class="info-card">
+                                <h4><i class="ri-alert-line"></i> Iron Deficiency</h4>
+                                <p>42% of children under 12 show signs of iron deficiency, leading to fatigue and poor cognitive development.</p>
+                            </div>
+                            <div class="info-card">
+                                <h4><i class="ri-heart-pulse-line"></i> Vitamin B12</h4>
+                                <p>28% of cases show B12 deficiency, crucial for nerve function and red blood cell production.</p>
+                            </div>
+                            <div class="info-card">
+                                <h4><i class="ri-dna-line"></i> Thalassemia</h4>
+                                <p>15% prevalence in coastal regions, requiring specialized care and frequent blood transfusions.</p>
+                            </div>
+                            <div class="info-card">
+                                <h4><i class="ri-bug-line"></i> Worm Infestations</h4>
+                                <p>22% of anemic children have parasitic infections contributing to blood loss and nutrient depletion.</p>
+                            </div>
+                        </div>
+                       
+                        <div class="warning-box">
+                            <div class="warning-icon">
+                                <i class="ri-alert-line"></i>
+                            </div>
+                            <div class="warning-content">
+                                <h4>Early Warning Signs</h4>
+                                <p>Watch for pale skin, frequent fatigue, poor concentration, slow growth, and increased infections - these may indicate blood health issues in children.</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="modern-tab-content" id="solutions-tab">
+                        <h4>Dietary Solutions to Improve Hemoglobin</h4>
+                        <p>Incorporating these foods can help boost hemoglobin levels naturally in children:</p>
+                       
+                        <div class="food-chart-container">
+                            <div class="food-item">
+                                <div class="food-icon" style="background: #e63946;">
+                                    <i class="ri-leaf-line"></i>
+                                </div>
+                                <div class="food-details">
+                                    <h4>Spinach & Leafy Greens</h4>
+                                    <p>Rich in iron, folate, and vitamin B12</p>
+                                    <div class="nutrition-facts">
+                                        <span><i class="ri-check-line"></i> Iron: 2.7mg/100g</span>
+                                        <span><i class="ri-check-line"></i> Folate: 194μg/100g</span>
+                                        <span><i class="ri-check-line"></i> Easy to add to meals</span>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="food-item">
+                                <div class="food-icon" style="background: #457b9d;">
+                                    <i class="ri-apple-line"></i>
+                                </div>
+                                <div class="food-details">
+                                    <h4>Beets & Pomegranate</h4>
+                                    <p>Natural blood purifiers and builders</p>
+                                    <div class="nutrition-facts">
+                                        <span><i class="ri-check-line"></i> Iron: 0.8mg/100g</span>
+                                        <span><i class="ri-check-line"></i> Vitamin C: 10mg/100g</span>
+                                        <span><i class="ri-check-line"></i> Kids love the sweetness</span>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="food-item">
+                                <div class="food-icon" style="background: #7ceba7;">
+                                    <i class="ri-bowl-line"></i>
+                                </div>
+                                <div class="food-details">
+                                    <h4>Legumes & Lentils</h4>
+                                    <p>Excellent plant-based iron sources</p>
+                                    <div class="nutrition-facts">
+                                        <span><i class="ri-check-line"></i> Iron: 3.3mg/100g</span>
+                                        <span><i class="ri-check-line"></i> Protein: 9g/100g</span>
+                                        <span><i class="ri-check-line"></i> Versatile in recipes</span>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="food-item">
+                                <div class="food-icon" style="background: #e9c46a;">
+                                    <i class="ri-seedling-line"></i>
+                                </div>
+                                <div class="food-details">
+                                    <h4>Nuts & Seeds</h4>
+                                    <p>Pumpkin seeds, almonds, and cashews</p>
+                                    <div class="nutrition-facts">
+                                        <span><i class="ri-check-line"></i> Iron: 4.2mg/100g</span>
+                                        <span><i class="ri-check-line"></i> Healthy fats</span>
+                                        <span><i class="ri-check-line"></i> Great as snacks</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="illustration-container" style="margin-top: 1.5rem;">
+                            <div class="animated-illustration" style="background: url('/static/Children-pana.png'); width: 320px; height: 320px;"></div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="section-gap"></div>
+               
+                <!-- General Blood Health Section -->
+                <div class="modern-modal-section">
+                    <h3><i class="ri-bar-chart-2-line"></i> Recommended Daily Intake for Children</h3>
+                    <canvas id="intakeChart" height="200"></canvas>
+                    <p style="margin-top: 1rem;">* Based on WHO recommendations for children aged 5-12 years. Combine iron-rich foods with vitamin C sources for better absorption.</p>
+                   
+                    <div class="info-card-grid" style="margin-top: 1.5rem;">
+                        <div class="info-card">
+                            <h4><i class="ri-timer-line"></i> Best Time for Iron</h4>
+                            <p>Consume iron-rich foods in the morning when stomach acid levels are highest for optimal absorption.</p>
+                        </div>
+                        <div class="info-card">
+                            <h4><i class="ri-restaurant-line"></i> Food Combinations</h4>
+                            <p>Pair iron-rich foods with vitamin C sources (like oranges) to enhance absorption by up to 300%.</p>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="section-gap"></div>
+               
+                <div class="modern-modal-section">
+                    <h3><i class="ri-information-line"></i> Did You Know?</h3>
+                    <div class="info-card-grid">
+                        <div class="info-card">
+                            <h4><i class="ri-user-line"></i> Child Donors</h4>
+                            <p>Children can donate blood with parental consent starting at age 16 (in most countries), helping save lives of other children.</p>
+                        </div>
+                        <div class="info-card">
+                            <h4><i class="ri-refresh-line"></i> Regeneration</h4>
+                            <p>The body replaces the plasma from donated blood within 24 hours, and red blood cells within 4-6 weeks.</p>
+                        </div>
+                        <div class="info-card">
+                            <h4><i class="ri-heart-line"></i> Health Benefits</h4>
+                            <p>Regular blood donation reduces risk of heart disease and helps maintain healthy iron levels.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hospitals Modal -->
+    <div id="hospitalsModal" class="modern-modal">
+        <div class="modern-modal-content">
+            <div class="modern-modal-header">
+                <h2><i class="ri-hospital-line"></i> Partner Hospitals</h2>
+                <span class="modern-close">&times;</span>
+            </div>
+            <div class="modern-modal-body">
+                <div class="modern-modal-section">
+                    <h3><i class="ri-community-line"></i> Our Hospital Network</h3>
+                    <p>These hospitals are part of our blood donation and transfusion network. You can view their current blood inventory and request status below.</p>
+                   
+                    <div class="modern-tabs">
+                        <div class="modern-tab active" data-tab="all-hospitals">All Hospitals</div>
+                        <div class="modern-tab" data-tab="critical-need">Critical Need</div>
+                        <div class="modern-tab" data-tab="high-stock">High Stock</div>
+                    </div>
+                   
+                    <div class="modern-tab-content active" id="all-hospitals-tab">
+                        <div class="hospital-card">
+                            <div class="hospital-icon" style="background: var(--primary);">
+                                <i class="ri-hospital-line"></i>
+                            </div>
+                            <div class="hospital-details">
+                                <div class="hospital-name">Max City Hospital</div>
+                                <div class="hospital-location">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>123 Medical Drive, City Center</span>
+                                </div>
+                                <div class="hospital-stats">
+                                    <div class="hospital-stat">
+                                        <i class="ri-drop-line"></i>
+                                        <span>Blood Units: 245</span>
+                                    </div>
+                                    <div class="hospital-stat">
+                                        <i class="ri-heart-pulse-line"></i>
+                                        <span>Active Requests: 12</span>
+                                    </div>
+                                    <div class="hospital-stat">
+                                        <i class="ri-star-line"></i>
+                                        <span>Rating: 4.8/5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="hospital-card">
+                            <div class="hospital-icon" style="background: var(--secondary);">
+                                <i class="ri-hospital-line"></i>
+                            </div>
+                            <div class="hospital-details">
+                                <div class="hospital-name">Regional Medical Center</div>
+                                <div class="hospital-location">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>456 Health Avenue, Downtown</span>
+                                </div>
+                                <div class="hospital-stats">
+                                    <div class="hospital-stat">
+                                        <i class="ri-drop-line"></i>
+                                        <span>Blood Units: 187</span>
+                                    </div>
+                                    <div class="hospital-stat">
+                                        <i class="ri-heart-pulse-line"></i>
+                                        <span>Active Requests: 8</span>
+                                    </div>
+                                    <div class="hospital-stat">
+                                        <i class="ri-star-line"></i>
+                                        <span>Rating: 4.6/5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="hospital-card">
+                            <div class="hospital-icon" style="background: var(--success);">
+                                <i class="ri-hospital-line"></i>
+                            </div>
+                            <div class="hospital-details">
+                                <div class="hospital-name">Children's Care Hospital</div>
+                                <div class="hospital-location">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>789 Pediatric Lane, West District</span>
+                                </div>
+                                <div class="hospital-stats">
+                                    <div class="hospital-stat">
+                                        <i class="ri-drop-line"></i>
+                                        <span>Blood Units: 320</span>
+                                    </div>
+                                    <div class="hospital-stat">
+                                        <i class="ri-heart-pulse-line"></i>
+                                        <span>Active Requests: 5</span>
+                                    </div>
+                                    <div class="hospital-stat">
+                                        <i class="ri-star-line"></i>
+                                        <span>Rating: 4.9/5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="hospital-card">
+                            <div class="hospital-icon" style="background: var(--purple);">
+                                <i class="ri-hospital-line"></i>
+                            </div>
+                            <div class="hospital-details">
+                                <div class="hospital-name">Trauma & Emergency Center</div>
+                                <div class="hospital-location">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>101 Emergency Road, Central</span>
+                                </div>
+                                <div class="hospital-stats">
+                                    <div class="hospital-stat">
+                                        <i class="ri-drop-line"></i>
+                                        <span>Blood Units: 156</span>
+                                    </div>
+                                    <div class="hospital-stat">
+                                        <i class="ri-heart-pulse-line"></i>
+                                        <span>Active Requests: 18</span>
+                                    </div>
+                                    <div class="hospital-stat">
+                                        <i class="ri-star-line"></i>
+                                        <span>Rating: 4.7/5</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="modern-tab-content" id="critical-need-tab">
+                        <div class="hospital-card">
+                            <div class="hospital-icon" style="background: var(--primary);">
+                                <i class="ri-alert-line"></i>
+                            </div>
+                            <div class="hospital-details">
+                                <div class="hospital-name">Trauma & Emergency Center</div>
+                                <div class="hospital-location">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>101 Emergency Road, Central</span>
+                                </div>
+                                <div class="hospital-stats">
+                                    <div class="hospital-stat">
+                                        <i class="ri-drop-line"></i>
+                                        <span>Critical Need: O- (urgent)</span>
+                                    </div>
+                                    <div class="hospital-stat">
+                                        <i class="ri-time-line"></i>
+                                        <span>Last update: 1 hour ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="hospital-card">
+                            <div class="hospital-icon" style="background: var(--primary);">
+                                <i class="ri-alert-line"></i>
+                            </div>
+                            <div class="hospital-details">
+                                <div class="hospital-name">City General Hospital</div>
+                                <div class="hospital-location">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>202 Wellness Blvd, Northside</span>
+                                </div>
+                                <div class="hospital-stats">
+                                    <div class="hospital-stat">
+                                        <i class="ri-drop-line"></i>
+                                        <span>Critical Need: B- (urgent)</span>
+                                    </div>
+                                    <div class="hospital-stat">
+                                        <i class="ri-time-line"></i>
+                                        <span>Last update: 3 hours ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="warning-box">
+                            <div class="warning-icon">
+                                <i class="ri-alert-line"></i>
+                            </div>
+                            <div class="warning-content">
+                                <h4>Emergency Blood Needs</h4>
+                                <p>These hospitals have reported critical shortages of specific blood types. Please prioritize donations matching these needs if possible.</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="modern-tab-content" id="high-stock-tab">
+                        <div class="hospital-card">
+                            <div class="hospital-icon" style="background: var(--success);">
+                                <i class="ri-archive-line"></i>
+                            </div>
+                            <div class="hospital-details">
+                                <div class="hospital-name">Children's Care Hospital</div>
+                                <div class="hospital-location">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>789 Pediatric Lane, West District</span>
+                                </div>
+                                <div class="hospital-stats">
+                                    <div class="hospital-stat">
+                                        <i class="ri-drop-line"></i>
+                                        <span>High Stock: A+ (320 units)</span>
+                                    </div>
+                                    <div class="hospital-stat">
+                                        <i class="ri-time-line"></i>
+                                        <span>Last update: 2 days ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="hospital-card">
+                            <div class="hospital-icon" style="background: var(--success);">
+                                <i class="ri-archive-line"></i>
+                            </div>
+                            <div class="hospital-details">
+                                <div class="hospital-name">Regional Medical Center</div>
+                                <div class="hospital-location">
+                                    <i class="ri-map-pin-line"></i>
+                                    <span>456 Health Avenue, Downtown</span>
+                                </div>
+                                <div class="hospital-stats">
+                                    <div class="hospital-stat">
+                                        <i class="ri-drop-line"></i>
+                                        <span>High Stock: AB+ (187 units)</span>
+                                    </div>
+                                    <div class="hospital-stat">
+                                        <i class="ri-time-line"></i>
+                                        <span>Last update: 1 day ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="section-gap"></div>
+               
+                <div class="modern-modal-section">
+                    <h3><i class="ri-map-2-line"></i> Hospital Locations</h3>
+                    <div class="illustration-container">
+                        <div class="animated-illustration" style="background-image: url('https://cdn-icons-png.flaticon.com/512/2906/2906274.png');"></div>
+                    </div>
+                    <p style="margin-top: 1rem;">Our partner hospitals are strategically located throughout the region to ensure quick access to blood supplies when needed.</p>
+                </div>
+               
+                <div class="section-gap"></div>
+               
+                <div class="modern-modal-section">
+                    <h3><i class="ri-history-line"></i> Recent Hospital Activity</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon request">
+                                <i class="ri-heart-pulse-fill"></i>
+                            </div>
+                            <div class="activity-details">
+                                <div class="activity-title">Emergency request from Trauma Center</div>
+                                <div class="activity-time">6 units of O- • 45 minutes ago</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon donation">
+                                <i class="ri-drop-fill"></i>
+                            </div>
+                            <div class="activity-details">
+                                <div class="activity-title">Blood delivery to Children's Hospital</div>
+                                <div class="activity-time">10 units of A+ • 3 hours ago</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon request">
+                                <i class="ri-heart-pulse-fill"></i>
+                            </div>
+                            <div class="activity-details">
+                                <div class="activity-title">Scheduled surgery request from City General</div>
+                                <div class="activity-time">4 units of B- • 5 hours ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="analytics-insight-btn" id="insightBtn">
+        <i class="ri-lightbulb-flash-line"></i> Health Insights
+    </button>
+
+   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="scripts/analystic.js"></script>
+</body>
+</html>

@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Availability</title>
+    <link rel="stylesheet" href="/static/css/bloodavailavility.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+   
+</head>
+<body>
+    <div class="nav">
+        <a href="{% url 'dashboard' %}" class="nav-item">Home</a>
+        <a href="{% url 'addblood' %}" class="nav-item">Donate</a>
+        <a href="#" class="nav-item">Blood Types</a>
+        <a href="#" class="nav-item">Locations</a>
+        <a href="{% url 'outreach' %}" class="nav-item">Events</a>
+        <a href="{% url 'aboutus' %}" class="nav-item">About</a>
+        <a href="{% url 'contact' %}" class="nav-item">Contact</a>
+    </div>
+
+    <div class="hero-section">
+        <h1>Blood Availability</h1>
+        <p>Donate Blood, Save Lives</p>
+       <a href="{% url 'addblood' %}"> <button>DONATE NOW</button> </a>
+    </div>
+
+    <div class="stats-section">
+        <div class="marquee-content">
+            <div class="marquee-item">
+                <h3>8</h3>
+                <p>Blood Types</p>
+            </div>
+            <div class="marquee-item">
+                <h3>1,000+</h3>
+                <p>Active Donors</p>
+            </div>
+            <div class="marquee-item">
+                <h3>95%</h3>
+                <p>Availability</p>
+            </div>
+            <div class="marquee-item">
+                <h3>8</h3>
+                <p>Blood Types</p>
+            </div>
+            <div class="marquee-item">
+                <h3>1,000+</h3>
+                <p>Active Donors</p>
+            </div>
+            <div class="marquee-item">
+                <h3>95%</h3>
+                <p>Availability</p>
+            </div>
+        </div>
+        <div class="floating-blood">O+</div>
+        <div class="floating-blood">A-</div>
+        <div class="floating-blood">AB+</div>
+        <div class="floating-blood">B-</div>
+        <div class="floating-blood">A+</div>
+        <div class="floating-blood">AB-</div>
+        <div class="floating-blood">B+</div>
+        <div class="floating-blood">O-</div>
+    </div>
+    <div class="blood-container">
+        <div class="blood-box" onclick="toggleStatus(this)">A+ <span class="availability">Available</span></div>
+        <div class="blood-box" onclick="toggleStatus(this)">A- <span class="availability">Low Stock</span></div>
+        <div class="blood-box" onclick="toggleStatus(this)">B+ <span class="availability">Available</span></div>
+        <div class="blood-box" onclick="toggleStatus(this)">B- <span class="availability">Low Stock</span></div>
+        <div class="blood-box" onclick="toggleStatus(this)">O+ <span class="availability">Available</span></div>
+        <div class="blood-box" onclick="toggleStatus(this)">O- <span class="availability">Low Stock</span></div>
+        <div class="blood-box" onclick="toggleStatus(this)">AB+ <span class="availability">Available</span></div>
+        <div class="blood-box" onclick="toggleStatus(this)">AB- <span class="availability">Low Stock</span></div>
+    </div>
+    <!-- Blood Type Modal -->
+    <div class="modal-overlay" id="bloodTypeModal">
+        <div class="blood-type-modal">
+            <div class="modal-header">
+                <h2>Blood Type Compatibility</h2>
+                <button class="close-btn" onclick="closeModal('bloodTypeModal')">&times;</button>
+            </div>
+            <div class="modal-content">
+                <p>Understanding blood type compatibility is crucial for safe transfusions. Here's what you need to know:</p>
+                
+                <div class="blood-type-grid">
+                    <!-- A+ Card -->
+                    <div class="blood-type-card">
+                        <div class="blood-type-header">
+                            <div class="blood-type-icon">A+</div>
+                            <h3 class="blood-type-name">Type A+</h3>
+                        </div>
+                        <div class="blood-type-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Donates to:</span>
+                                <span class="detail-value">A+, AB+</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Receives from:</span>
+                                <span class="detail-value">A+, A-, O+, O-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Population:</span>
+                                <span class="detail-value">~34%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- A- Card -->
+                    <div class="blood-type-card">
+                        <div class="blood-type-header">
+                            <div class="blood-type-icon">A-</div>
+                            <h3 class="blood-type-name">Type A-</h3>
+                        </div>
+                        <div class="blood-type-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Donates to:</span>
+                                <span class="detail-value">A+, A-, AB+, AB-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Receives from:</span>
+                                <span class="detail-value">A-, O-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Population:</span>
+                                <span class="detail-value">~6%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- B+ Card -->
+                    <div class="blood-type-card">
+                        <div class="blood-type-header">
+                            <div class="blood-type-icon">B+</div>
+                            <h3 class="blood-type-name">Type B+</h3>
+                        </div>
+                        <div class="blood-type-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Donates to:</span>
+                                <span class="detail-value">B+, AB+</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Receives from:</span>
+                                <span class="detail-value">B+, B-, O+, O-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Population:</span>
+                                <span class="detail-value">~9%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- B- Card -->
+                    <div class="blood-type-card">
+                        <div class="blood-type-header">
+                            <div class="blood-type-icon">B-</div>
+                            <h3 class="blood-type-name">Type B-</h3>
+                        </div>
+                        <div class="blood-type-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Donates to:</span>
+                                <span class="detail-value">B+, B-, AB+, AB-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Receives from:</span>
+                                <span class="detail-value">B-, O-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Population:</span>
+                                <span class="detail-value">~2%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AB+ Card -->
+                    <div class="blood-type-card">
+                        <div class="blood-type-header">
+                            <div class="blood-type-icon">AB+</div>
+                            <h3 class="blood-type-name">Type AB+</h3>
+                        </div>
+                        <div class="blood-type-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Donates to:</span>
+                                <span class="detail-value">AB+ only</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Receives from:</span>
+                                <span class="detail-value">All types</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Population:</span>
+                                <span class="detail-value">~3%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AB- Card -->
+                    <div class="blood-type-card">
+                        <div class="blood-type-header">
+                            <div class="blood-type-icon">AB-</div>
+                            <h3 class="blood-type-name">Type AB-</h3>
+                        </div>
+                        <div class="blood-type-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Donates to:</span>
+                                <span class="detail-value">AB+, AB-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Receives from:</span>
+                                <span class="detail-value">A-, B-, AB-, O-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Population:</span>
+                                <span class="detail-value">~1%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- O+ Card -->
+                    <div class="blood-type-card">
+                        <div class="blood-type-header">
+                            <div class="blood-type-icon">O+</div>
+                            <h3 class="blood-type-name">Type O+</h3>
+                        </div>
+                        <div class="blood-type-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Donates to:</span>
+                                <span class="detail-value">O+, A+, B+, AB+</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Receives from:</span>
+                                <span class="detail-value">O+, O-</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Population:</span>
+                                <span class="detail-value">~38%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- O- Card -->
+                    <div class="blood-type-card">
+                        <div class="blood-type-header">
+                            <div class="blood-type-icon">O-</div>
+                            <h3 class="blood-type-name">Type O-</h3>
+                        </div>
+                        <div class="blood-type-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Donates to:</span>
+                                <span class="detail-value">All types</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Receives from:</span>
+                                <span class="detail-value">O- only</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Population:</span>
+                                <span class="detail-value">~7%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; background: #ffebee; padding: 15px; border-radius: 10px;">
+                    <h3 style="margin-top: 0; color: #d32f2f;">Key Facts:</h3>
+                    <ul style="margin-bottom: 0;">
+                        <li>O- is the universal donor (can donate to anyone)</li>
+                        <li>AB+ is the universal recipient (can receive from anyone)</li>
+                        <li>Blood type is determined by genetics</li>
+                        <li>Rh factor (+ or -) is also important for compatibility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Location Modal -->
+    <div class="modal-overlay" id="locationModal">
+        <div class="location-modal">
+            <div class="modal-header">
+                <h2>Nearest Blood Donation Centers</h2>
+                <button class="close-btn" onclick="closeModal('locationModal')">&times;</button>
+            </div>
+            <div class="location-content">
+                <div class="location-search">
+                    <input type="text" id="locationSearch" placeholder="Search by location, hospital, or blood type..." onkeyup="filterLocations()">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="location-list" id="locationList">
+                    <!-- Chittagong Medical College -->
+                    <div class="location-card" data-name="Chittagong Medical College Hospital" data-address="57, K.B. Fazlul Kader Road, Chawkbazar, Chattogram" data-bloodtypes="A+, A-, B+, B-, AB+, AB-, O+, O-">
+                        <h3 class="location-name">Chittagong Medical College Hospital</h3>
+                        <p class="location-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            57, K.B. Fazlul Kader Road, Chawkbazar, Chattogram
+                        </p>
+                        <p class="location-contact">
+                            <i class="fas fa-phone"></i>
+                            +880 31-616344
+                        </p>
+                        <p class="location-hours">
+                            <i class="fas fa-clock"></i>
+                            Open: 8:00 AM - 8:00 PM (Daily)
+                        </p>
+                        <p class="blood-types">
+                            <i class="fas fa-tint"></i>
+                            Available: A+, A-, B+, B-, AB+, AB-, O+, O-
+                        </p>
+                        <span class="location-distance">2.5 km from your location</span>
+                        <a href="https://www.google.com/maps/search/Chittagong+Medical+College+Hospital" target="_blank" class="view-on-map">
+                            <i class="fas fa-map-marked-alt"></i>View on Google Maps
+                        </a>
+                    </div>
+                    
+                    <!-- Chattogram General Hospital -->
+                    <div class="location-card" data-name="Chattogram General Hospital" data-address="Andarkilla, Chattogram" data-bloodtypes="A+, B+, AB+, O+">
+                        <h3 class="location-name">Chattogram General Hospital</h3>
+                        <p class="location-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Andarkilla, Chattogram
+                        </p>
+                        <p class="location-contact">
+                            <i class="fas fa-phone"></i>
+                            +880 31-632081
+                        </p>
+                        <p class="location-hours">
+                            <i class="fas fa-clock"></i>
+                            Open: 9:00 AM - 5:00 PM (Sun-Thu)
+                        </p>
+                        <p class="blood-types">
+                            <i class="fas fa-tint"></i>
+                            Available: A+, B+, AB+, O+
+                        </p>
+                        <span class="location-distance">3.1 km from your location</span>
+                        <a href="https://www.google.com/maps/search/Chattogram+General+Hospital" target="_blank" class="view-on-map">
+                            <i class="fas fa-map-marked-alt"></i>View on Google Maps
+                        </a>
+                    </div>
+                    
+                    <!-- Sandhani Blood Center -->
+                    <div class="location-card" data-name="Sandhani Blood Center" data-address="Agrabad Commercial Area, Chattogram" data-bloodtypes="A+, A-, B+, B-, O+, O-">
+                        <h3 class="location-name">Sandhani Blood Center</h3>
+                        <p class="location-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Agrabad Commercial Area, Chattogram
+                        </p>
+                        <p class="location-contact">
+                            <i class="fas fa-phone"></i>
+                            +880 1819-223344
+                        </p>
+                        <p class="location-hours">
+                            <i class="fas fa-clock"></i>
+                            Open: 24/7 Emergency Service
+                        </p>
+                        <p class="blood-types">
+                            <i class="fas fa-tint"></i>
+                            Available: A+, A-, B+, B-, O+, O-
+                        </p>
+                        <span class="location-distance">4.7 km from your location</span>
+                        <a href="https://www.google.com/maps/search/Sandhani+Blood+Center+Chattogram" target="_blank" class="view-on-map">
+                            <i class="fas fa-map-marked-alt"></i>View on Google Maps
+                        </a>
+                    </div>
+                    
+                    <!-- Red Crescent Blood Bank -->
+                    <div class="location-card" data-name="Bangladesh Red Crescent Society" data-address="Nasirabad, Chattogram" data-bloodtypes="A+, B+, AB+, AB-, O+">
+                        <h3 class="location-name">Bangladesh Red Crescent Society</h3>
+                        <p class="location-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Nasirabad, Chattogram
+                        </p>
+                        <p class="location-contact">
+                            <i class="fas fa-phone"></i>
+                            +880 31-611112
+                        </p>
+                        <p class="location-hours">
+                            <i class="fas fa-clock"></i>
+                            Open: 8:30 AM - 4:30 PM (Sat-Wed)
+                        </p>
+                        <p class="blood-types">
+                            <i class="fas fa-tint"></i>
+                            Available: A+, B+, AB+, AB-, O+
+                        </p>
+                        <span class="location-distance">5.2 km from your location</span>
+                        <a href="https://www.google.com/maps/search/Bangladesh+Red+Crescent+Society+Chattogram" target="_blank" class="view-on-map">
+                            <i class="fas fa-map-marked-alt"></i>View on Google Maps
+                        </a>
+                    </div>
+                    
+                    <!-- Popular Diagnostic Center -->
+                    <div class="location-card" data-name="Popular Diagnostic Center" data-address="2 No. Gate, Nasirabad, Chattogram" data-bloodtypes="A+, A-, B+, B-, AB+, AB-, O+, O-">
+                        <h3 class="location-name">Popular Diagnostic Center</h3>
+                        <p class="location-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            2 No. Gate, Nasirabad, Chattogram
+                        </p>
+                        <p class="location-contact">
+                            <i class="fas fa-phone"></i>
+                            +880 31-652540
+                        </p>
+                        <p class="location-hours">
+                            <i class="fas fa-clock"></i>
+                            Open: 8:00 AM - 10:00 PM (Daily)
+                        </p>
+                        <p class="blood-types">
+                            <i class="fas fa-tint"></i>
+                            Available: A+, A-, B+, B-, AB+, AB-, O+, O-
+                        </p>
+                        <span class="location-distance">5.5 km from your location</span>
+                        <a href="https://www.google.com/maps/search/Popular+Diagnostic+Center+Chattogram" target="_blank" class="view-on-map">
+                            <i class="fas fa-map-marked-alt"></i>View on Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 A & W Blood Bank Management. All rights reserved.</p>
+    </footer>
+     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/bookavailavility.js"></script>
+</body>
+</html>

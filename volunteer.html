@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope in Action</title>
+    <link rel="stylesheet" href="/static/css/volunteer.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+</head>
+<body>
+    <section class="hero-section">
+        <div class="go-back-container">
+            <a href="{% url 'head' %}" class="go-back-button">
+                <i class="fas fa-arrow-left"></i> Go Back
+            </a>
+        </div>
+        <img src="/static/camp2.jpeg" alt="Community Support" class="hero-image">
+        <div class="hero-content">
+            <h1 class="animated-title">Volunteer Opportunities</h1>
+            <p class="subtitle" style="font-size: 1.5rem; color: var(--dark-color);">
+                Become a Life-Saving Volunteer.Your Time Can Pump Life Into Our Community
+            </p>
+            <p class="hero-description">
+                Join our network of 2,000+ dedicated volunteers who make blood donation events possible. 
+                Whether you're assisting donors, managing logistics, or educating communities, your 
+                contribution creates a direct impact. No medical background needed - we provide full training 
+                and flexible scheduling to fit your life.
+            </p>
+            <a href="#content-grid" class="scroll-animation" style="margin-top: 3rem; display: inline-block;">
+                <i class="fas fa-chevron-down" style="font-size: 2rem; color: var(--primary-color);"></i>
+            </a>
+        </div>
+    </section>
+
+    <div class="content-grid" id="content-grid">
+        <div class="card">
+            <h3>Donor Support Champions</h3>
+            <div class="impact-number">400+</div>
+            <p>Frontline volunteers guiding donors through the process. Duties include registration assistance, 
+               post-donation care, and maintaining a positive environment. Average commitment: 4 hours/month.</p>
+        </div>
+        
+        <div class="card">
+            <h3>Mobile Unit Crew</h3>
+            <div class="impact-number">350+</div>
+            <p>Travel with our bloodmobiles to community events. Help set up equipment, manage inventory, 
+               and ensure safety protocols. Perfect for those who enjoy dynamic environments.</p>
+        </div>
+        
+        <div class="card">
+            <h3>Youth Ambassadors</h3>
+            <div class="impact-number">1.1K+</div>
+            <p>Students organizing campus blood drives and awareness campaigns. Earn community service 
+               hours while developing leadership skills.</p>
+        </div>
+
+    </div>
+
+    <div class="modal-overlay" id="requirementsModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Volunteer Requirements</h2>
+            <ul class="requirements-list">
+                <li>Check Eduactional Status (Minimum SSC/HSC pass)</li>
+                <li>Minimum age: 18 years (17 with parental consent)</li>
+                <li>Commit to at least 20 hours per quarter</li>
+                <li>Attend mandatory orientation session</li>
+                <li>Pass background check (for certain roles)</li>
+                <li>Comfortable working with diverse populations</li>
+                <li>Physical ability to stand for at-least 3-hour shifts</li>
+            </ul>
+            <p>Training will be provided for all selected volunteers.</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="individualModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeIndividualModal()">&times;</span>
+            <h2>Individual Registration Form</h2>
+            <form id="registrationForm" class="registration-form">
+                <div class="form-group grid-2-col">
+                    <div>
+                        <label for="fullName">Full Name:</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    <div>
+                        <label for="gender">Gender:</label>
+                        <select id="gender" required>
+                            <option value="">Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="form-group grid-2-col">
+                    <div>
+                        <label for="birthdate">Date of Birth:</label>
+                        <input type="date" id="birthdate" required>
+                    </div>
+                    <div>
+                        <label for="bloodGroup">Blood Group:</label>
+                        <select id="bloodGroup" required>
+                            <option value="">Select</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Preferred Role:</label>
+                    <select id="role">
+                        <option value="donor-support">Donor Support</option>
+                        <option value="mobile-unit">Mobile Unit Crew</option>
+                        <option value="youth-ambassador">Youth Ambassador</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Availability:</label>
+                    <div class="availability-options">
+                        <label><input type="checkbox" name="availability" value="weekdays"> Weekdays</label>
+                        <label><input type="checkbox" name="availability" value="weekends"> Weekends</label>
+                        <label><input type="checkbox" name="availability" value="mornings"> Mornings</label>
+                        <label><input type="checkbox" name="availability" value="evenings"> Evenings</label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <div class="modal-overlay" id="groupModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeGroupModal()">&times;</span>
+            <h2>Group Registration Form</h2>
+            <form id="groupRegistrationForm" class="registration-form">
+                <div class="form-group">
+                    <label for="orgName">Organization Name:</label>
+                    <input type="text" id="orgName" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="orgType">Organization Type:</label>
+                    <select id="orgType" required>
+                        <option value="">Select Type</option>
+                        <option value="corporate">Corporate</option>
+                        <option value="educational">Educational Institution</option>
+                        <option value="ngo">NGO/Non-Profit</option>
+                        <option value="community">Community Group</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="orgAddress">Organization Address:</label>
+                    <input type="text" id="streetAddress" placeholder="Street Address" required>
+                    <div class="grid-2-col" style="margin-top: 0.5rem;">
+                        <input type="text" placeholder="City" required>
+                        <input type="text" placeholder="Division" required>
+                    </div>
+                    <input type="text" placeholder="ZIP Code" required style="margin-top: 0.5rem;">
+                </div>
+    
+                <div class="form-group">
+                    <label>How did you hear about us?</label>
+                    <div class="activity-options">
+                        <label><input type="checkbox" name="source" value="social-media"> Social Media</label>
+                        <label><input type="checkbox" name="source" value="friend"> Friend/Colleague</label>
+                        <label><input type="checkbox" name="source" value="website"> Website</label>
+                        <label><input type="checkbox" name="source" value="event"> Previous Event</label>
+                    </div>
+                </div>
+
+                <div class="form-group grid-2-col">
+                    <div>
+                        <label for="contactPerson">Contact Person:</label>
+                        <input type="text" id="contactPerson" required>
+                    </div>
+                    <div>
+                        <label for="contactPhone">Contact Phone:</label>
+                        <input type="tel" id="contactPhone" required>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="groupSize">Number of Volunteers:</label>
+                    <select id="groupSize" required>
+                        <option value="5-10">5-10 volunteers</option>
+                        <option value="11-20">11-20 volunteers</option>
+                        <option value="21-50">21-50 volunteers</option>
+                        <option value="50+">50+ volunteers</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label>Preferred Activities:</label>
+                    <div class="activity-options">
+                        <label><input type="checkbox" name="activities" value="blood-drive"> Blood Drive Support</label>
+                        <label><input type="checkbox" name="activities" value="community-outreach"> Community Outreach</label>
+                        <label><input type="checkbox" name="activities" value="event-planning"> Event Planning</label>
+                        <label><input type="checkbox" name="activities" value="admin-support"> Administrative Support</label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="additionalInfo">Additional Information:</label>
+                    <textarea id="additionalInfo" rows="4" 
+                        placeholder="Any special requirements or comments..."></textarea>
+                </div>
+
+    
+                <button type="submit" class="submit-btn">Submit Group Application</button>
+            </form>
+        </div>
+    </div>
+    
+
+
+    <footer>
+        <div class="foot-panel1" id="backToTop">Back to Top</div>
+        <div class="new-footer">
+            <img src="back image.png" alt="Background Pattern" class="footer-bg">
+            <div class="foot-panel2">
+                <div class="footer-content">
+                    <div>
+                        <a href="try.html">
+                        <h4>VOLUNTEER ROLES</h4></a>
+                        <ul class="volunteer-roles">
+                            <li><a href="{% url 'try' %}">Donor Support</a></li>
+                            <li><a href="{% url 'try' %}">Blood Drive Coordination</a></li>
+                            <li><a href="{% url 'try' %}">Community Outreach</a></li>
+                            <li><a href="{% url 'try' %}">Transport Logistics</a></li>
+                        </ul>
+                    </div>
+    
+                    <div>
+                        <h4>GET INVOLVED</h4>
+                        <ul class="get-involved">
+                            <li><a href="individual_form.html">Individual Registration</a></li>
+                            <li><a href="group_form.html">Group Volunteering</a></li>
+                            <li><a href="events.html">Volunteer Requerment</a></li>
+                        </ul>
+                    </div>
+    
+                    <div>
+                        <h4>VOLUNTEER SUPPORT</h4>
+                        <div class="volunteer-contact">
+                            <a>Volunteer Coordinator:</a><br>
+                            <a><strong>Sarah Johnson</strong></a><br>
+                            <a>📞 880-1305-991418-VOL</a><br>
+                            <a>📧 volunteers@awinnovation.org</a>
+
+                <div class="socialicon">
+                    <a href="https://www.facebook.com/adita.mutsuddi"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/adita_mutsuddi/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/adita.mutsuddi/"><i class="fa-brands fa-linkedin"></i></a>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="foot-panel4">
+    <a href="volunteer-policy.html">Volunteer Policy</a>
+    <a href="safety-guidelines.html">Safety Guidelines</a>
+    <a href="faq.html">Volunteer FAQ</a>
+</div>
+
+ <div class="copy-right">
+                Copyright © 2025 Blood Services Management (BSM), DGHS. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+ 
+    
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/volunteer.js"></script>
+
+</body>
+</html>

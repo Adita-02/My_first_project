@@ -1,0 +1,598 @@
+
+        :root {
+            --primary-color: #c2185b;
+            --secondary-color: #ff80ab;
+            --accent-color: #f8bbd0;
+            --dark-color: #880e4f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffeef2 100%);
+        }
+
+       
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* New style for additional text */
+        .hero-description {
+            max-width: 800px;
+            margin: 2rem auto;
+            color: var(--dark-color);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+
+        .hero-description.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            font-size: 1.1rem;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .animated-title {
+            font-size: 4rem;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: textGlow 2s infinite alternate;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textGlow {
+            from {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            to {
+                text-shadow: 0 0 15px var(--secondary-color),
+                           0 0 20px var(--accent-color);
+            }
+        }
+
+        #content-grid {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+            padding: 0 2rem;
+        }
+
+        #content-grid.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card {
+            background: white;
+            font-size: 1.2rem;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .impact-number {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .go-back-container {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 3; /* Increased z-index to ensure it stays on top */
+    }
+
+    .go-back-button {
+        padding: 12px 25px;
+        background-color: #843165;
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: inline-flex;
+        align-items: center; /* Fixed alignment */
+    }
+
+    .go-back-button i {
+        margin-right: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .go-back-button:hover {
+        background-color: #9c4076;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .go-back-button:hover i {
+        transform: translateX(-5px);
+
+    }
+        .new-footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 4rem 2rem;
+            margin-top: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            object-fit: cover;
+        }
+
+        .scroll-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInFooter {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .new-footer {
+        animation: none; /* Remove existing animation */
+  opacity: 0;
+  transform: translateY(50px);
+    }
+
+    @keyframes slideInFooter {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    .footer-content {
+        animation: slideInFooter 2s ease-out;
+    }
+
+/* Add to your existing CSS */
+.foot-panel1 {
+    background-color: var(--dark-color);
+    color: white;
+    height: 50px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: fixed;
+    bottom: -50px;
+    right: 20px;
+    border-radius: 25px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Added for text centering */
+    padding: 0 20px; /* Added for better text wrapping */
+}
+
+.foot-panel1.visible {
+    opacity: 1;
+    visibility: visible;
+    bottom: 20px;
+}
+
+.foot-panel1:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.new-footer {
+    position: relative;
+    z-index: 1; /* Reduced from 2 */
+    margin-top: 5rem;
+}
+
+
+/* Add these styles to your existing CSS */
+.foot-panel2 {
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.foot-panel2 .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.foot-panel2 h4 {
+    position: relative;
+    padding-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.foot-panel2 h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.foot-panel2 h4:hover::after {
+    width: 100%;
+}
+
+
+
+.foot-panel2 ul {
+    list-style: none;
+}
+
+.footer-content > div:hover p {
+    color: var(--accent-color);
+    transition: color 0.3s ease;
+}
+
+
+.foot-panel2 ul li {
+    transition: all 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 8px;
+    margin: 5px 0;
+}
+
+.foot-panel2 ul p {
+    transition: all 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 8px;
+    margin: 5px 0;
+}
+
+.foot-panel2 ul li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(10px);
+}
+
+.foot-panel2 a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.foot-panel2 a:hover {
+    color: var(--secondary-color);
+  
+}
+
+.foot-panel3 {
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.foot-panel4 {
+    padding: 1rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.foot-panel4 a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 0.9rem;
+}
+
+.copy-right {
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.socialicon {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.socialicon a {
+    font-size: 1.5rem;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.socialicon a:hover {
+    color: var(--secondary-color);
+}
+
+
+/* Volunteer-specific footer additions */
+.volunteer-roles li::before {
+    content: " ";
+    margin-right: 8px;
+}
+
+.get-involved li {
+    position: relative;
+    padding-left: 25px;
+}
+
+.get-involved li::before {
+    content: " ";
+    position: absolute;
+    left: 0;
+}
+
+.volunteer-contact strong {
+    color: var(--secondary-color);
+    display: block;
+    margin: 10px 0;
+}
+
+.foot-panel4 {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+/* Existing footer styles will apply automatically */
+
+
+ /* Add these styles to your existing CSS */
+ .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+        }
+
+        .modal-content {
+            background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    animation: modalSlide 0.3s ease-out;
+    font-size: 1rem;
+    max-height: 90vh; /* Add this line */
+    overflow-y: auto;
+        }
+
+        @keyframes modalSlide {
+            from {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    background: white; /* Add this line */
+    z-index: 1; /* Add this line */
+}
+        
+
+        .requirements-list {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .requirements-list li {
+            margin: 0.8rem 0;
+            line-height: 1.5;
+        }
+
+        .registration-form {
+            margin-top: 1.5rem;
+            padding-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.availability-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+}
+
+.availability-options label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: #f8f8f8;
+    border-radius: 6px;
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--dark-color);
+    transform: translateY(-2px);
+}
+
+
+.grid-2-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .activity-options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+
+    .activity-options label {
+        background: #f8f8f8;
+        padding: 0.8rem;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 2px solid var(--accent-color);
+        border-radius: 8px;
+        font-family: inherit;
+        resize: vertical;
+    }
+
+    input[type="date"] {
+        height: 45px;
+    }
+
+    .form-group input[type="text"]:not(.grid-2-col input) {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+ 

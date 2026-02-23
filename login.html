@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% if error == "no" %}
+<script>
+    alert('Logged in successfully');
+    window.location = "{% url 'dashboard' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Invalid login. Try again');
+</script>
+{% endif %}
+
+<style>
+    body {
+      margin: 0;
+      font-family: var(--body-font), sans-serif;
+      background: var(--body-color);
+      display: flex;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-color);
+    }
+
+    .container {
+      display: flex;
+      width: 80%;
+      max-width: 900px;
+      background: var(--container-color);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .login-section {
+      flex: 1;
+      padding: 40px;
+      background: var(--white-color);
+      color: var(--text-color);
+    }
+
+    .info-section {
+      flex: 1;
+      background: var(--first-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+      color: var(--primary-color-dark);
+      font-family: var(--second-font), serif;
+    }
+
+    .info-section h2 {
+      font-size: var(--h2-font-size);
+      margin-bottom: 10px;
+      color: var(--primary-color-dark);
+    }
+
+    .info-section p {
+      color: var(--primary-color-dark);
+      font-size: var(--normal-font-size);
+    }
+
+    .login-section h2 {
+      color: var(--primary-color-dark);
+      margin-bottom: 30px;
+      font-family: var(--second-font), serif;
+      font-weight: var(--font-semi-bold);
+      font-size: var(--h2-font-size);
+    }
+
+    .inputbox {
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .inputbox input {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      outline: none;
+      font-family: var(--body-font);
+      font-size: var(--normal-font-size);
+      color: var(--text-color);
+      background: var(--white-color);
+      transition: border-color 0.3s;
+    }
+
+    .inputbox input:focus {
+      border-color: var(--primary-color-dark);
+    }
+
+    .inputbox label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: var(--font-medium);
+      color: var(--text-color);
+      font-size: var(--small-font-size);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--primary-color-dark);
+      border: none;
+      color: var(--white-color);
+      font-size: var(--normal-font-size);
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: var(--font-medium);
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: hsl(350, 67%, 25%);
+    }
+
+    .error-text {
+      color: hsl(350, 67%, 30%);
+      margin-top: 15px;
+      font-weight: var(--font-medium);
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .info-section {
+        padding: 30px 20px;
+      }
+    }
+</style>
+
+<body>
+  <div class="container">
+    <!-- Left: Login Form -->
+    <div class="login-section">
+      <h2>Admin Login</h2>
+       <form method="POST">
+        {% csrf_token %}
+        <div class="inputbox">
+          <label for="uname">Username</label>
+          <input type="text" id="uname" name="uname" required />
+        </div>
+        <div class="inputbox">
+          <label for="pwd">Password</label>
+          <input type="password" id="pwd" name="pwd" required />
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+      {% if error == 'yes' %}
+      <p class="error-text">Invalid credentials or not an admin.</p>
+      {% endif %}
+    </div>
+
+    <!-- Right: Info Message -->
+    <div class="info-section">
+      <div>
+        <h2>Welcome!</h2>
+        <p>This portal is reserved for administrative access only. Please log in with your authorized credentials.</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+{% endblock content %}

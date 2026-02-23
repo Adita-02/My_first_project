@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Group Check</title>
+     <link rel="stylesheet" href="/static/css/blood-group.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
+</head>
+<body>
+    <div class="container">
+        <button class="home-btn" onclick="window.location.href='{% url 'head' %}'">
+            <i class="fas fa-home"></i> Home
+        </button>
+        <h1>Blood Group Check</h1>
+        <p>Check your blood group easily with our advanced testing methods.</p>
+        
+        <div class="content-wrapper">
+            <div class="steps-container">
+                <!-- Initial Prompt -->
+                <div class="step active" id="step1">
+                    <div class="prompt">
+                        <button onclick="showSteps()">Yes</button>
+                        <button onclick="showFunnyMessage()">No</button>
+                    </div>
+                </div>
+                
+                <!-- Steps Container (hidden initially) -->
+                <div id="stepsContent" style="display: none;">
+                    <!-- Step 1: Appointment -->
+                    <div class="step-item">
+                        <h2>Step 1: Book an Appointment</h2>
+                        <p>Schedule your blood test at our lab or a partner facility near you.</p>
+                    </div>
+                    
+                    <!-- Step 2: Lab Visit -->
+                    <div class="step-item">
+                        <h2>Step 2: Visit the Lab</h2>
+                        <p>Come to your selected location at the scheduled time. No fasting required.</p>
+                    </div>
+                    
+                    <!-- Step 3: Blood Sample -->
+                    <div class="step-item">
+                        <h2>Step 3: Give Blood Sample</h2>
+                        <p>A quick finger prick or small blood draw from your arm (takes 5-10 minutes).</p>
+                    </div>
+                    
+                    <!-- Step 4: Results -->
+                    <div class="step-item">
+                        <h2>Step 4: Get Your Results</h2>
+                        <p>Your blood sample will be processed and you'll receive your blood group results.</p>
+                        <div class="step-buttons">
+                            <button onclick="showSuccessMessage()">Proceed to Test</button>
+                            <button onclick="resetProcess()">Start Over</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <h2>Thank You for Choosing Our Organization!</h2>
+                    <p>We appreciate your trust in our services. Please get ready to meet our nurse who will assist you with the blood test procedure.</p>
+                    <button onclick="resetProcess()">Start Over</button>
+                </div>
+                
+                <!-- Funny Message -->
+                <div id="funnyMessage" class="funny-message" style="display: none;">
+                    <p>Die without knowing your blood group, you stupid! 😂</p>
+                    <button onclick="resetProcess()">Change My Mind</button>
+                </div>
+            </div>
+            
+            <!-- Blood Group Chart -->
+            <div class="chart-container">
+                <h2>Blood Group Compatibility Chart</h2>
+                <table class="blood-group-table">
+                    <thead>
+                        <tr>
+                            <th>Blood Group</th>
+                            <th>Can Donate To</th>
+                            <th>Can Receive From</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A+</td>
+                            <td>A+, AB+</td>
+                            <td>A+, A-, O+, O-</td>
+                        </tr>
+                        <tr>
+                            <td>A-</td>
+                            <td>A+, A-, AB+, AB-</td>
+                            <td>A-, O-</td>
+                        </tr>
+                        <tr>
+                            <td>B+</td>
+                            <td>B+, AB+</td>
+                            <td>B+, B-, O+, O-</td>
+                        </tr>
+                        <tr>
+                            <td>B-</td>
+                            <td>B+, B-, AB+, AB-</td>
+                            <td>B-, O-</td>
+                        </tr>
+                        <tr>
+                            <td>AB+</td>
+                            <td>AB+</td>
+                            <td>All Blood Groups</td>
+                        </tr>
+                        <tr>
+                            <td>AB-</td>
+                            <td>AB+, AB-</td>
+                            <td>AB-, A-, B-, O-</td>
+                        </tr>
+                        <tr>
+                            <td>O+</td>
+                            <td>O+, A+, B+, AB+</td>
+                            <td>O+, O-</td>
+                        </tr>
+                        <tr>
+                            <td>O-</td>
+                            <td>All Blood Groups</td>
+                            <td>O-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+   <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/blood-group.js"></script>
+</body>
+</html>

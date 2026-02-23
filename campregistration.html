@@ -1,0 +1,240 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Camp Registration</title>
+    <link rel="stylesheet" href="styles/cmpreg.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>
+            <span class="gradient-text">Camp Registration</span>
+            <span class="animated-underline"></span>
+        </h1>
+        
+        <form class="form-grid">
+            <div class="weather-widget">
+                <div class="weather-header">
+                    <h3>Current Weather</h3>
+                    <button type="button" id="check-weather" class="btn btn-home" style="padding: 5px 10px; font-size: 14px;">Check Weather</button>
+                </div>
+                <div id="weather-content" class="hidden">
+                    <div class="weather-info">
+                        <div class="weather-icon" id="weather-icon">🌤</div>
+                        <div class="temperature" id="temperature">24°C</div>
+                    </div>
+                    <div class="weather-details">
+                        <div id="weather-description">Partly Cloudy</div>
+                        <div id="weather-location">Loading location...</div>
+                    </div>
+                    <div class="weather-suggestion" id="weather-suggestion">
+                        Weather suggestion will appear here
+                    </div>
+                </div>
+                <div id="weather-loading" class="hidden">Loading weather data...</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="org-type">Organization Type <span>*</span></label>
+                <select id="org-type" required>
+                    <option value="">Select value</option>
+                    <option value="ngo">NGO</option>
+                    <option value="hospital">Hospital</option>
+                    <option value="school">School</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="org-name">Organization Name <span>*</span></label>
+                <input type="text" id="org-name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="organizer-name">Organizer Name <span>*</span></label>
+                <input type="text" id="organizer-name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="organizer-mobile">Organizer Mobile No <span>*</span></label>
+                <input type="tel" id="organizer-mobile" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="organizer-email">Organizer Email Id <span>*</span></label>
+                <input type="email" id="organizer-email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="co-organizer-name">Co-Organizer Name</label>
+                <input type="text" id="co-organizer-name">
+            </div>
+            
+            <div class="form-group">
+                <label for="co-organizer-mobile">Co-Organizer Mobile</label>
+                <input type="tel" id="co-organizer-mobile">
+            </div>
+            
+            <div class="form-group">
+                <label for="camp-name">Camp Name <span>*</span></label>
+                <input type="text" id="camp-name" required>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="form-group">
+                <label for="state">State <span>*</span></label>
+                <input type="text" id="state" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="district">District <span>*</span></label>
+                <select id="district" required>
+                    <option value="">Select District</option>
+                    <option value="Bagerhat">Bagerhat</option>
+                    <option value="Bandarban">Bandarban</option>
+                    <option value="Barguna">Barguna</option>
+                    <option value="Barisal">Barisal</option>
+                    <option value="Bhola">Bhola</option>
+                    <option value="Bogura">Bogura</option>
+                    <option value="Brahmanbaria">Brahmanbaria</option>
+                    <option value="Chandpur">Chandpur</option>
+                    <option value="Chattogram">Chattogram</option>
+                    <option value="Chuadanga">Chuadanga</option>
+                    <option value="Cox's Bazar">Cox's Bazar</option>
+                    <option value="Cumilla">Cumilla</option>
+                    <option value="Dhaka">Dhaka</option>
+                    <option value="Dinajpur">Dinajpur</option>
+                    <option value="Faridpur">Faridpur</option>
+                    <option value="Feni">Feni</option>
+                    <option value="Gaibandha">Gaibandha</option>
+                    <option value="Gazipur">Gazipur</option>
+                    <option value="Gopalganj">Gopalganj</option>
+                    <option value="Habiganj">Habiganj</option>
+                    <option value="Jamalpur">Jamalpur</option>
+                    <option value="Jashore">Jashore</option>
+                    <option value="Jhalokathi">Jhalokathi</option>
+                    <option value="Jhenaidah">Jhenaidah</option>
+                    <option value="Joypurhat">Joypurhat</option>
+                    <option value="Khagrachari">Khagrachari</option>
+                    <option value="Khulna">Khulna</option>
+                    <option value="Kishoreganj">Kishoreganj</option>
+                    <option value="Kurigram">Kurigram</option>
+                    <option value="Kushtia">Kushtia</option>
+                    <option value="Lakshmipur">Lakshmipur</option>
+                    <option value="Lalmonirhat">Lalmonirhat</option>
+                    <option value="Madaripur">Madaripur</option>
+                    <option value="Magura">Magura</option>
+                    <option value="Manikganj">Manikganj</option>
+                    <option value="Meherpur">Meherpur</option>
+                    <option value="Moulvibazar">Moulvibazar</option>
+                    <option value="Munshiganj">Munshiganj</option>
+                    <option value="Mymensingh">Mymensingh</option>
+                    <option value="Naogaon">Naogaon</option>
+                    <option value="Narail">Narail</option>
+                    <option value="Narayanganj">Narayanganj</option>
+                    <option value="Narsingdi">Narsingdi</option>
+                    <option value="Natore">Natore</option>
+                    <option value="Netrokona">Netrokona</option>
+                    <option value="Nilphamari">Nilphamari</option>
+                    <option value="Noakhali">Noakhali</option>
+                    <option value="Pabna">Pabna</option>
+                    <option value="Panchagarh">Panchagarh</option>
+                    <option value="Patuakhali">Patuakhali</option>
+                    <option value="Pirojpur">Pirojpur</option>
+                    <option value="Rajbari">Rajbari</option>
+                    <option value="Rajshahi">Rajshahi</option>
+                    <option value="Rangamati">Rangamati</option>
+                    <option value="Rangpur">Rangpur</option>
+                    <option value="Satkhira">Satkhira</option>
+                    <option value="Shariatpur">Shariatpur</option>
+                    <option value="Sherpur">Sherpur</option>
+                    <option value="Sirajganj">Sirajganj</option>
+                    <option value="Sunamganj">Sunamganj</option>
+                    <option value="Sylhet">Sylhet</option>
+                    <option value="Tangail">Tangail</option>
+                    <option value="Thakurgaon">Thakurgaon</option>                    
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="city">City Name <span>*</span></label>
+                <input type="text" id="city" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="camp-address">Camp Address <span>*</span></label>
+                <input type="text" id="camp-address" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="camp-date">Camp Propose Date <span>*</span></label>
+                <input type="date" id="camp-date" value="2024-09-17" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="start-end-time">Start/End Time (24HH:MM) <span>*</span></label>
+                <div class="time-inputs">
+                    <input type="time" id="start-time" value="09:00" required>
+                    <span>to</span>
+                    <input type="time" id="end-time" value="17:00" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="bloodbank">BloodBank <span>*</span></label>
+                <select id="bloodbank" required>
+                    <option value="">Select Blood Bank</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="participants">Estimated Participants <span>*</span></label>
+                <input type="number" id="participants" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="latitude">Latitude <span>*</span></label>
+                <input type="text" id="latitude" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="longitude">Longitude <span>*</span></label>
+                <input type="text" id="longitude" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="reference">Reference/Camp Supporter</label>
+                <input type="text" id="reference">
+            </div>
+            
+            <div class="form-group">
+                <label for="remarks">Remarks</label>
+                <textarea id="remarks" rows="3"></textarea>
+            </div>
+            
+            <div class="btn-group">
+                <button type="submit" class="btn btn-submit">Submit</button>
+                <button type="reset" class="btn btn-cancel">Cancel</button>
+                <button type="button" id="go-home" class="btn btn-home">Go Back Home</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="scripts/camp.js"></script>
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("go-home").addEventListener("click", function() {
+            window.location.href = "index.html";
+        });
+    });
+</script>
+
+</script>
+</body>
+</html>

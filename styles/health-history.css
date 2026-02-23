@@ -1,0 +1,147 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e79093, #fad0c4);
+            animation: bgAnimation 10s infinite alternate;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 180vh;
+            position: relative;
+        }
+        @keyframes bgAnimation {
+            0% { background: linear-gradient(135deg, #db3238, #f6a1bc); }
+            100% { background: linear-gradient(135deg, #c14343, #f8acac); }
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #232020;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #a40c07;
+            transform: scale(1.1);
+        }
+        .container {
+            display: flex;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 90%;
+            align-items: center;
+            animation: fadeIn 1s ease-in-out;
+            flex-direction: column;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 100px;
+            height: auto;
+        }
+        h2 {
+            color: #d9534f;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #1b1919;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #920b06;
+            transform: scale(1.05);
+        }
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .summary {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .summary h3 {
+            color: #d9534f;
+            text-align: center;
+        }
+        .summary p {
+            margin: 10px 0;
+        }
+        .print-button {
+            background-color: #1b1919;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 20px;
+        }
+        .print-button:hover {
+            background-color: #920b06;
+            transform: scale(1.05);
+        }
+        .eligibility {
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .eligibility.eligible {
+            color: green;
+        }
+        .eligibility.not-eligible {
+            color: red;
+        }
+        /* Existing CSS remains the same */
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .question-number {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+ 

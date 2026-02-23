@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | A & W Blood Management</title>
+     <link rel="stylesheet" href="/static/css/faq.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+</head>
+<body>
+    <header class="faq-header">
+        <div class="container header-container">
+            <a href="{% url 'head' %}" class="faq-logo">
+                <i class="fas fa-droplet"></i> A & W
+            </a>
+            <nav class="faq-nav">
+                <a href="{% url 'head' %}">Home</a>
+                <a href="{% url 'faq' %}" class="active">FAQs</a>
+                <a href="{% url 'partners' %}">Partners</a>
+                <a href="{% url 'contact' %}">Contact</a>
+            </nav>
+            <button class="faq-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="faq-hero">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about blood donation and blood health</p>
+        </div>
+    </section>
+
+    <section class="faq-main">
+        <div class="container">
+            <div class="faq-search">
+                <input type="text" id="searchInput" placeholder="Search FAQs...">
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="faq-categories">
+                <button class="active" data-category="all">All Questions</button>
+                <button data-category="eligibility">Eligibility</button>
+                <button data-category="preparation">Preparation</button>
+                <button data-category="checkups">Regular Checkups</button>
+                <button data-category="nutrition">Blood Nutrition</button>
+                <button data-category="general">General</button>
+            </div>
+
+            <div class="faq-accordion">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item" data-categories="eligibility">
+                    <div class="faq-question">
+                        <h3>Who can donate blood?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most healthy adults between 18-65 years old who weigh at least 50kg can donate blood. There are some medical conditions and recent travel or procedures that may temporarily defer you from donating. All potential donors complete a health screening questionnaire before each donation.</p>
+                        <p>Specific requirements include:</p>
+                        <ul>
+                            <li>At least 18 years old (16-17 with parental consent in some areas)</li>
+                            <li>Minimum weight of 50kg (110 lbs)</li>
+                            <li>Good general health at the time of donation</li>
+                            <li>No symptoms of cold, flu, or other illnesses</li>
+                            <li>Not pregnant or recently pregnant</li>
+                            <li>Meet hemoglobin level requirements</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item" data-categories="eligibility">
+                    <div class="faq-question">
+                        <h3>How often can I donate blood?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Donation frequency depends on the type of donation:</p>
+                        <ul>
+                            <li><strong>Whole blood:</strong> Every 56 days (8 weeks)</li>
+                            <li><strong>Platelets:</strong> Up to 24 times per year (every 7 days, with maximum of 2 donations in a 7-day period)</li>
+                            <li><strong>Plasma:</strong> Every 28 days</li>
+                            <li><strong>Double red cells:</strong> Every 112 days (16 weeks)</li>
+                        </ul>
+                        <p>Our system tracks your donations and will let you know when you're eligible to donate again. Frequent donors should monitor their iron levels and maintain a nutritious diet.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item" data-categories="general">
+                    <div class="faq-question">
+                        <h3>Is it really necessary to check blood group before marriage?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, checking blood groups before marriage is highly recommended for several important reasons:</p>
+                        <ul>
+                            <li><strong>Rh Compatibility:</strong> If an Rh-negative woman marries an Rh-positive man, there can be complications during pregnancy (Rh incompatibility)</li>
+                            <li><strong>Genetic Conditions:</strong> Helps identify potential risks for blood-related genetic disorders in offspring</li>
+                            <li><strong>Emergency Preparedness:</strong> Knowing each other's blood types can be crucial in medical emergencies</li>
+                            <li><strong>Family Planning:</strong> Allows couples to make informed decisions about having children</li>
+                        </ul>
+                        <p>While not legally required, it's a simple test that can prevent serious health issues for future children.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item" data-categories="general">
+                    <div class="faq-question">
+                        <h3>Why is blood type important during pregnancy?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Blood type plays a crucial role in pregnancy for these reasons:</p>
+                        <ul>
+                            <li><strong>Rh Factor:</strong> Rh-negative mothers carrying Rh-positive babies may develop antibodies that attack the baby's red blood cells (hemolytic disease)</li>
+                            <li><strong>Antibody Screening:</strong> Regular tests monitor for antibodies that could harm the fetus</li>
+                            <li><strong>RhoGAM Shots:</strong> Rh-negative mothers receive injections to prevent antibody formation</li>
+                            <li><strong>Blood Transfusions:</strong> In rare cases, the baby may need blood transfusions before birth</li>
+                            <li><strong>Future Pregnancies:</strong> First pregnancy is usually unaffected, but subsequent pregnancies with Rh-positive babies are at risk</li>
+                        </ul>
+                        <p>All pregnant women should have their blood type tested early in pregnancy to prevent complications.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item" data-categories="general">
+                    <div class="faq-question">
+                        <h3>Can blood type affect personality or compatibility?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While some cultures believe blood types influence personality, scientifically:</p>
+                        <ul>
+                            <li><strong>No Scientific Evidence:</strong> There's no proven biological link between blood type and personality traits</li>
+                            <li><strong>Cultural Beliefs:</strong> In some Asian countries, blood type is thought to affect temperament (similar to zodiac signs in Western cultures)</li>
+                            <li><strong>Medical Compatibility:</strong> Only matters for blood transfusions and organ transplants, not relationships</li>
+                            <li><strong>Psychological Effect:</strong> People may exhibit traits they believe match their blood type (placebo effect)</li>
+                        </ul>
+                        <p>While blood type personality theory can be fun, it shouldn't be taken seriously for making important life decisions.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item" data-categories="general">
+                    <div class="faq-question">
+                        <h3>Why do some people have rare blood types?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Rare blood types occur due to:</p>
+                        <ul>
+                            <li><strong>Genetic Mutations:</strong> Random changes in genes that determine blood type</li>
+                            <li><strong>Inheritance Patterns:</strong> Combination of uncommon alleles from both parents</li>
+                            <li><strong>Geographic Isolation:</strong> Certain populations developed unique blood types over generations</li>
+                            <li><strong>Ethnic Variations:</strong> Some blood types are more common in specific ethnic groups</li>
+                            <li><strong>New Antigens:</strong> Discovery of additional blood group systems beyond ABO and Rh</li>
+                        </ul>
+                        <p>The rarest blood type is Rh-null ("golden blood"), with fewer than 50 known cases worldwide. People with rare blood types are encouraged to donate regularly as their blood may be lifesaving for others with the same rare type.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="faq-item" data-categories="nutrition">
+                    <div class="faq-question">
+                        <h3>What foods help increase hemoglobin levels?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>These iron-rich foods can help boost hemoglobin:</p>
+                        <ul>
+                            <li><strong>Red meat:</strong> Beef, lamb, and organ meats (highest in heme iron)</li>
+                            <li><strong>Seafood:</strong> Oysters, clams, sardines, and tuna</li>
+                            <li><strong>Leafy greens:</strong> Spinach, kale, and Swiss chard</li>
+                            <li><strong>Legumes:</strong> Lentils, chickpeas, and kidney beans</li>
+                            <li><strong>Fortified foods:</strong> Cereals, breads, and grains with added iron</li>
+                            <li><strong>Nuts and seeds:</strong> Pumpkin seeds, cashews, and pistachios</li>
+                            <li><strong>Dried fruits:</strong> Raisins, apricots, and prunes</li>
+                        </ul>
+                        <p>Pair these with vitamin C-rich foods (citrus fruits, bell peppers) to enhance iron absorption, and avoid tea/coffee with meals as they can inhibit absorption.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div class="faq-item" data-categories="general">
+                    <div class="faq-question">
+                        <h3>Can blood type affect diet or nutrition needs?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The blood type diet theory is controversial:</p>
+                        <ul>
+                            <li><strong>No Scientific Support:</strong> Major health organizations don't endorse blood type diets</li>
+                            <li><strong>Individual Variation:</strong> Nutritional needs depend more on health status, age, and activity level</li>
+                            <li><strong>Possible Benefits:</strong> Some people feel better because these diets emphasize whole foods</li>
+                            <li><strong>Potential Risks:</strong> Restrictive diets may lead to nutritional deficiencies</li>
+                            <li><strong>Medical Conditions:</strong> Certain blood types may have higher risks for specific diseases (e.g., type A and heart disease)</li>
+                        </ul>
+                        <p>While interesting, there's no strong evidence that you should eat differently based on your ABO blood type. Focus on a balanced diet tailored to your individual health needs.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 9 - New Checkup FAQ -->
+                <div class="faq-item" data-categories="checkups">
+                    <div class="faq-question">
+                        <h3>Why are regular health checkups important?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Regular health checkups can prevent serious health issues by detecting problems early. Many people ignore symptoms like fever or headaches and rely on painkillers, which can mask underlying conditions.</p>
+                        <p>Benefits of regular checkups:</p>
+                        <ul>
+                            <li><strong>Early detection</strong> of diseases before symptoms appear</li>
+                            <li><strong>Prevent complications</strong> from existing conditions</li>
+                            <li><strong>Reduce healthcare costs</strong> by avoiding expensive treatments later</li>
+                            <li><strong>Monitor vital metrics</strong> like blood pressure, cholesterol, and blood sugar</li>
+                            <li><strong>Peace of mind</strong> knowing your health status</li>
+                        </ul>
+                        <p>Adults should have a complete checkup at least once a year, even if they feel healthy.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 10 - New Preparation FAQ -->
+                <div class="faq-item" data-categories="preparation">
+                    <div class="faq-question">
+                        <h3>How to prepare your body for healthy blood donation?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Maintaining a healthy lifestyle ensures you're always ready to donate blood and keeps you away from hospitals. Follow this preparation chart:</p>
+                        
+                        <div class="preparation-chart">
+                            <div class="preparation-item">
+                                <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Hydration">
+                                <div>
+                                    <h4>Hydration</h4>
+                                    <p>Drink at least 8 glasses of water daily to maintain healthy blood volume</p>
+                                </div>
+                            </div>
+                            <div class="preparation-item">
+                                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Healthy Diet">
+                                <div>
+                                    <h4>Healthy Diet</h4>
+                                    <p>Eat iron-rich foods and avoid junk food that can weaken your immunity</p>
+                                </div>
+                            </div>
+                            <div class="preparation-item">
+                                <img src="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Hygiene">
+                                <div>
+                                    <h4>Hygiene</h4>
+                                    <p>Take regular showers and keep your living space clean to prevent infections</p>
+                                </div>
+                            </div>
+                            <div class="preparation-item">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Exercise">
+                                <div>
+                                    <h4>Exercise</h4>
+                                    <p>30 minutes of daily activity improves circulation and overall health</p>
+                                </div>
+                            </div>
+                            <div class="preparation-item">
+                                <img src="https://images.unsplash.com/photo-1511467687858-23d96c32e4da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sleep">
+                                <div>
+                                    <h4>Proper Sleep</h4>
+                                    <p>7-8 hours nightly helps your body regenerate blood cells</p>
+                                </div>
+                            </div>
+                            <div class="preparation-item">
+                                <img src="https://images.unsplash.com/photo-1581595219315-a187dd40c322?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Checkups">
+                                <div>
+                                    <h4>Regular Checkups</h4>
+                                    <p>Monitor your health instead of self-medicating with painkillers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nutrition Section -->
+            <div class="nutrition-section">
+                <h2>Blood-Boosting Nutrition for All Ages</h2>
+                <p style="text-align: center; margin-bottom: 2rem;">These foods help increase hemoglobin and red blood cell production for healthy blood levels</p>
+                
+                <div class="age-groups">
+                    <!-- Children (5-12) -->
+                    <div class="age-group">
+                        <div class="age-group-header">
+                            <h3>Children (5-12 years)</h3>
+                        </div>
+                        <div class="age-group-content">
+                            <div class="food-item">
+                                <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Lean meats">
+                                <div class="food-item-info">
+                                    <h4>Lean Meats</h4>
+                                    <p>Chicken, turkey, and beef provide heme iron that's easily absorbed</p>
+                                </div>
+                            </div>
+                            <div class="food-item">
+                                <img src="https://media.istockphoto.com/id/503079354/photo/muesli.webp?a=1&b=1&s=612x612&w=0&k=20&c=HtXJkibGVD6Ss2F6x_97XIZs_rMz2ugd23iGXORH5PQ=" alt="Fortified cereals">
+                                <div class="food-item-info">
+                                    <h4>Fortified Cereals</h4>
+                                    <p>Iron-fortified breakfast cereals with vitamin C-rich fruits</p>
+                                </div>
+                            </div>
+                            <div class="food-item">
+                                <img src="https://media.istockphoto.com/id/163729647/photo/an-up-close-picture-of-organic-legumes.webp?a=1&b=1&s=612x612&w=0&k=20&c=hQ7nUjWMFo7UIUM1XvWu9f1m-niv-bIcvil5qE01XEQ=" alt="Beans and lentils">
+                                <div class="food-item-info">
+                                    <h4>Beans & Lentils</h4>
+                                    <p>Kidney beans, chickpeas with vitamin C foods for better absorption</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Teens (13-19) -->
+                    <div class="age-group">
+                        <div class="age-group-header">
+                            <h3>Teenagers (13-19 years)</h3>
+                        </div>
+                        <div class="age-group-content">
+                            <div class="food-item">
+                                <img src="https://media.istockphoto.com/id/1221511160/photo/tropical-leaves-foliage-plant-bush-floral-arrangement-nature-backdrop-isolated-on-white.webp?a=1&b=1&s=612x612&w=0&k=20&c=4kTb9gKSsIIYFSrU_Pvue_7k6IBkqx4CJWs_fryKca8=" alt="Leafy greens">
+                                <div class="food-item-info">
+                                    <h4>Leafy Greens</h4>
+                                    <p>Spinach, kale, and broccoli rich in iron and folate</p>
+                                </div>
+                            </div>
+                            <div class="food-item">
+                                <img src="https://media.istockphoto.com/id/658447720/photo/assortment-of-nuts-on-rustic-wood-table.webp?a=1&b=1&s=612x612&w=0&k=20&c=aaCsl6azTgQkUg1shy-ma0CUADTTFyL0MDz-YlzESg4=" alt="Nuts and seeds">
+                                <div class="food-item-info">
+                                    <h4>Nuts & Seeds</h4>
+                                    <p>Pumpkin seeds, cashews, and almonds for iron and protein</p>
+                                </div>
+                            </div>
+                            <div class="food-item">
+                                <img src="https://media.istockphoto.com/id/523458571/photo/organic-healthy-assorted-dried-fruit.webp?a=1&b=1&s=612x612&w=0&k=20&c=vk0OjvnZ9_uG5RsS6cuX8J6P_0GmFks8RV0jOdw2NHg=" alt="Dried fruits">
+                                <div class="food-item-info">
+                                    <h4>Dried Fruits</h4>
+                                    <p>Apricots, raisins, and prunes packed with iron</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Adults (20-60) -->
+                    <div class="age-group">
+                        <div class="age-group-header">
+                            <h3>Adults (20-60 years)</h3>
+                        </div>
+                        <div class="age-group-content">
+                            <div class="food-item">
+                                <img src="https://media.istockphoto.com/id/1315903639/photo/raw-meats-on-butchers-shop-stock-image.webp?a=1&b=1&s=612x612&w=0&k=20&c=yHo9phxLl3X0jWCIDIgjgUFu1v4yqz_7KAo-lOfn7g4=" alt="Red meat">
+                                <div class="food-item-info">
+                                    <h4>Red Meat</h4>
+                                    <p>Beef and lamb provide highly bioavailable heme iron</p>
+                                </div>
+                            </div>
+                            <div class="food-item">
+                                <img src="https://images.unsplash.com/photo-1606850780554-b55ea4dd0b70?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fFNlYWZvb2R8ZW58MHx8MHx8fDA%3D" alt="Seafood">
+                                <div class="food-item-info">
+                                    <h4>Seafood</h4>
+                                    <p>Oysters, clams, and fish rich in iron and B12</p>
+                                </div>
+                            </div>
+                            <div class="food-item">
+                                <img src="https://media.istockphoto.com/id/1732066405/photo/granola-muesli-healthy-breakfast.webp?a=1&b=1&s=612x612&w=0&k=20&c=HAt7g_vJzeKU8FsXmqXYhhyYG5HbU4f5bG1yeBz_7WY=" alt="Fortified grains">
+                                <div class="food-item-info">
+                                    <h4>Fortified Grains</h4>
+                                    <p>Whole grains fortified with iron and folic acid</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Seniors (60+) -->
+                    <div class="age-group">
+                        <div class="age-group-header">
+                            <h3>Seniors (60+ years)</h3>
+                        </div>
+                        <div class="age-group-content">
+                            <div class="food-item">
+                                <img src="https://media.istockphoto.com/id/2150136750/photo/well-balanced-vegetarian-food-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=lIhXcr4L1WXjKsHEGV47iZSeMsutA6tqg9mP7l7aQjc=" alt="Legumes">
+                                <div class="food-item-info">
+                                    <h4>Legumes</h4>
+                                    <p>Lentils, chickpeas, and soybeans for plant-based iron</p>
+                                </div>
+                            </div>
+                            <div class="food-item">
+                                <img src="https://media.istockphoto.com/id/2161101117/photo/photo-of-fried-eggs-arranged-on-a-plate-for-a-homemade-holiday-meal.webp?a=1&b=1&s=612x612&w=0&k=20&c=TIe0YDE2_ByUegqPHqNP4ziKrKDuLPFAB6DmMbZH3yE=" alt="Eggs">
+                                <div class="food-item-info">
+                                    <h4>Eggs</h4>
+                                    <p>Especially egg yolks containing iron and B vitamins</p>
+                                </div>
+                            </div>
+                            <div class="food-item">
+                                <img src="https://media.istockphoto.com/id/993119894/photo/food-containing-vitamin-c-healthy-eating.webp?a=1&b=1&s=612x612&w=0&k=20&c=p0U_dGc-hFXXcRW4QggD5ySyPkivUBxlkPlyCI0byM4=" alt="Vitamin C Foods">
+                                <div class="food-item-info">
+                                    <h4>Vitamin C Foods</h4>
+                                    <p>Citrus fruits, tomatoes to enhance iron absorption</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; background-color: white; padding: 1.5rem; border-radius: 8px;">
+                    <h4 style="color: var(--primary-dark); margin-bottom: 1rem;">General Tips for All Ages:</h4>
+                    <ul>
+                        <li>Combine iron-rich foods with vitamin C sources (like oranges or bell peppers) to enhance absorption</li>
+                        <li>Avoid drinking tea or coffee with meals as they can inhibit iron absorption</li>
+                        <li>Cook in cast iron pans to increase iron content in food</li>
+                        <li>Get regular blood tests to monitor iron levels if donating frequently</li>
+                        <li>Consider iron supplements only if recommended by your doctor</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-cta">
+        <div class="container">
+            <h2>Still have questions?</h2>
+            <p>Contact our donor support team for personalized assistance</p>
+            <a href="{% url 'contact' %}" class="faq-cta-button">Contact Us</a>
+        </div>
+    </section>
+
+    <footer class="faq-footer">
+        <div class="container">
+            <div class="faq-footer-grid">
+                <div class="faq-footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="{% url 'head' %}">Home</a>
+                    <a href="{% url 'aboutus' %}">About Us</a>
+                    <a href="{% url 'addblood' %}">Donate Now</a>
+                </div>
+                <div class="faq-footer-col">
+                    <h4>Resources</h4>
+                    <a href="{% url 'faq' %}">FAQs</a>
+                    <a href="{% url 'bloodgroup' %}">Blood Group Info</a>
+                    <a href="{% url 'prepareandaftercare' %}">Donation Tips</a>
+                </div>
+                <div class="faq-footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +880 1234 567890</p>
+                    <p><i class="fas fa-envelope"></i> info@awblood.org</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 4318, Sonaichhari, Kumira, Bangladesh</p>
+                </div>
+                <div class="faq-footer-col">
+                    <h4>Follow Us</h4>
+                    <a href="https://www.facebook.com/warisa.ahmed.10"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="https://x.com/AhmedWarisa"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="https://www.instagram.com/warisa_ahmed_/"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://www.youtube.com/@warisaahmed"><i class="fab fa-youtube"></i> YouTube</a>
+                </div>
+            </div>
+            <div class="faq-footer-bottom">
+                <p>&copy; 2025 A & W Blood Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+   
+<script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/faq.js"></script>
+
+</body>
+</html>

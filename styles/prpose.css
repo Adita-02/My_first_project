@@ -1,0 +1,110 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #a9323e;
+    color: #932b2b;
+    transition: background-color 0.5s ease-in-out;
+}
+
+/* Header */
+.header {
+    background: url(/static/image2.jpg) no-repeat center center/cover;
+    color: rgb(181, 20, 20);
+    text-align: center;
+    padding: 50px 20px;
+    font-weight: bold;
+    transition: all 0.5s ease-in-out;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header__title {
+    font-size: 4em;
+    margin-bottom: 10px;
+    
+}
+
+.header__subtitle {
+    font-size: 1.5em;
+    font-weight: lighter;
+    font-weight: 500;
+}
+
+/* Section Styles */
+.section {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 1s ease-in-out forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section__title {
+    color: #d9534f;
+    border-bottom: 2px solid #d9534f;
+    padding-bottom: 5px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.footer__link {
+    text-decoration: none;
+    color: white;
+    background-color: #d9534f;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.footer__link:hover {
+    background-color: #c9302c;
+    transform: scale(1.05);
+}
+.header__title {
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Move slightly when hovered */
+.header__title:hover, .header__subtitle:hover {
+    transform: translateY(-5px);
+    color: #ad061d; /* Optional: Change color on hover */
+}
+
+/* Click effect: Shrink and restore */
+.header__title:active, .header__subtitle:active {
+    transform: scale(0.9);
+}
+
+

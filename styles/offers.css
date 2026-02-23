@@ -1,0 +1,430 @@
+
+    
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    :root {
+        --primary: #c97288;
+        --secondary: #08d9d6;
+        --accent: #ff9a3c;
+        --dark: #252a34;
+        --light: #eaeaea;
+        --success: #5cb85c;
+        --purple: #9c4dff;
+        --warning: #f0ad4e;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+        color: var(--light);
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+    }
+    
+    .container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        position: relative;
+    }
+    
+    .offers-section {
+        text-align: center;
+        padding: 60px 30px;
+        background: rgba(37, 42, 52, 0.85);
+        border-radius: 20px;
+        margin: 40px auto;
+        max-width: 1300px;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transform-style: preserve-3d;
+        perspective: 1000px;
+    }
+    
+    .section-title {
+        font-size: 2.8rem;
+        color: var(--light);
+        text-shadow: 0 5px 15px rgba(255, 46, 99, 0.5);
+        margin-bottom: 15px;
+        font-weight: 700;
+        display: inline-block;
+    }
+    
+    .section-subtitle {
+        font-size: 1.4rem;
+        color: var(--light);
+        margin-bottom: 40px;
+        font-weight: 300;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+    
+    .offers-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 40px;
+    }
+    
+    .offer-card {
+        background: linear-gradient(145deg, rgba(241, 200, 219, 0.95), rgba(241, 200, 219, 0.95));
+        padding: 30px 25px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 320px;
+        opacity: 0;
+        transform: translateY(30px);
+        position: relative;
+        color: var(--dark);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        overflow: hidden;
+        z-index: 1;
+    }
+    
+    .offer-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--primary);
+        transition: all 0.3s ease;
+    }
+    
+    .new-donor::before { background: var(--success); }
+    .old-donor::before { background: var(--purple); }
+    .special-reward::before { background: var(--warning); }
+    
+    .offer-card::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        transition: all 0.4s ease;
+        z-index: -1;
+        opacity: 0;
+    }
+    
+    .offer-card:hover::after {
+        height: 100%;
+        opacity: 1;
+    }
+    
+    .offer-card:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+    
+    .offer-card:hover::before {
+        height: 8px;
+    }
+    
+    .offer-card:hover .icon {
+        transform: scale(1.1) translateY(-5px);
+        color: white;
+    }
+    
+    .offer-card:hover h3, 
+    .offer-card:hover p {
+        color: white;
+    }
+    
+    .offer-card:hover .claim-btn {
+        background: white;
+        color: var(--primary);
+    }
+    
+    .icon {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        display: inline-block;
+        transition: all 0.4s ease;
+    }
+    
+    .blood-drop { color: var(--primary); }
+    .id-card { color: var(--purple); }
+    .heartbeat { color: var(--warning); }
+    
+    .offer-card h3 {
+        font-size: 1.8rem;
+        color: var(--dark);
+        margin-bottom: 15px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .offer-card p {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 20px;
+        line-height: 1.6;
+        transition: all 0.3s ease;
+    }
+    
+    .claim-btn {
+        background: var(--primary);
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        margin-top: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        box-shadow: 0 5px 15px rgba(255, 46, 99, 0.4);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .claim-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: 0.5s;
+    }
+    
+    .claim-btn:hover::before {
+        left: 100%;
+    }
+    
+    .claim-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(255, 46, 99, 0.6);
+    }
+    
+    .blood-types span {
+        position: absolute;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: rgba(255, 46, 99, 0.6);
+        animation: floatUp 8s infinite alternate ease-in-out;
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+    }
+    
+    @keyframes floatUp {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+        50% { opacity: 0.5; }
+        100% { transform: translateY(-50px) rotate(10deg); opacity: 0.2; }
+    }
+    
+    .blood-types span:nth-child(1) { top: 5%; left: 10%; animation-delay: 0s; }
+    .blood-types span:nth-child(2) { top: 15%; right: 5%; animation-delay: 1s; }
+    .blood-types span:nth-child(3) { bottom: 5%; left: 20%; animation-delay: 2s; }
+    .blood-types span:nth-child(4) { bottom: 15%; right: 25%; animation-delay: 3s; }
+    .blood-types span:nth-child(5) { top: 40%; left: 35%; animation-delay: 4s; }
+    .blood-types span:nth-child(6) { bottom: 40%; right: 15%; animation-delay: 5s; }
+    .blood-types span:nth-child(7) { top: 60%; left: 45%; animation-delay: 6s; }
+    .blood-types span:nth-child(8) { bottom: 60%; right: 5%; animation-delay: 7s; }
+    
+    .go-back-btn {
+        display: inline-block;
+        padding: 12px 25px;
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        background: var(--primary);
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: fixed;
+        top: 20px; 
+        left: 30px;
+        box-shadow: 0 4px 15px rgba(255, 46, 99, 0.4);
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 1000;
+    }
+    
+    .go-back-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: 0.5s;
+    }
+    
+    .go-back-btn:hover::before {
+        left: 100%;
+    }
+    
+    .go-back-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(255, 46, 99, 0.6);
+    }
+    
+    @media (max-width: 768px) {
+        .section-title { 
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+        }
+        
+        .offers-section {
+            padding: 40px 15px;
+            margin-top: 70px;
+        }
+        
+        .offer-card {
+            width: 100%;
+            max-width: 350px;
+        }
+        
+        .go-back-btn {
+            top: 15px;
+            left: 15px;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+    }
+    
+    .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    
+    .particle {
+        position: absolute;
+        background: rgba(255, 46, 99, 0.6);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    
+    .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background-color: var(--primary);
+        opacity: 0;
+        z-index: 9999;
+        animation: confettiFall 5s linear forwards;
+    }
+    
+    @keyframes confettiFall {
+        0% {
+            transform: translateY(-100px) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .animate-card {
+        animation: fadeInUp 0.8s forwards;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    .pulse {
+        animation: pulse 2s infinite;
+    }
+
+    .id-verification {
+        transition: all 0.3s ease;
+        transform-origin: top;
+    }
+
+    .id-verification input:focus {
+        outline: none;
+        border-color: var(--purple);
+        box-shadow: 0 0 5px rgba(156, 77, 255, 0.5);
+    }
+
+    .verify-btn:hover {
+        background: #7b2dff !important;
+        transform: translateY(-2px);
+    }
+
+    .cancel-btn:hover {
+        background: #aaa !important;
+        transform: translateY(-2px);
+    }
+
+    .error-msg {
+        animation: shake 0.5s ease-in-out;
+    }
+
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        20%, 60% { transform: translateX(-5px); }
+        40%, 80% { transform: translateX(5px); }
+    }
+
+    #donorIdInput.invalid {
+        border-color: #ff2e63;
+        animation: pulseWarning 0.5s;
+    }
+
+    @keyframes pulseWarning {
+        0%, 100% { box-shadow: 0 0 0 rgba(255, 46, 99, 0); }
+        50% { box-shadow: 0 0 10px rgba(255, 46, 99, 0.5); }
+    }
+    
+    /* Reset button for testing */
+    .reset-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        background: #ff2e63;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+    

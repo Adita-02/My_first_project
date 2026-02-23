@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blood Storage</title>
+    <link rel="stylesheet" href="/static/css/bloodstorage.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Remixicon CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+   
+  </head>
+  <body>
+    <div class="floating-blood-groups">
+      <span>A+</span>
+      <span>B-</span>
+      <span>O+</span>
+      <span>AB+</span>
+      <span>A-</span>
+      <span>B+</span>
+      <span>O-</span>
+      <span>AB-</span>
+    </div>
+    <div class="navigation">
+      <ul>
+        <li class="list active">
+          <a href="{% url 'dashboard' %}">
+            <span class="icon" aria-label="Home">
+              <i class="ri-home-4-line"></i>
+            </span>
+            <span class="text">Home</span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="{% url 'aboutus' %}">
+            <span class="icon" aria-label="Profile">
+              <i class="ri-user-3-line"></i>
+            </span>
+            <span class="text">Profile</span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="#">
+            <span class="icon" aria-label="Messages">
+              <i class="ri-message-3-line"></i>
+            </span>
+            <span class="text">Messages</span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="#">
+            <span class="icon" aria-label="Photos">
+              <i class="ri-camera-2-line"></i>
+            </span>
+            <span class="text">Photos</span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="{% url 'setting' %}">
+            <span class="icon" aria-label="Settings">
+              <i class="ri-settings-3-line"></i>
+            </span>
+            <span class="text">Settings</span>
+          </a>
+        </li>
+      </ul>
+      <div class="indicator"></div>
+    </div>
+    <div class="container">
+      <h1>BLOOD STORAGE</h1>
+      <div class="blood-storage">
+        <table>
+          <thead>
+            <tr>
+              <th>Blood Group</th>
+              <th>Available Units</th>
+              <th>Storage Condition</th>
+              <th>Last Updated</th>
+            </tr>
+          </thead>
+          <tbody id="bloodStorageBody">
+          </tbody>
+        </table>
+      </div>
+      <div class="emergency-contacts">
+        <h2>Emergency Blood Bank Contacts</h2>
+        <ul>
+          <li><i class="ri-phone-line"></i> A & W Emergency Blood Bank: +880-1149-3246</li>
+          <li><i class="ri-phone-line"></i> Central Blood Bank: +880-1800-2284</li>
+          <li><i class="ri-phone-line"></i> Red Cross: +880-1987-6547</li>
+          <li><i class="ri-phone-line"></i> Local Hospital: +880-1555-1234</li>
+        </ul>
+      </div>
+    </div>
+   
+  <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/bloodstorage.js"></script>
+
+  </body>
+</html>

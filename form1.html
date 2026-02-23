@@ -1,0 +1,110 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Login & Registration Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/static/css/form.css">
+</head>
+<body>
+  <div id="login-form-container">
+    <button id="close-form"><i class="fas fa-times"></i></button>
+    <div class="wrapper">
+      <span class="bg-anim" aria-hidden="true"></span>
+      <span class="bg-anim2" aria-hidden="true"></span>
+      <div class="formbox login">
+        <h2 class="animation" style="--i: 0; --j: 21">Login</h2>
+        <form action="#" method="post">
+          <div class="inputbox animation" style="--i: 1; --j: 22">
+            <input type="text" id="login-username" required />
+            <label for="login-username">Username</label>
+            <i class="bx bx-user" aria-hidden="true"></i>
+          </div>
+          <div class="inputbox animation" style="--i: 2; --j: 23">
+            <input type="password" id="login-password" required />
+            <label for="login-password">Password</label>
+            <i class="bx bx-lock-alt" aria-hidden="true"></i>
+          </div>
+          <div class="remember-forgot animation" style="--i: 3; --j: 24">
+            <label>
+              <input type="checkbox" id="remember-me" /> Remember Me
+            </label>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn animation" style="--i: 4; --j: 25">Login</button>
+          <div class="log-reglink animation" style="--i: 5; --j: 26">
+            <p>Don't have an account? <a href="#" class="register-link">Sign Up</a></p>
+          </div>
+        </form>
+      </div>
+      <div class="formbox register">
+        <h2 class="animation" style="--i: 17; --j: 0">Sign Up</h2>
+        <form action="#" method="post">
+          <div class="inputbox animation" style="--i: 18; --j: 1">
+            <input type="text" id="register-username" required />
+            <label for="register-username">Username</label>
+            <i class="bx bx-user" aria-hidden="true"></i>
+          </div>
+          <div class="inputbox animation" style="--i: 19; --j: 2">
+            <input type="email" id="register-email" required />
+            <label for="register-email">Email</label>
+            <i class="bx bx-envelope" aria-hidden="true"></i>
+          </div>
+          <div class="inputbox animation" style="--i: 20; --j: 3">
+            <input type="password" id="register-password" required />
+            <label for="register-password">Password</label>
+            <i class="bx bx-lock-alt" aria-hidden="true"></i>
+          </div>
+          <button type="submit" class="btn animation" style="--i: 21; --j: 4">Sign Up</button>
+          <div class="log-reglink animation" style="--i: 22; --j: 5">
+            <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+          </div>
+        </form>
+      </div>
+      <div class="info-text login">
+        <h2 class="animation" style="--i: 0; --j: 20">Welcome Back!</h2>
+        <p class="animation" style="--i: 1; --j: 21">We're thrilled to have you here again. Sign in to unlock your personalized experience.</p>
+      </div>
+
+      <div class="info-text register">
+        <h2 class="animation" style="--i: 17; --j: 0">Welcome to Our Community!</h2>
+        <p class="animation" style="--i: 18; --j: 1">We're thrilled to have you here! By signing up, you've taken the first step toward unlocking a world of possibilities.</p>
+      </div>
+    </div>
+  </div>
+  <div id="forgot-password-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Forgot Password</h2>
+      <form id="forgot-password-form">
+        <div class="inputbox">
+          <input type="email" id="forgot-email" required />
+          <label for="forgot-email">Email Address</label>
+          <i class="bx bx-envelope" aria-hidden="true"></i>
+        </div>
+        <button type="submit" class="btn">Reset Password</button>
+      </form>
+      <div class="social-login">
+        <p>Or log in with:</p>
+        <button class="social-btn fb-btn">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </button>
+        <button class="social-btn email-btn">
+          <i class="fas fa-envelope"></i> Email
+        </button>
+      </div>
+    </div>
+  </div>
+
+ <script src="/static/js/form.js"></script>
+ 
+  <script>
+    const MAIN_URL = "{% url 'head' %}";
+  </script>
+</body>
+</html>

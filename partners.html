@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Partners | A & W Blood Management</title>
+     <link rel="stylesheet" href="/static/css/partners.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   
+</head>
+<body>
+    <header class="partners-header">
+        <div class="container header-container">
+            <a href="{% url 'head' %}" class="partners-logo">
+                <i class="fas fa-droplet"></i> A & W
+            </a>
+            <nav class="partners-nav">
+                <a href="{% url 'head' %}">Home</a>
+                <a href="{% url 'aboutus' %}">About Us</a>
+                <a href="{% url 'faq' %}">FAQs</a>
+                <a href="{% url 'partners' %}" class="active">Partners</a>
+                <a href="{% url 'contact' %}">Contact</a>
+                <a href="{% url 'addblood' %}"class="cta-button" style="padding: 0.5rem 1.5rem; margin-left: 1rem; background: var(--primary-dark); color: var(--white);">Donate Now</a>
+            </nav>
+            <button class="partners-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="partners-hero">
+        <div class="container">
+            <h1>Our Valued Partners</h1>
+            <p>Collaborating with leading organizations across Bangladesh to ensure a stable blood supply and save lives through strategic partnerships</p>
+        </div>
+    </section>
+
+    <section class="partners-main">
+        <div class="container">
+            <div class="partners-intro">
+                <h2>Strategic Collaborations for a Healthier Nation</h2>
+                <p>At A & W Blood Management, we believe in the power of partnerships. Our network includes hospitals, corporations, government agencies, and NGOs working together to transform Bangladesh's blood donation ecosystem.</p>
+            </div>
+
+            <div class="partner-categories">
+                <button class="category-btn active" data-category="all">All Partners</button>
+                <button class="category-btn" data-category="hospital">Hospitals</button>
+                <button class="category-btn" data-category="corporate">Corporate</button>
+                <button class="category-btn" data-category="government">Government</button>
+                <button class="category-btn" data-category="ngo">NGOs</button>
+            </div>
+
+            <div class="partners-grid">
+                <!-- Partner 1 -->
+<div class="partner-card" data-category="hospital">
+    <div class="partner-logo">
+        <img src="/static/dmc.png" alt="Dhaka Medical College">
+    </div>
+    <div class="partner-content">
+        <h3>Dhaka Medical College Hospital</h3>
+        <span class="partner-type">Hospital Partner</span>
+        <p>Our flagship hospital partner where over 40% of donated blood is utilized for critical patients and emergency cases across multiple departments.</p>
+        <a href="https://www.dmc.gov.bd/" target="_blank" class="partner-link">Learn More <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
+
+<!-- Partner 2 -->
+<div class="partner-card" data-category="ngo">
+    <div class="partner-logo">
+        <img src="/static/redcrescent.png" alt="Bangladesh Red Crescent">
+    </div>
+    <div class="partner-content">
+        <h3>Bangladesh Red Crescent Society</h3>
+        <span class="partner-type">Disaster Response</span>
+        <p>Strategic collaboration for emergency blood supply during natural disasters and humanitarian crises, with 12 joint blood banks nationwide.</p>
+        <a href="https://www.bdredcrescent.org/" target="_blank" class="partner-link">Learn More <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
+
+<!-- Partner 3 -->
+<div class="partner-card" data-category="corporate">
+    <div class="partner-logo">
+        <img src="/static/GP.jpg" alt="Grameenphone">
+    </div>
+    <div class="partner-content">
+        <h3>Grameenphone Ltd.</h3>
+        <span class="partner-type">Corporate Sponsor</span>
+        <p>Technology partner providing SMS alert systems and sponsoring mobile blood drives across all 64 districts of Bangladesh.</p>
+        <a href="https://www.grameenphone.com/" target="_blank" class="partner-link">Learn More <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
+
+<!-- Partner 4 -->
+<div class="partner-card" data-category="government">
+    <div class="partner-logo">
+        <img src="/static/Ministry-of-Health-Family-Welfare-Bangladesh.webp" alt="Ministry of Health">
+    </div>
+    <div class="partner-content">
+        <h3>Ministry of Health & Family Welfare</h3>
+        <span class="partner-type">Government Partner</span>
+        <p>Official government partner working on national blood donation policies, awareness campaigns, and regulatory frameworks.</p>
+        <a href="https://mohfw.gov.bd/" target="_blank" class="partner-link">Learn More <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
+
+<!-- Partner 5 -->
+<div class="partner-card" data-category="hospital">
+    <div class="partner-logo">
+        <img src="/static/BSMMU.jpg" alt="BSMMU">
+    </div>
+    <div class="partner-content">
+        <h3>Bangabandhu Sheikh Mujib Medical University</h3>
+        <span class="partner-type">Hospital & Research Partner</span>
+        <p>Collaborating on blood-related research projects and specialized transfusion services for complex medical cases.</p>
+        <a href="https://www.bsmmu.edu.bd/" target="_blank" class="partner-link">Learn More <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
+
+<!-- Partner 6 -->
+<div class="partner-card" data-category="corporate">
+    <div class="partner-logo">
+        <img src="/static/Bkash.png" alt="bKash">
+    </div>
+    <div class="partner-content">
+        <h3>bKash Limited</h3>
+        <span class="partner-type">Digital Payments Partner</span>
+        <p>Enabling digital donations and providing cashback incentives for blood donors through their mobile financial services platform.</p>
+        <a href="https://www.bkash.com/" target="_blank" class="partner-link">Learn More <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
+
+<!-- Partner 7 -->
+<div class="partner-card" data-category="ngo">
+    <div class="partner-logo">
+        <img src="/static/sandhani.png" alt="Sandhani">
+    </div>
+    <div class="partner-content">
+        <h3>Sandhani National Blood Donors Society</h3>
+        <span class="partner-type">Voluntary Blood Donation</span>
+        <p>Joint initiatives for voluntary blood donation campaigns in universities and colleges across Bangladesh.</p>
+        <a href="https://www.sandhani.org/" target="_blank" class="partner-link">Learn More <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
+
+<!-- Partner 8 -->
+<div class="partner-card" data-category="corporate">
+    <div class="partner-logo">
+        <img src="/static/unilever.png" alt="Unilever">
+    </div>
+    <div class="partner-content">
+        <h3>Unilever Bangladesh</h3>
+        <span class="partner-type">CSR Partner</span>
+        <p>Corporate social responsibility partner supporting blood donation awareness campaigns through their extensive distribution network.</p>
+        <a href="https://www.unilever.com.bd/" target="_blank" class="partner-link">Learn More <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
+                </div>
+            </div>
+    </section>
+
+    <section class="partners-stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Strategic Partners</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="250000">0</div>
+                    <div class="stat-label">Units Collected Annually</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="500000">0</div>
+                    <div class="stat-label">Lives Saved</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="64">0</div>
+                    <div class="stat-label">Districts Covered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partner-testimonials">
+        <div class="container">
+            <div class="testimonials-heading">
+                <h2>What Our Partners Say</h2>
+                <p>Hear from organizations that collaborate with us to make a difference</p>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"A & W's innovative approach to blood management has transformed our ability to serve patients. Their technology platform has reduced our blood shortage days by 70%."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Rahman">
+                        </div>
+                        <div class="author-info">
+                            <h4>Prof. Dr. A. Rahman</h4>
+                            <p>Director, Dhaka Medical College Hospital</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Our partnership with A & W has enabled us to mobilize thousands of employees as regular blood donors. Their professional team makes collaboration seamless."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ms. Khan">
+                        </div>
+                        <div class="author-info">
+                            <h4>Ms. Fatima Khan</h4>
+                            <p>CSR Head, Grameenphone Ltd.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"During the COVID-19 crisis, A & W's partnership was instrumental in maintaining blood supply chains when regular donation camps weren't possible."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Mr. Ahmed">
+                        </div>
+                        <div class="author-info">
+                            <h4>Mr. S. Ahmed</h4>
+                            <p>Secretary, Bangladesh Red Crescent</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Join Our Network of Life-Savers</h2>
+                <p>Whether you're a hospital, corporation, or NGO, partnering with A & W creates meaningful impact across Bangladesh.</p>
+                <a href="callus.html" class="cta-button">Become a Partner Today</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="partners-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About A & W</h4>
+                    <p>Bangladesh's most trusted blood donation network since 2025, connecting donors with those in need through innovative technology.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/warisa-ahmed-972923343/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="main.html"><i class="fas fa-chevron-right"></i> Home</a>
+                    <a href="aboutus.html"><i class="fas fa-chevron-right"></i> About Us</a>
+                    <a href="faq.html"><i class="fas fa-chevron-right"></i> FAQs</a>
+                    <a href="partners.html"><i class="fas fa-chevron-right"></i> Partners</a>
+                    <a href="addblood.html"><i class="fas fa-chevron-right"></i> Donate Blood</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Sonaichhari, Kumira 4318</p>
+                    <a href="tel:+8801234567890"><i class="fas fa-phone-alt"></i> +880 1234 567890</a>
+                    <a href="mailto:info@awblood.org"><i class="fas fa-envelope"></i> info@awblood.org</a>
+                    <a href="https://web.whatsapp.com/"><i class="fas fa-comments"></i> Live Chat Support</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to our newsletter for updates on blood donation campaigns and partnership opportunities.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit" class="cta-button" style="padding: 0.5rem 1rem; width: 100%; margin-top: 0.5rem;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 A & W Blood Management. All rights reserved. | <a href="#" style="color: var(--primary);">Privacy Policy</a> | <a href="#" style="color: var(--primary);">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    
+
+<script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/partners.js"></script>
+
+</body>
+</html>
+

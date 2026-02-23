@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="stylesheet" href="/static/css/read-more-page.css" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Read More - Blood Bank Donation System</title>
+    
+</head>
+<body>
+  <div class="section_container">
+    <div class="header_content">
+        <img src="/static/Science-amico.png" alt="Blood Donation" />
+        <div class="header_text">
+            <h1> About A & W INNOVATION </h1>
+            <p>We are "A & W INNOVATION" and we dedicated to saving lives through safe and efficient blood donation services. 
+            Our mission is to bridge the gap between donors and those in need, ensuring a
+             steady supply of life-saving blood for hospitals and patients.</p>
+          <p>
+            With a commitment to innovation and healthcare excellence, 
+            we strive to make blood donation a seamless, impactful, 
+            and rewarding experience for everyone. 
+            Join us in making a difference—because every drop counts!
+            </p>
+        </div>
+    </div>
+
+    <!-- New section with adjusted second image and Go Back button -->
+    <div class="second_section">
+        <img src="/static/Blood donation-amico.png" alt="Why Donate Blood" />
+        <div class="header_text">
+            <h1>Why Donate Blood?</h1>
+            <p>
+              Donating blood is a simple yet powerful act that can save lives. 
+                It’s a generous way to give back to your community and can be done regularly, 
+              with each donation potentially saving up to three lives.
+            </p>
+            <p>
+              The process is safe, quick, and the blood you donate can make an enormous difference in someone’s recovery. 
+              Additionally, the act of donating blood often encourages others to do the same, amplifying the impact of your contribution.
+               Your single act of kindness can make a world of difference.
+            </p>
+            <!-- Go Back button aligned with the content -->
+            <a href="{% url 'head' %}" id="goBackButton">
+                <button>Go Back</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/read-more-page.js"></script>
+
+</body>
+</html>

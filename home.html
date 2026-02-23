@@ -1,0 +1,128 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A & W</title>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/static/css/home.css">
+</head>
+<body>
+<header>
+<nav class="navbar"> 
+<div class="navbar__logo">
+<h2>
+    <i class="ri-drop-fill"></i>
+    A & &nbsp;<span class="danger">W</span>
+  </h2>
+</div>
+<ul class="navbar__menu" id="navbar__menu-links">
+  <li class="navbar__menu-item"><a href="{% url 'head' %}">Home</a></li>
+  <li class="navbar__menu-item"><a href="#">About</a></li>
+  <li class="navbar__menu-item"><a href="#">Why Donate?</a></li> 
+  <li class="navbar__menu-item"><a href="#">Book Appoinment</a></li>
+  <li class="navbar__menu-item"><a href="#">Contact</a></li>
+</ul>
+<div class="navbar__icons"> 
+
+<i class="ri-hand-heart-line navbar__icon"></i>    
+<i class="ri-first-aid-kit-line navbar__icon"></i>
+<div class="theme-toggler">
+    <i class="ri-sun-line" id="theme-icon"></i>
+</div>
+<div class="navbar__menu-icon" id="navbar__menu-icon"> 
+    <i class="ri-menu-4-fill"></i> 
+</div> 
+</div>
+    </nav> 
+    <div class="header__container"> 
+      <div class="header__circle header__circle1"></div> 
+      <div class="header__circle header__circle2"></div> 
+      <div class="header__circle header__circle3"></div> 
+      <div class="header__circle header__circle4"></div> 
+      </div> 
+      <div class="header__center-circle header__center-circle1"></div> 
+      <div class="header__center-circle header__center-circle2"></div> 
+      <div class="header__center-circle header__center-circle3"></div>
+      <div class="header__main-container"> 
+        <div class="header__content-section"> 
+          <h3>Donate Blood</h3>
+          <h1>Save Lives</h1>
+          <p>Your donation can be the difference between life and death. Join us in making a life-saving impact today.</p>          
+        <button class="pre-order-button">Join Us</button> 
+        </div> 
+        </div> 
+        <div class="header__hero-section">
+          <img src="/static/home.png" alt="vespa" class="header__hearo-image">
+          <div class="header__right-content">
+            <div class="header__info-column">
+              <p><strong>Donation Time:</strong> 10-15 minutes</p>
+              <p><strong>Blood Types:</strong> A, B, AB, O</p>
+              <p><strong>Lives Saved:</strong> Up to 3 per donation</p>
+            </div>
+            
+            <div class="header__social-links">
+                <a href="https://www.facebook.com/warisa.ahmed.10"><i class="ri-facebook-fill"></i></a>
+                <a href="https://www.instagram.com/warisa_ahmed_/"><i class="ri-instagram-fill"></i></a>
+                <a href="https://x.com/AhmedWarisa"><i class="ri-twitter-fill"></i></a>
+            </div>
+        </div>
+    </div>
+          <div class="header__glass-card">
+              <div class="header__glass-card-container">
+                  <h3>Discover</h3>
+                  <div class="header__card" data-card="1">
+                      <img src="/static/image8.jpg" alt="product 1" class="header__card img" data-image="img8.png">
+                  </div>
+                  <div class="header__card" data-card="2">
+                      <img src="/static/image1.jpg" alt="product 2" class="header__card img" data-image="img1.png">
+                  </div>
+                  <div class="header__card" data-card="3">
+                      <img src="/static/image9.jpg" alt="product 3" class="header__card img" data-image="img9.png">
+                  </div>
+              </div>
+          </div>
+      </div>
+    </header>
+    <footer>
+      <div class="waves">
+          <div class="wave" id="wave1"></div>
+          <div class="wave" id="wave2"></div>
+          <div class="wave" id="wave3"></div>
+          <div class="wave" id="wave4"></div>
+      </div>
+      <ul class="social_icon">
+          <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+          <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+          <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+          <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+      </ul>
+      <ul class="menu">
+        <li><a href="#" class="flyout-text">Home</a></li>
+        <li><a href="#" class="flyout-text">About</a></li>
+        <li><a href="#" class="flyout-text">Services</a></li>
+        <li><a href="#" class="flyout-text">Team</a></li>
+        <li><a href="#" class="flyout-text">Contact</a></li>
+    </ul>
+      <p>&#169 A & W | All Rights Reserved</p>
+  </footer>
+<button id="back-to-top" class="back-to-top">
+  <i class="ri-arrow-up-line"></i>
+</button>
+    <script src="https://unpkg.com/scrollreveal"></script>
+  <script type="text/javascript" src="/static/js/home.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
+

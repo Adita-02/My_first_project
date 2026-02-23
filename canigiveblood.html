@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can I Give Blood?</title>
+    <link rel="stylesheet" href="/static/css/can-i-give-blood.css" />
+  
+</head>
+<body>
+    <header>
+        <h1>Can I Give Blood?</h1>
+        <p>Learn about eligibility requirements and health conditions.</p>
+    </header>
+    <div class="go-back-container">
+        <a href="{% url 'head' %}" class="go-back-button">
+            <i class="fas fa-arrow-left"></i> Go Back
+        </a>
+    </div>
+    <main>
+        <section class="content-section">
+            <h2>Eligibility Requirements</h2>
+            <p>To donate blood, you must meet the following criteria:</p>
+            <ul>
+                <li>Be at least 18 years old (or 17 with parental consent).</li>
+                <li>Weight at least 50 kg (110 pounds).</li>
+                <li>Be in good general health.</li>
+                <li>Not have donated blood in the last 8 weeks.</li>
+            </ul>
+        </section>
+        <section class="content-section">
+            <h2>Health Conditions</h2>
+            <p>Certain conditions may affect your eligibility:</p>
+            <ul>
+                <li>Recent infections or illnesses.</li>
+                <li>Chronic diseases like diabetes or heart disease.</li>
+                <li>Travel to high-risk areas for infectious diseases.</li>
+            </ul>
+        </section>
+        
+        <section class="content-section">
+            <h2>Check Your Eligibility</h2>
+            <p>Use our interactive tool to see if you can donate:</p>
+            <button id="showEligibilityForm">Check Eligibility</button>
+            <div class="eligibility-form">
+                <div class="form-group">
+                    <label for="age">Your Age:</label>
+                    <input type="number" id="age" placeholder="Enter your age" min="16" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="weight">Your Weight (in kgs):</label>
+                    <input type="number" id="weight" placeholder="Enter your weight" min="0" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="health">Are you in good general health?</label>
+                    <select id="health" required>
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastDonation">Last Donation (in weeks):</label>
+                    <input type="number" id="lastDonation" placeholder="Enter weeks since last donation" min="0" required>
+                </div>
+                
+                <button id="checkEligibility">Submit</button>
+            </div>
+            <div id="eligibilityResult" class="eligibility-result hidden"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;2025 A & W Innovation.</p>
+    </footer>
+    
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+document.getElementById("showEligibilityForm").addEventListener("click", function () {
+    const form = document.querySelector(".eligibility-form");
+    form.style.display = "block"; 
+    form.classList.add("show"); 
+});
+
+document.getElementById("checkEligibility").addEventListener("click", function () {
+    const age = parseInt(document.getElementById("age").value);
+    const weight = parseInt(document.getElementById("weight").value);
+    const health = document.getElementById("health").value;
+    const lastDonation = parseInt(document.getElementById("lastDonation").value);
+
+    const result = document.getElementById("eligibilityResult");
+
+    if (age >= 18 && weight >= 50 && health === "yes" && lastDonation >= 8) {
+        result.innerHTML = `
+            <p>🎉 You are eligible to donate blood!</p>
+            <form action="/donorform/" method="GET">
+                <button type="submit" class="register-button">Register as a Donor</button>
+            </form>
+        `;
+    } else {
+        result.innerHTML = "<p>❌ Unfortunately, you are not eligible to donate blood at this time.</p>";
+        if (age < 18) result.innerHTML += "<p>You must be at least 18 years old.</p>";
+        if (weight < 50) result.innerHTML += "<p>You must weigh at least 50 kg.</p>";
+        if (health !== "yes") result.innerHTML += "<p>You must be in good general health.</p>";
+        if (lastDonation < 8) result.innerHTML += "<p>You must wait at least 8 weeks between donations.</p>";
+    }
+
+    result.classList.remove("hidden");
+    result.classList.add("show"); 
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Outreach Programs</title>
+       <link rel="stylesheet" href="/static/css/outreach.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+</head>
+<body>
+    <section class="hero-section outreach-hero">
+        <div class="go-back-container">
+            <a href="{% url 'head' %}" class="go-back-button">
+                <i class="fas fa-arrow-left"></i> Go Back
+            </a>
+        </div>
+        <div class="hero-content">
+            <h1 class="animated-title">Outreach program</h1>
+            <p class="subtitle" style="font-size: 1.5rem;  color: var(--dark-color); font-weight: bold;"> 
+               Mobile Blood Donation Initiatives Reaching Every Corner.
+            </p>
+            <p class="hero-description">
+                Our 25 mobile units have traveled over 5,000 miles in 2025 alone, bringing life-saving donation 
+                opportunities to corporate offices, college campuses, and rural communities. Through innovative 
+                community partnerships and awareness campaigns, we've increased first-time donors by 40% in 
+                underserved areas.
+            </p>
+            <a href="#content-grid" class="scroll-animation">
+                <i class="fas fa-chevron-down" style="font-size: 2rem;"></i>
+            </a>
+        </div>
+    </section>
+
+      <!-- <div class="content-grid" id="content-grid">
+        <div class="card">
+            <h3>Corporate Partnerships</h3>
+            <div class="impact-number">150+</div>
+            <p>On-site blood drives hosted at major corporations with our mobile donation buses. Employee 
+               participation increased 7% through our incentive programs and executive health check packages.</p>
+        </div>
+
+        <div class="card">
+            <h3>Campus Connect</h3>
+            <div class="impact-number">65%</div>
+            <p>University participation rate with our semester-long donor education program. Student donor 
+               retention increased through exam-time blood requirements and health awareness festivals.</p>
+        </div>
+
+        <div class="card">
+            <h3>Rural Reach</h3>
+            <div class="impact-number">90+</div>
+            <p>Villages served through our mobile clinics equipped with satellite cold storage. Community 
+               health workers trained in basic screening and donor motivation techniques.</p>
+        </div>
+    </div>  -->
+    
+
+    <section class="program-timeline">
+        <div class="timeline-item">
+            <h2>2025 Outreach Milestones</h2>
+            <div class="impact-number">Quarterly Progress</div>
+            <div class="timeline-content">
+                <p class="timeline-paragraph">
+                    <strong>Q1 Innovation:</strong> Launched our on-site blood drives hosted at major corporations
+                     with our mobile donation buses. Employee 
+                    participation increased 7% through our incentive programs and executive health check packages. 
+                   
+                </p>
+                <p class="timeline-paragraph">
+                    <strong>Q2 Expansion:</strong> Established 10 new rural collection centers equipped with 
+                    solar-powered refrigeration units. These centers now serve approximately 120 remote 
+                    communities, reducing travel time for donors by an average of 2.5 hours.
+                </p>
+                <p class="timeline-paragraph">
+                    <strong>Q3 Campus Connect:</strong> University participation rate with our semester-long donor education program. Student donor 
+                    retention increased through exam-time blood requirements and health awareness festivals.
+                </p>
+                <p class="timeline-paragraph">
+                    <strong>Q4 Community Engagement:</strong> Hosted our largest annual donor recognition 
+                    event to date, honoring 450+ dedicated volunteers across 8 Division and main district
+                     of them with our LifeSaver 
+                    Awards program.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="achievement-marquee">
+        <div class="marquee-content">
+            <div class="marquee-item">
+                <span class="impact-number">200+</span>
+                <span>Mobile Donations in 2025</span>
+            </div>
+            <div class="marquee-item">
+                <span class="impact-number">20%</span>
+                <span>New Donor Increase</span>
+            </div>
+            <div class="marquee-item">
+                <span class="impact-number">28%</span>
+                <span>Satisfaction Rate</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="schedule-container" id="donationSchedule">
+        <div class="schedule-header">
+            <h2>Mobile Blood Drive Calendar</h2>
+            <div class="schedule-controls">
+                <button class="schedule-nav" id="prevWeek"><i class="fas fa-chevron-left"></i></button>
+                <span class="current-week"></span>
+                <button class="schedule-nav" id="nextWeek"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        
+        <div class="schedule-grid">
+            <!-- Days will be populated by JavaScript -->
+            <div class="schedule-day">
+                <div class="day-header">
+                    <h3>Monday</h3>
+                    <div class="date">Jan 1</div>
+                </div>
+                <div class="events">
+                    <div class="event">
+                        <div class="event-time">9 AM - 12 PM</div>
+                        <div class="event-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Downtown Community Center
+                        </div>
+                        <div class="event-slots">
+                            <div class="slot-progress" style="width: 75%"></div>
+                            <span>45/60 Slots Available</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="schedule-legend">
+            <div class="legend-item">
+                <span class="indicator available"></span>
+                Available Slots
+            </div>
+            <div class="legend-item">
+                <span class="indicator limited"></span>
+                Limited Availability
+            </div>
+            <div class="legend-item">
+                <span class="indicator full"></span>
+                Fully Booked
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Reuse footer from previous page -->
+    <footer class="new-footer">
+        <div class="foot-panel1" id="backToTop">Back to Top</div>
+        <div class="foot-panel2">
+            <div class="footer-content">
+            <div>
+                <h4>MOBILE MISSIONS</h4>
+                <a>25 specially equipped bloodmobiles serving urban/rural areas</a><br>
+                <a>📍Current Location: 4318, Sonaichhari, Kumira, Bangladesh</a><br>
+                <a>🚐 Next Stop: 4310, Barakunda Sitakunda</a>
+                <div class="impact-number" style="color: #ff80ab; font-size: 1.2rem;">
+                    24/7 Outreach Hotline: 1-800-HELP-NOW
+                </div>
+            </div>
+    
+
+         
+                <div>
+                <h4>COMMUNITY  PARTNERS</h4>
+                <div class="socialicon1">
+                    <a href="{% url 'corporatechallenge' %}" style="color:white;"> Corporate Donor Challenges</a><br><br>
+                    
+                    <a href="{% url 'disaster-response' %}" style="color:white;">Disaster Response Network</a>
+                 </div>
+            </div>
+    
+            <div>
+                <h4>OUTREACH  IMPACT</h4>
+                <div class="socialicon">
+                    <div style="margin-right: 2rem;">
+                        <div class="impact-number">62%</div>
+                        <p>Rural Coverage Increase</p>
+                    </div>
+                    <div>
+                        <div class="impact-number">1.2M</div>
+                        <p>Miles Traveled</p>
+                    </div>
+                </div>
+                <div class="socialicon" style="margin-top: 1.5rem;">
+                    <a href="{% url 'contact' %}" style="color:white;"> Track Our Units</a>
+                    <a href="{% url 'mission' %}" style="color:white;" > Event Schedule</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="foot-panel4">
+        <a href="#">Mobile Unit Sponsorships</a>
+        <a href="#">Community Ambassador Program</a>
+        <a href="#">Outreach Media Kit</a>
+        <a href="#">Partnership Inquiry</a>
+    </div>
+    
+    
+    <div class="copy-right">
+        © 2025 Blood Outreach Initiative | Highway to Health Program | GPS-Enabled Donor System Patents Pending
+    </div>
+    </footer>
+
+   
+
+<script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/outreach.js"></script>
+
+</body>
+</html>

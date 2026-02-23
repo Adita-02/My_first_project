@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings | Blood Donation Portal</title>
+    <link rel="stylesheet" href="/static/css/setting.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+</head>
+<body>
+    <div class="settings-container">
+        <aside class="settings-sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-cog"></i>
+                <h2>Settings</h2>
+            </div>
+            <ul class="settings-menu">
+                <li class="menu-item">
+                    <a href="#" class="active" data-section="profile">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" data-section="account">
+                        <i class="fas fa-lock"></i>
+                        <span>Account Security</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" data-section="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span>Notifications</span>
+                        <span class="badge">3 New</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" data-section="privacy">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Privacy</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" data-section="donation">
+                        <i class="fas fa-heart"></i>
+                        <span>Donation Preferences</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="settings-content">
+            <section id="profile-section" class="setting-section">
+                <div class="content-header">
+                    <h1>Profile Settings</h1>
+                    <p>Manage your personal information and profile details</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-pic">Profile Picture</label>
+                    <div style="display: flex; align-items: center; gap: 1.5rem;">
+                        <div class="profile-pic-container" id="profilePicContainer">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <div class="file-upload-wrapper">
+                                <label for="profile-upload" class="file-upload-btn">
+                                    <i class="fas fa-upload"></i> Browse Photo
+                                </label>
+                                <span class="file-name" id="fileName">No file selected</span>
+                            </div>
+                            <input type="file" id="profile-upload" class="file-upload" accept="image/*">
+                            <p style="font-size: 0.8rem; color: var(--gray);">JPG, GIF or PNG. Max size 2MB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" class="form-control" value="Naga 🌶">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" value="iiuc.icu@example.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" value="+880 (1) 123-4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthdate">Date of Birth</label>
+                        <input type="date" id="birthdate" class="form-control" value="2025-01-01">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="blood-type">Blood Type</label>
+                    <select id="blood-type" class="form-control">
+                        <option value="A+">A+</option>
+                        <option value="A-" selected>A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                    <div class="blood-type-badge">
+                        <i class="fas fa-tint"></i>
+                        <span>A-</span>
+                    </div>
+                </div>
+
+                <div class="donor-level">
+                    <label>Donor Level</label>
+                    <div class="level-progress">
+                        <div class="level-progress-bar"></div>
+                    </div>
+                    <div class="level-info">
+                        <span>Regular Donor</span>
+                        <span>65% to Hero Donor</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <textarea id="bio" class="form-control" rows="3" placeholder="Tell us about yourself..."></textarea>
+                </div>
+
+                <button class="save-btn" id="saveProfile">
+                    Save Changes
+                    <i class="fas fa-save"></i>
+                    <div class="spinner" id="profileSpinner"></div>
+                </button>
+                <div class="success-message" id="profileSuccess">Profile updated successfully!</div>
+            </section>
+
+            <section id="account-section" class="setting-section" style="display: none;">
+                <div class="content-header">
+                    <h1>Account Security</h1>
+                    <p>Manage your password and security settings</p>
+                </div>
+
+                <div class="security-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4>Your account is secure</h4>
+                        <p>All recommended security measures are active</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Two-Factor Authentication <span class="badge">Recommended</span></label>
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <p>Add an extra layer of security to your account</p>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="twoFactorToggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="current-password">Current Password</label>
+                    <input type="password" id="current-password" class="form-control" placeholder="Enter current password">
+                </div>
+
+                <div class="form-group">
+                    <label for="new-password">New Password</label>
+                    <input type="password" id="new-password" class="form-control" placeholder="Enter new password">
+                    <div class="password-strength" id="passwordStrength"></div>
+                    <div class="password-hint" id="passwordHint">Use at least 8 characters with a mix of letters, numbers & symbols</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm New Password</label>
+                    <input type="password" id="confirm-password" class="form-control" placeholder="Confirm new password">
+                </div>
+
+                <button class="save-btn" id="savePassword">
+                    Update Password
+                    <i class="fas fa-key"></i>
+                    <div class="spinner" id="passwordSpinner"></div>
+                </button>
+                <div class="success-message" id="passwordSuccess">Password updated successfully!</div>
+            </section>
+
+            <section id="notifications-section" class="setting-section" style="display: none;">
+                <div class="content-header">
+                    <h1>Notification Preferences</h1>
+                    <p>Customize how you receive notifications</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Notifications</label>
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <p>Receive notifications via email</p>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="emailNotifications" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Push Notifications</label>
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <p>Receive push notifications on your device</p>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="pushNotifications" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>SMS Notifications</label>
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <p>Receive text message notifications</p>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="smsNotifications">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h2>Notification Types</h2>
+                    <button id="reset-notifications">
+                        <i class="fas fa-undo"></i>
+                        Reset Defaults
+                    </button>
+                </div>
+
+                <div class="notification-card">
+                    <div class="notification-info">
+                        <div class="notification-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="notification-text">
+                            <h4>Appointment Reminders</h4>
+                            <p>Reminders for upcoming donation appointments</p>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="appointmentReminders" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="notification-card">
+                    <div class="notification-info">
+                        <div class="notification-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="notification-text">
+                            <h4>Blood Needs</h4>
+                            <p>Alerts when your blood type is in high demand</p>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="bloodNeeds" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="notification-card">
+                    <div class="notification-info">
+                        <div class="notification-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="notification-text">
+                            <h4>Donation Milestones</h4>
+                            <p>Celebrate your donation achievements</p>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="donationMilestones">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="notification-card">
+                    <div class="notification-info">
+                        <div class="notification-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="notification-text">
+                            <h4>Nearby Blood Drives</h4>
+                            <p>Get notified about blood drives in your area</p>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="nearbyDrives" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <button class="save-btn" id="saveNotifications">
+                    Save Preferences
+                    <i class="fas fa-bell"></i>
+                    <div class="spinner" id="notificationsSpinner"></div>
+                </button>
+                <div class="success-message" id="notificationsSuccess">Notification preferences saved!</div>
+            </section>
+
+            <section id="privacy-section" class="setting-section" style="display: none;">
+                <div class="content-header">
+                    <h1>Privacy Settings</h1>
+                    <p>Control who can see your information and activity</p>
+                </div>
+                
+                <div class="donation-card">
+                    <h3><i class="fas fa-user-shield"></i> Access Control</h3>
+                    <p>Only Warisa, Anisa, and Adita have administrative access to control these privacy settings.</p>
+                </div>
+            </section>
+
+            <section id="donation-section" class="setting-section" style="display: none;">
+                <div class="content-header">
+                    <h1>Donation Preferences</h1>
+                    <p>Set your donation availability and preferences</p>
+                </div>
+                
+                <div class="donation-card">
+                    <h3><i class="fas fa-calendar-alt"></i> Donation Frequency</h3>
+                    <p>How often would you like to donate blood?</p>
+                    
+                    <div class="donation-frequency">
+                        <div class="frequency-option active">
+                            <h4>Regular Donor</h4>
+                            <p>Every 2-3 months</p>
+                        </div>
+                        <div class="frequency-option">
+                            <h4>Occasional</h4>
+                            <p>2-3 times a year</p>
+                        </div>
+                        <div class="frequency-option">
+                            <h4>Emergency Only</h4>
+                            <p>When specifically needed</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="donation-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> Preferred Donation Locations</h3>
+                    <p>Select locations where you're most comfortable donating blood.</p>
+                    
+                    <div class="location-selector">
+                        <label>Select preferred donation centers:</label>
+                        <div class="location-options">
+                            <div class="location-tag active">Dhaka Central Blood Bank</div>
+                            <div class="location-tag">Red Crescent Blood Center</div>
+                            <div class="location-tag">IIUC Medical Center</div>
+                            <div class="location-tag">Chittagong General Hospital</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="donation-card">
+                    <h3><i class="fas fa-bell"></i> Availability Status</h3>
+                    <p>Update your current availability for blood donation.</p>
+                    
+                    <div class="availability-toggle">
+                        <div class="availability-text">
+                            <h4>Currently Available <span class="badge badge-available">Active</span></h4>
+                            <p>You'll appear in searches for donors with your blood type</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="availabilityToggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <button class="save-btn" id="saveDonationPrefs">
+                    Save Preferences
+                    <i class="fas fa-heart"></i>
+                    <div class="spinner" id="donationSpinner"></div>
+                </button>
+                <div class="success-message" id="donationSuccess">Donation preferences saved!</div>
+            </section>
+        </main>
+    </div>
+
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/setting.js"></script>
+
+</body>
+</html>

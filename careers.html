@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Donation Careers</title>
+    <link rel="stylesheet" href="/static/css/career.css">
+</head>
+<body>
+    <header>
+        <h1>Join Our Life-Saving Team</h1>
+        <p>Make a difference by becoming a part of our blood bank donation team.</p>
+    </header>
+
+    <section id="careers">
+        <h2>Career Opportunities</h2>
+        <div class="job-listing">
+            <h3>Donor Recruiter</h3>
+            <p>We are looking for enthusiastic individuals to help us recruit blood donors.</p>
+            <a href="{% url 'apply' %}"><button>Apply Now</button></a>
+        </div>
+        <div class="job-listing">
+            <h3>Phlebotomist</h3>
+            <p>Join our team of skilled phlebotomists to collect blood donations.</p>
+            <a href="{% url 'apply' %}"><button>Apply Now</button></a>
+        </div>
+        <div class="job-listing">
+            <h3>Blood Bank Technician</h3>
+            <p>Work in our lab to process and test blood donations.</p>
+            <a href="{% url 'apply' %}"><button>Apply Now</button></a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="{% url 'head' %}" class="footer__link">Back to Home</a>
+    </footer>
+</body>
+</html>
+

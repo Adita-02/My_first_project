@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crisis Blood Response Network | Emergency Blood Donation</title>
+    <link rel="stylesheet" href="/static/css/disaster-response.css" />
+    <meta name="description" content="Join our emergency blood donation network to save lives during disasters and crises">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Crisis Blood Response Network</h1>
+            <p>Rapid blood supply mobilization during emergencies</p>
+        </div>
+    </header>
+
+    <div class="go-back-container">
+        <a href="{% url 'head' %}" class="go-back-button">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
+
+    <main class="container">
+        <section class="hero">
+            <h2>When Crisis Strikes, We Deliver</h2>
+            <p>Our emergency blood network activates within minutes of disaster alerts to ensure life-saving blood products are available</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Current Network Status</h2>
+            <div class="alert-system">
+                <p>
+                    <span class="status-indicator status-active"></span>
+                    <strong>System Status:</strong> All systems operational
+                </p>
+                <p>Last updated: <span id="update-time"></span></p>
+            </div>
+            
+            <div class="separator-line">Response Protocol</div>
+            
+            <h3>How Our Network Activates</h3>
+            <ol>
+                <li>Emergency alert received from authorities</li>
+                <li>Immediate inventory assessment across all centers</li>
+                <li>Priority donor call-outs based on blood type needs</li>
+                <li>Coordinated distribution to affected areas</li>
+                <li>Continuous monitoring and resupply</li>
+            </ol>
+        </section>
+
+        <section class="content-section">
+            <h2>Our Emergency Response Partners</h2>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <img src="/static/Team goals-amico.png"  alt="Red Cross" class="partner-logo">
+                    <h4>International Red Cross</h4>
+                    <p>Global emergency response coordination</p>
+                </div>
+                <div class="partner-card">
+                    <img src="/static/Hospital family visit-amico.png" alt="FEMA" class="partner-logo">
+                    <h4>Federal Emergency Management</h4>
+                    <p>Domestic disaster response</p>
+                </div>
+                <div class="partner-card">
+                    <img src="/static/Hospital building-cuate.png" alt="Hospital Network" class="partner-logo">
+                    <h4>Regional Hospital Network</h4>
+                    <p>127 participating facilities</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Emergency Services</h2>
+            
+            <div class="emergency-dropdown">
+                <div class="dropdown-header" onclick="toggleDropdown('receiver-dropdown')">
+                    <div class="dropdown-title">
+                        <i class="fas fa-hospital-user"></i>
+                        <span>Emergency Blood Request</span>
+                    </div>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </div>
+                
+                <div id="receiver-dropdown" class="form-section">
+                    <h3>Emergency Blood Request</h3>
+                    <p>Request blood for emergency medical needs:</p>
+                    
+                    <form id="bloodRequestForm">
+                        <div class="form-group">
+                            <label for="hospitalName">Hospital/Clinic Name</label>
+                            <input type="text" id="hospitalName" required placeholder="Enter facility name">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPerson">Contact Person</label>
+                            <input type="text" id="contactPerson" required placeholder="Enter contact name">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactNumber">Contact Number</label>
+                            <input type="tel" id="contactNumber" required placeholder="Enter contact number">
+                        </div>
+                        <div class="form-group">
+                            <label for="bloodTypeNeeded">Blood Type Needed</label>
+                            <select id="bloodTypeNeeded" required>
+                                <option value="">Select required blood type</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="unitsNeeded">Units Needed</label>
+                            <input type="number" id="unitsNeeded" min="1" required placeholder="Enter number of units">
+                        </div>
+                        <div class="form-group">
+                            <label for="urgencyLevel">Urgency Level</label>
+                            <select id="urgencyLevel" required>
+                                <option value="">Select urgency level</option>
+                                <option value="critical">Critical (Immediate need)</option>
+                                <option value="urgent">Urgent (Within 24 hours)</option>
+                                <option value="standard">Standard (Within 72 hours)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="submit-button">Submit Blood Request</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="separator-line">Alternative Options</div>
+            
+            <div style="text-align: center;">
+                <p>Need immediate assistance or have questions?</p>
+                <a href="{% url 'contact' %}" class="submit-button">Contact Emergency Services</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Emergency Blood Response Network. All rights reserved.</p>
+    </footer>
+
+    
+    
+<script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/disaster-response.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hemoglobin Test</title>
+     <link rel="stylesheet" href="/static/css/hemoglobin.css" />
+   
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Hemoglobin Test</h1>
+        <p class="description">Check your hemoglobin levels to stay healthy and fit.</p>
+        
+        <table class="chart">
+            <tr>
+                <th>Category</th>
+                <th>Hemoglobin Range (g/dL)</th>
+            </tr>
+            <tr>
+                <td>Men</td>
+                <td>13.8 - 17.2</td>
+            </tr>
+            <tr>
+                <td>Women</td>
+                <td>12.1 - 15.1</td>
+            </tr>
+            <tr>
+                <td>Children</td>
+                <td>11.0 - 16.0</td>
+            </tr>
+        </table>
+
+        <div class="test-info">
+            <h2>Why is Hemoglobin Important?</h2>
+            <ul>
+                <li>It carries oxygen throughout your body.</li>
+                <li>Maintains energy levels and prevents fatigue.</li>
+                <li>Low levels can indicate anemia or other health issues.</li>
+            </ul>
+        </div>
+
+        <div class="check-hb">
+            <h2>Check Your Hemoglobin Level</h2>
+            <input type="number" id="hbLevel" placeholder="Enter Hb" step="0.1">
+            <button onclick="checkHemoglobin()">Check</button>
+            <p id="result" class="result"></p>
+        </div>
+
+        <button onclick="goToHome()" class="back-btn">Go Back</button>
+        <p class="happy-note">Stay positive! Your health is your greatest asset. 💖</p>
+    </div>
+
+    <script>
+        
+        document.querySelector('.back-btn').addEventListener('click', function() {
+            window.location.href = "{% url 'head' %}";  
+        });
+    </script>
+
+<script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/hemoglobin.js"></script>
+
+</body>
+</html>

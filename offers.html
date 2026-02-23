@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offers for Blood Donors</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'css/offers.css' %}">
+</head>
+<body>
+
+  <button class="reset-btn" id="resetBtn">Reset Verification</button>
+  <a href="{% url 'head' %}" id="goBackBtn" class="go-back-btn">
+    <i class="fas fa-arrow-left"></i> Back to Home
+  </a>
+
+  <div class="container">
+    <section class="offers-section">
+      <h2 class="section-title animate_animated animate_fadeInDown">🩸 Exclusive Offers for Blood Donors 🩸</h2>
+      <p class="section-subtitle animate_animated animatefadeIn animate_delay-1s">
+        Your generosity saves lives! Enjoy these special rewards as our way of thanking you for your noble contribution.
+      </p>
+
+      <div class="offers-container">
+        <div class="offer-card new-donor animate-card" style="animation-delay: 0.2s">
+          <div class="icon blood-drop"><i class="fas fa-tint"></i></div>
+          <h3>New Blood Donor</h3>
+          <p>Receive <strong>free basic medical supplies</strong> and a <strong>donor appreciation kit</strong> after your first donation!</p>
+          <button class="claim-btn">Claim Offer</button>
+        </div>
+
+        <div class="offer-card old-donor animate-card" style="animation-delay: 0.4s">
+          <div class="icon id-card"><i class="fas fa-id-card"></i></div>
+          <h3>Loyal Donor</h3>
+          <p>Show your <strong>Donor ID</strong> to enjoy <strong>20% off</strong> on all medical services and priority access.</p>
+          <div class="id-verification" style="display: none; margin-top: 15px;">
+            <input type="text" class="donor-id-input" placeholder="Enter your Donor ID (e.g., DONOR123)" 
+                   style="padding: 10px; width: 100%; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 10px;">
+            <p class="error-msg" style="color: #ff2e63; font-size: 0.9rem; margin-bottom: 10px; display: none;"></p>
+            <button class="verify-btn" style="background: var(--purple); color: white; padding: 8px 15px; 
+                    border: none; border-radius: 5px; cursor: pointer; margin-right: 5px;">Verify</button>
+            <button class="cancel-btn" style="background: #ccc; color: var(--dark); padding: 8px 15px; 
+                    border: none; border-radius: 5px; cursor: pointer;">Cancel</button>
+          </div>
+          <button class="claim-btn">Claim Offer</button>
+        </div>
+
+        <div class="offer-card special-reward animate-card" style="animation-delay: 0.6s">
+          <div class="icon heartbeat"><i class="fas fa-heartbeat"></i></div>
+          <h3>Hero Bonus</h3>
+          <p>Donate <strong>3+ times</strong> annually for a <strong>free comprehensive health screening</strong>!</p>
+          <button class="claim-btn">Claim Offer</button>
+        </div>
+      </div>
+
+      <div class="blood-types">
+        <span>A+</span> <span>B+</span> <span>O+</span> <span>AB-</span>
+        <span>A-</span> <span>B-</span> <span>O-</span> <span>AB+</span>
+      </div>
+
+      <div class="particles" id="particles"></div>
+    </section>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const validDonorIDs = [
+        "DONOR001", "DONOR007", "DONOR042", "DONOR123", "DONOR456",
+        "DONOR789", "HERO2023", "LIFESAVER", "BLOODHERO", "SAVIOR2024"
+      ];
+
+      const cards = document.querySelectorAll('.animate-card');
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 200 * index);
+      });
+
+      const particlesContainer = document.getElementById('particles');
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.width = ${Math.random() * 5 + 2}px;
+        particle.style.height = ${Math.random() * 5 + 2}px;
+        particle.style.left = ${Math.random() * 100}%;
+        particle.style.top = ${Math.random() * 100}%;
+        particle.style.opacity = ${Math.random() * 0.5 + 0.1};
+        particle.style.animation = floatUp ${Math.random() * 10 + 5}s infinite alternate ease-in-out;
+        particle.style.animationDelay = ${Math.random() * 5}s;
+        particlesContainer.appendChild(particle);
+      }
+
+      const buttons = document.querySelectorAll('.claim-btn');
+buttons.forEach(button => {
+  button.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (this.closest('.old-donor')) {
+      handleLoyalDonorClaim(this);
+    } else {
+      createConfetti(this);
+      this.textContent = 'Offer Claimed!';
+      this.style.backgroundColor = '#5cb85c';
+      setTimeout(() => {
+        this.innerHTML = '<i class="fas fa-check"></i> Thank You!';
+      }, 1000);
+    }
+  });
+});
+
+
+      function handleLoyalDonorClaim(claimBtn) {
+        const card = claimBtn.closest('.offer-card');
+        const verificationDiv = card.querySelector('.id-verification');
+        const errorMsg = card.querySelector('.error-msg');
+
+        if (localStorage.getItem('donorIdVerified')) {
+          const storedId = localStorage.getItem('donorIdVerified');
+          if (validDonorIDs.includes(storedId)) {
+            createConfetti(card);
+            claimBtn.textContent = 'Offer Claimed!';
+            claimBtn.style.backgroundColor = '#5cb85c';
+            setTimeout(() => {
+              claimBtn.innerHTML = '<i class="fas fa-check"></i> Thank You!';
+            }, 1000);
+            return;
+          }
+        }
+
+        verificationDiv.style.display = 'block';
+        claimBtn.style.display = 'none';
+        errorMsg.style.display = 'none';
+
+        card.querySelector('.verify-btn').addEventListener('click', function () {
+          const donorId = card.querySelector('.donor-id-input').value.trim().toUpperCase();
+          if (!donorId) {
+            errorMsg.textContent = 'Please enter your Donor ID';
+            errorMsg.style.display = 'block';
+            return;
+          }
+
+          if (validDonorIDs.includes(donorId)) {
+            createConfetti(card);
+            verificationDiv.style.display = 'none';
+            claimBtn.textContent = 'Offer Claimed!';
+            claimBtn.style.backgroundColor = '#5cb85c';
+            claimBtn.style.display = 'inline-block';
+            setTimeout(() => {
+              claimBtn.innerHTML = '<i class="fas fa-check"></i> Thank You!';
+            }, 1000);
+            localStorage.setItem('donorIdVerified', donorId);
+          } else {
+            errorMsg.textContent = 'Invalid Donor ID. Please check your ID or contact support.';
+            errorMsg.style.display = 'block';
+          }
+        });
+
+        card.querySelector('.cancel-btn').addEventListener('click', function () {
+          verificationDiv.style.display = 'none';
+          claimBtn.style.display = 'inline-block';
+          card.querySelector('.donor-id-input').value = '';
+          errorMsg.style.display = 'none';
+        });
+      }
+
+      document.getElementById('resetBtn').addEventListener('click', function () {
+        localStorage.removeItem('donorIdVerified');
+        location.reload();
+      });
+
+      function createConfetti(element) {
+        const rect = element.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top;
+
+        for (let i = 0; i < 30; i++) {
+          const confetti = document.createElement('div');
+          confetti.classList.add('confetti');
+          confetti.style.position = 'absolute';
+          confetti.style.left = ${x}px;
+          confetti.style.top = ${y}px;
+          confetti.style.backgroundColor = getRandomColor();
+          const size = Math.random() * 8 + 4;
+          confetti.style.width = ${size}px;
+          confetti.style.height = ${size}px;
+          confetti.style.animationDuration = ${Math.random() * 3 + 2}s;
+          document.body.appendChild(confetti);
+
+          setTimeout(() => confetti.remove(), 5000);
+        }
+      }
+
+      function getRandomColor() {
+        const colors = ['#ff2e63', '#08d9d6', '#ff9a3c', '#9c4dff', '#5cb85c'];
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', () => card.style.zIndex = '10');
+        card.addEventListener('mouseleave', () => card.style.zIndex = '1');
+      });
+    });
+  </script>
+
+</body>
+</html>

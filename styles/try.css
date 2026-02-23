@@ -1,0 +1,1068 @@
+
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap');
+
+:root {
+    --color: #6C5CE7;
+}
+
+* {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    transition: all .2s linear;
+    text-decoration: none;
+}
+
+html {
+    font-size: 65.5%;
+}
+
+body {
+    overflow-x: hidden;
+}
+/* .heading{
+    
+    margin:2rem;
+    padding-top:5rem;
+    display:inline-block;
+    font-size:3.5rem;
+    color:var(--color);
+    position:relative;
+}
+.heading::before, .heading::after{
+    content:'';
+    position:absolute;
+    height:2.5rem;
+    width:2.5rem;
+    border-top:4rem solid var(--color);
+    border-left:.4rem solid var(--color);
+
+}
+.heading::before{
+    top:5.8rem; left:-2rem;
+}
+.heading::after{
+    bottom:-.5rem; right:-2rem;
+    transform:rotate(180deg);
+} */
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Fix z-index */
+    background: rgba(128, 22, 43, 0.8); /* Ensure visibility */
+}
+
+.header .logo {
+    font-size: 2.5rem;
+    color: aliceblue;
+}
+
+.header .logo i {
+    padding: 0.5rem;
+}
+
+.header .navbar ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header .navbar ul li {
+    margin: 0 1.5rem;
+}
+
+.header .navbar ul li a {
+    font-size: 2rem;
+    color: white;
+}
+
+.header .navbar ul li a:hover {
+    color: #ccc;
+}
+
+/* Mobile Menu */
+.header .fa-bars {
+    color: #fff;
+    cursor: pointer;
+    font-size: 3rem;
+    display: none;
+}
+
+/* Home Section */
+.home {
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(rgb(210, 54, 72), var(--color));
+
+display:flex;
+align-items:center;
+justify-content:center;
+flex-flow:column;
+text-align:center;
+padding:0 1rem;
+position:relative;
+overflow:hidden !important;
+}
+.home .banner{
+    color:#fff;
+    font-size: 5rem;
+    text-shadow: 0 .3rem .5rem rgba(0, 0, 0, .3);
+}
+.home .slogan{
+    color:#eee;
+    font-size: 2.5rem;
+    font-weight:400;
+}
+.home button{
+    height:4rem;
+    width: 18rem;
+    background: #fff;
+    color: #444;
+    cursor: pointer;
+    border:none;
+    outline:none;
+    margin-top:1rem;
+    font-size:2rem;
+    font-weight:400;
+    box-shadow:0 .3rem .5rem rgba(0, 0, 0, .3);
+
+}
+.home button:hover{
+    letter-spacing: .1rem;;
+}
+/* .home .wave{
+    position:absolute;
+    bottom:-.5rem;
+    left:0;
+    height:11rem;
+    width:150%;
+    background:red;
+    background-size:100rem 11rem;
+    background-repeat:repeat-x;
+    animation:waves 10s linear infinite;
+}
+/* Add this to define the wave animation */
+
+/* Wave Styles */
+.home .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%; /* Wider than the container */
+    background: linear-gradient(to right, #e6e5ef, #0099ff); /* Gradient for wave color */
+    border-radius: 50% 50% 0 0; /* Curved wave shape */
+    animation: waves 10s linear infinite;
+    opacity: 0.7; /* Adjust opacity for a layered effect */
+}
+
+/* Small Wave */
+.home .wave1 {
+    height: 9rem; /* Smallest wave */
+    z-index: 1; /* Bottom layer */
+    animation-duration: 7s; /* Slowest animation */
+    background: linear-gradient(to right, #e7e6ef, #771521); /* Gradient for small wave */
+}
+
+/* Medium Wave */
+.home .wave2 {
+    height: 15rem; /* Medium wave */
+    z-index: 2; /* Middle layer */
+    animation-duration: 5s; /* Medium animation speed */
+    background: linear-gradient(to right, #9d93d5, #d774e0); /* Gradient for medium wave */
+    opacity: 0.5; /* Slightly transparent */
+}
+
+/* Large Wave */
+.home .wave3 {
+    height: 5rem; /* Largest wave */
+    z-index: 3; /* Top layer */
+    animation-duration: 5s; /* Fastest animation */
+    background: linear-gradient(to right, #b30e27, #db3166); /* Gradient for large wave */
+    opacity: 0.3; /* More transparent */
+}
+
+/* Wave Animation */
+@keyframes waves {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Move the wave to the left */
+    }
+}
+.home .fa-tint{
+    position:absolute;
+    font-size:30rem;
+    opacity:.15;
+    color:#fff;
+}
+.home .blood-drop1{
+    top:10%; left:-12rem;
+    animation: rotate-up-down 2s ease-in-out infinite; 
+}
+.home .blood-drop2{
+    top:23%; right:-12rem;
+
+    animation:rotate-up-down 3s ease-in-out infinite
+}
+@keyframes rotate-up-down{
+     0%, 100% {
+        transform: rotate(0deg); /* Start and end at 0 degrees */
+    }
+    50% {
+        transform: rotate(30deg); /* Rotate 30 degrees at the midpoint */
+    }
+}
+
+/* .about{
+    min-height:100vh;
+    width:10vw;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+ */
+ .about {
+    min-height: 100vh; /* Full viewport height */
+    width: 100%; /* Full width */
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    padding: 2rem; /* Add padding */
+    box-sizing: border-box; /* Include padding in width/height */
+    background: #f9f9f9; /* Optional: Add a light background */
+    animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+    width: 100vw;
+    text-align: center;
+    animation: fadeIn 1.5s ease-out;
+    animation: scaleUp 1s ease-out;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.about .heading {
+    position: relative;
+    display: inline-block; /* Ensure the line fits the text */
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    animation: slideInFromLeft 1s ease-out; /* Add slide-in animation for the heading */
+}
+
+
+.about .heading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Position below the heading */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%; /* Line width */
+    background-color: #e75cb9; /* Line color */
+}
+
+.about .content {
+    flex: 1; /* Take up remaining space */
+    max-width: 50%; /* Limit content width */
+    padding-right: 2rem; /* Space between text and image */
+    animation: fadeIn 2s ease-in-out; /* Add fade-in animation to content */
+}
+
+.about .large-text {
+    font-size: 2rem; /* Larger text size */
+    line-height: 1.6; /* Improve readability */
+    color: #555; /* Text color */
+    margin-bottom: 1.5rem; /* Space below paragraph */
+}
+
+.about .donor-support-heading {
+    font-size: 2rem; /* Heading size */
+    font-weight: bold; /* Make it bold */
+    color: #e75ca8; /* Heading color */
+    animation: fadeIn 1.5s ease-in-out; /* Fade-in animation for donor support heading */
+}
+
+.about p {
+    font-size: 1.5rem; /* Regular text size */
+    line-height: 1.6; /* Improve readability */
+    color: #555; /* Text color */
+    margin-bottom: 1.5rem; /* Space below paragraph */
+    animation: fadeIn 2s ease-in-out; /* Fade-in animation for text */
+}
+
+.about .btn {
+    margin-top: 1rem; /* Space above button */
+    padding: 0.75rem 2rem; /* Button padding */
+    font-size: 1.5rem; /* Button text size */
+    background-color: #e75c73; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    animation: scaleUp 1s ease-out; /* Scale-up animation for the button */
+}
+
+.about .btn:hover {
+    background-color: #5a4dbf; /* Darker shade on hover */
+}
+
+.about .image {
+    flex: 1; /* Take up remaining space */
+    max-width: 50%; /* Limit image width */
+    text-align: center; /* Center-align image */
+    animation: fadeIn 3s ease-in-out; /* Fade-in animation for the image */
+}
+
+.about .image img {
+    max-width: 100%; /* Ensure image fits its container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: Add rounded corners */
+}
+
+/* Define animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+/* Fade-in animation for the entire section */
+/* Fade-in animation for the entire section */
+.service {
+    width: 100vw;
+    text-align: center;
+    animation: fadeIn 1.5s ease-out;
+    animation: scaleUp 1s ease-out;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Heading styles with enhanced animation */
+.service .heading {
+    font-size: 4rem; /* Increased font size */
+    position: relative;
+    display: inline-block;
+    animation: slideInFromLeft 1s ease-out, fadeIn 1.5s ease-out;
+    margin-bottom: 2rem; /* Added spacing below the heading */
+}
+
+/* Row styles with staggered animations */
+.service .row {
+    margin: 3rem 0; /* Increased margin for better spacing */
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Initially hidden */
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Delay animations for each row */
+.service .row:nth-child(1) {
+    animation-delay: 0.5s;
+}
+.service .row:nth-child(2) {
+    animation-delay: 1s;
+}
+.service .row:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+/* Image styles with zoom-in animation */
+.service .row .image img {
+    width: 40vw;
+    height: 60vh;
+    animation: zoomIn 1s ease-out;
+    border-radius: 10px; /* Added rounded corners for images */
+}
+
+/* Content styles with fade-in animation */
+.service .row .content {
+    text-align: left;
+    padding: 0 3rem;
+    animation: fadeInRight 1s ease-out;
+}
+
+/* Heading styles inside content */
+.service .row .content h3 {
+    font-size: 2.5rem; /* Increased font size */
+    color: var(--color);
+    margin-bottom: 1rem; /* Added spacing below the heading */
+    line-height: 1.2; /* Improved line height */
+}
+
+/* Paragraph styles inside content */
+.service .row .content p {
+    font-size: 1.8rem; /* Increased font size */
+    color: #333;
+    padding: 1rem 0; /* Adjusted padding */
+    line-height: 1.6; /* Improved line height */
+}
+
+/* Button styles with bounce animation on hover */
+.service .btn {
+    margin-top: 2rem; /* Increased margin for better spacing */
+    padding: 1rem 2.5rem; /* Increased padding */
+    font-size: 1.8rem; /* Increased font size */
+    background-color: #e75c73;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: scaleUp 1s ease-out;
+}
+
+.service .btn:hover {
+    background-color: #5a4dbf;
+    transform: scale(1.05); /* Subtle bounce effect on hover */
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+/* Community Reachout Section Styling */
+.community-reachout {
+    width: 100vw;
+    text-align: center;
+    padding: 4rem 0;
+    background-color: #f9f9f9; /* Light background for contrast */
+    animation: fadeIn 1.5s ease-out;
+    animation: scaleUp 1s ease-out;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.community-reachout .heading {
+    font-size: 4rem;
+    color: #e75c73; /* Matching the theme color */
+    margin-bottom: 2rem;
+    animation: slideInFromLeft 1s ease-out, fadeIn 1.5s ease-out;
+}
+
+.community-reachout .row {
+    margin: 3rem 0;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.community-reachout .row .image img {
+    width: 40vw;
+    height: 60vh;
+    border-radius: 10px; /* Rounded corners for images */
+    animation: zoomIn 1s ease-out;
+}
+
+.community-reachout .row .content {
+    text-align: left;
+    padding: 0 3rem;
+    animation: fadeInRight 1s ease-out;
+}
+
+.community-reachout .row .content h3 {
+    font-size: 2.5rem;
+    color: #171717; /* Matching the theme color */
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.community-reachout .row .content p {
+    font-size: 1.8rem;
+    color: #333;
+    padding: 1rem 0;
+    line-height: 1.6;
+}
+
+.community-reachout .btn {
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.8rem;
+    background-color: #e75c73;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: scaleUp 1s ease-out;
+}
+
+.community-reachout .btn:hover {
+    background-color: #5a4dbf; /* Darker shade on hover */
+    transform: scale(1.05); /* Subtle bounce effect */
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+/* Transport Logistics Section Styling */
+.transport-logistics {
+    width: 100vw;
+    text-align: center;
+    padding: 4rem 0;
+    background-color: #fff; /* White background for contrast */
+    animation: fadeIn 1.5s ease-out;
+    animation: scaleUp 1s ease-out;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.transport-logistics .heading {
+    font-size: 4rem;
+    color: #e75c73; /* Matching the theme color */
+    margin-bottom: 2rem;
+    animation: slideInFromLeft 1s ease-out, fadeIn 1.5s ease-out;
+    animation: scaleUp 1s ease-out;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.transport-logistics .row {
+    margin: 3rem 0;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.transport-logistics .row .image img {
+    width: 40vw;
+    height: 60vh;
+    border-radius: 10px; /* Rounded corners for images */
+    animation: zoomIn 1s ease-out;
+}
+
+.transport-logistics .row .content {
+    text-align: left;
+    padding: 0 3rem;
+    animation: fadeInRight 1s ease-out;
+}
+
+.transport-logistics .row .content h3 {
+    font-size: 2.5rem;
+    color: #000000; /* Matching the theme color */
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.transport-logistics .row .content p {
+    font-size: 1.8rem;
+    color: #333;
+    padding: 1rem 0;
+    line-height: 1.6;
+}
+
+.transport-logistics .btn {
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.8rem;
+    background-color: #e75c73;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: scaleUp 1s ease-out;
+}
+
+.transport-logistics .btn:hover {
+    background-color: #5a4dbf; /* Darker shade on hover */
+    transform: scale(1.05); /* Subtle bounce effect */
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #333; /* Dark background for contrast */
+    color: #fff; /* White text */
+    padding: 2rem 0;
+    text-align: center;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    margin-bottom: 1.5rem;
+}
+
+.btn-top {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #e75c73; /* Matching the theme color */
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-top:hover {
+    background-color: #5a4dbf; /* Darker shade on hover */
+    transform: scale(1.05); /* Subtle bounce effect */
+}
+
+/* Social Media Icons */
+.social-media {
+    margin-bottom: 1.5rem;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 0.75rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    color: #e75c73; /* Matching the theme color */
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Footer Text */
+.footer-text p {
+    font-size: 1rem;
+    margin: 0;
+    color: #ccc; /* Light gray for subtlety */
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile Menu Toggle Styles */
+.header .fa-times {
+    display: none;
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.header .navbar.active {
+    left: 0;
+}
+
+.header .navbar.active .fa-times {
+    display: block;
+}
+
+.header .navbar.active .fa-bars {
+    display: none;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    html {
+        font-size: 50%;
+    }
+
+    .header .fa-bars {
+        display: block;
+    }
+
+    .header .navbar {
+        position: fixed;
+        top: 0%;
+        left: -100%;
+        height: 100vh;
+        width: 60%;
+        background: #fff;
+        z-index: 1000;
+        border-top: .1rem solid rgba(0, 0, 0, .3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.3s ease-in-out;
+    }
+
+    .header .navbar ul {
+        height:100%;
+        width:100%;
+        flex-flow:column;
+    }
+
+    .header .navbar ul li {
+        margin: 1rem 0;
+    }
+
+    .header .navbar ul li a {
+        font-size: 2.4rem;
+        color:#444;
+    }
+
+    .navbar.active {
+        left: 0;
+    }
+    .header .fa-times{
+        transform:rotate(180deg);
+    }
+    .header .nav-toggle{
+        top:5.8rem;
+    }
+    .home .banner{
+        font-size:4rem;
+    }
+    .home .slogan{
+        font-size:1.7rem;
+    }
+    .home .wave1 {
+        height: 5rem; /* Smaller small wave for mobile */
+    }
+    .home .wave2 {
+        height: 7rem; /* Smaller medium wave for mobile */
+    }
+    .home .wave3 {
+        height: 9rem; /* Smaller large wave for mobile */
+    }
+    @media (max-width: 768px) {
+    .about .heading {
+        font-size: 2.5rem; /* Smaller heading on mobile */
+    }
+    .about .large-text {
+        font-size: 1.2rem; /* Smaller paragraph text on mobile */
+    }
+    .about .content {
+        max-width: 90%; /* Wider content on mobile */
+    }
+}
+}
+/* Blood Drop Animation */
+.blood-drop {
+    position: absolute;
+    top: -50px;
+    width: 20px;
+    height: 20px;
+    background-color: #e75c73;
+    border-radius: 50%;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Confetti Animation */
+.confetti {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #e75c73;
+    animation: confetti-fall linear;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Animate.css for Button Effects */
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes tada {
+    0% {
+        transform: scale(1);
+    }
+    10%, 20% {
+        transform: scale(0.9) rotate(-3deg);
+    }
+    30%, 50%, 70%, 90% {
+        transform: scale(1.1) rotate(3deg);
+    }
+    40%, 60%, 80% {
+        transform: scale(1.1) rotate(-3deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+   
