@@ -5,25 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blood Availability</title>
-    <link rel="stylesheet" href="/static/css/bloodavailavility.css" />
+    <link rel="stylesheet" href="styles/bloodavailavility.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
    
 </head>
 <body>
     <div class="nav">
-        <a href="{% url 'dashboard' %}" class="nav-item">Home</a>
-        <a href="{% url 'addblood' %}" class="nav-item">Donate</a>
+        <a href="dashboard" class="nav-item">Home</a>
+        <a href="addblood.html" class="nav-item">Donate</a>
         <a href="#" class="nav-item">Blood Types</a>
         <a href="#" class="nav-item">Locations</a>
-        <a href="{% url 'outreach' %}" class="nav-item">Events</a>
+        <a href="outreach.html" class="nav-item">Events</a>
         <a href="{% url 'aboutus' %}" class="nav-item">About</a>
-        <a href="{% url 'contact' %}" class="nav-item">Contact</a>
+        <a href="contact.html" class="nav-item">Contact</a>
     </div>
 
     <div class="hero-section">
         <h1>Blood Availability</h1>
         <p>Donate Blood, Save Lives</p>
-       <a href="{% url 'addblood' %}"> <button>DONATE NOW</button> </a>
+       <a href="addblood.html"> <button>DONATE NOW</button> </a>
     </div>
 
     <div class="stats-section">
@@ -419,6 +419,6 @@
         <p>&copy; 2025 A & W Blood Bank Management. All rights reserved.</p>
     </footer>
      <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="/static/js/bookavailavility.js"></script>
+    <script src="scripts/bookavailavility.js"></script>
 </body>
 </html>
