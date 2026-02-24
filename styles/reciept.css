@@ -4,7 +4,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(rgba(248, 244, 244, 0.613), rgba(255, 254, 254, 0.681)), 
-    url(/static/rr.jpg) no-repeat center center/cover;
+    url(/images/rr.jpg) no-repeat center center/cover;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,7 +16,7 @@
         }
         .receipt-container {
             background:  linear-gradient(rgba(248, 244, 244, 0.613), rgba(255, 254, 254, 0.681)), 
-            url(/static/cc.jpg) no-repeat center center/cover;
+            url(/images/cc.jpg) no-repeat center center/cover;
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);

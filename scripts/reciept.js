@@ -4,7 +4,7 @@
         }
 
         function closeForm() {
-            window.location.href = "head.html"; 
+            window.location.href = "index.html"; 
         }
         const container = document.querySelector('.receipt-container');
         container.style.scrollBehavior = 'smooth';

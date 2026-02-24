@@ -16,6 +16,6 @@
             firstPageElements.forEach(element => {
                 element.classList.remove('hover-animation');
             });
-            window.location.href = 'head.html'; // Redirect after animation
+            window.location.href = 'index.html'; // Redirect after animation
         }, 500); // Match the duration of the hoverEffect animation
     });

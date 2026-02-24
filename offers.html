@@ -1,4 +1,4 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Offers for Blood Donors</title>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="{% static 'css/offers.css' %}">
+  <link rel="stylesheet" href="styles/offers.css">
 </head>
 <body>
 
   <button class="reset-btn" id="resetBtn">Reset Verification</button>
-  <a href="{% url 'head' %}" id="goBackBtn" class="go-back-btn">
+  <a href="index.html" id="goBackBtn" class="go-back-btn">
     <i class="fas fa-arrow-left"></i> Back to Home
   </a>
 
@@ -63,7 +63,7 @@
     </section>
   </div>
 
-  <script>
+  <!-- <script>
     document.addEventListener('DOMContentLoaded', function () {
       const validDonorIDs = [
         "DONOR001", "DONOR007", "DONOR042", "DONOR123", "DONOR456",
@@ -201,7 +201,7 @@ buttons.forEach(button => {
         card.addEventListener('mouseleave', () => card.style.zIndex = '1');
       });
     });
-  </script>
-
+  </script> -->
+   <script src="scripts/offers.js"></script>
 </body>
 </html>
