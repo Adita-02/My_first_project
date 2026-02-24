@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQs | A & W Blood Management</title>
-     <link rel="stylesheet" href="/static/css/faq.css" />
+     <link rel="stylesheet" href="styles/faq.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
    
 </head>
 <body>
     <header class="faq-header">
         <div class="container header-container">
-            <a href="{% url 'head' %}" class="faq-logo">
+            <a href="index.html" class="faq-logo">
                 <i class="fas fa-droplet"></i> A & W
             </a>
             <nav class="faq-nav">
-                <a href="{% url 'head' %}">Home</a>
-                <a href="{% url 'faq' %}" class="active">FAQs</a>
-                <a href="{% url 'partners' %}">Partners</a>
-                <a href="{% url 'contact' %}">Contact</a>
+                <a href="index.html">Home</a>
+                <a href="faq.html" class="active">FAQs</a>
+                <a href="partners.html">Partners</a>
+                <a href="contact.html">Contact</a>
             </nav>
             <button class="faq-menu-toggle">
                 <i class="fas fa-bars"></i>
@@ -425,7 +425,7 @@
         <div class="container">
             <h2>Still have questions?</h2>
             <p>Contact our donor support team for personalized assistance</p>
-            <a href="{% url 'contact' %}" class="faq-cta-button">Contact Us</a>
+            <a href="contact.html" class="faq-cta-button">Contact Us</a>
         </div>
     </section>
 
@@ -434,15 +434,15 @@
             <div class="faq-footer-grid">
                 <div class="faq-footer-col">
                     <h4>Quick Links</h4>
-                    <a href="{% url 'head' %}">Home</a>
-                    <a href="{% url 'aboutus' %}">About Us</a>
-                    <a href="{% url 'addblood' %}">Donate Now</a>
+                    <a href="index.html">Home</a>
+                    <a href="aboutus.html">About Us</a>
+                    <a href="addblood.html">Donate Now</a>
                 </div>
                 <div class="faq-footer-col">
                     <h4>Resources</h4>
-                    <a href="{% url 'faq' %}">FAQs</a>
-                    <a href="{% url 'bloodgroup' %}">Blood Group Info</a>
-                    <a href="{% url 'prepareandaftercare' %}">Donation Tips</a>
+                    <a href="faq.html">FAQs</a>
+                    <a href="bloodgroup.html">Blood Group Info</a>
+                    <a href="prepareandaftercare.html">Donation Tips</a>
                 </div>
                 <div class="faq-footer-col">
                     <h4>Contact</h4>
@@ -466,7 +466,7 @@
 
    
 <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="/static/js/faq.js"></script>
+    <script src="scripts/faq.js"></script>
 
 </body>
 </html>
