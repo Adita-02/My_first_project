@@ -8,7 +8,7 @@
         }
 
         body {
-            background: url(/static/13th.jpg);
+            background: url(/images/13th.jpg);
             background-size: cover;
             min-height: 100vh;
             overflow: hidden;

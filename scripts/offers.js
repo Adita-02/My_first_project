@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             }, 1000);
                         }
                     } else {
-                        window.location.href = 'v.html';
+                        window.location.href = 'index.html';
                     }
                 });
             });
